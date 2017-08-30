@@ -44,6 +44,12 @@ int main()
 	return 0;
 }
 */
+//**********************************************************************
+float * crear(int dim)
+{
+    return (float*) malloc(sizeof(float)* (dim) );
+}
+//**********************************************************************
 float * copiar(float *p,int dim)
 {
     float *copia, *copia1, *p1;
@@ -71,6 +77,56 @@ void pintar(float *p, int n)
         std::cout << *p1 << ", ";
     }
     std::cout << "\b\b]";
+}
+//*******************************************************************************************
+float * leer(char * nombre_archivo, int *n)
+{
+    std::ifstream entrada;
+    entrada.open(nombre_archivo);
+
+    if(!entrada){
+        std::cout << "Error: no se pudo abrir el archivo..." << std::endl;
+
+        system("pause");
+        return NULL;
+    }
+    //Guardando dimension
+    entrada >> *n;
+    //Creando espacio y copia del puntero para iterar
+    float *p, *p1;
+    p =  (float*) malloc(sizeof(float)*(*n));
+    p1 = p;
+    //Variable dada para ir leyendo el archivo
+    float x;
+    int i;
+    // El primer elemento en el archivo es el vector
+    for(i = 0 ; i < *n ; ++i, ++p1){
+        entrada >> x;
+        (*p1) = x;
+    }
+
+    entrada.close();
+
+    return p;
+}
+//*********************************************************
+void escribir(char * nombre_archivo, float *p, int n)
+{
+    std::ofstream salida;
+    salida.open(nombre_archivo);
+
+    //Se escriben las dimensiones
+    salida << n << std::endl;
+    salida << std::endl;
+    float *p1;
+    p1 = p;
+    //Se escribe elemento a elemento
+    for(int i = 0 ; i < n ; ++i, p1++){
+        salida << *p1 << " ";
+    }
+    salida << std::endl;
+    std::cout << "\nGuardado vector en " << nombre_archivo << std::endl;
+    salida.close();
 }
 //**********************************************************************
 void suma(float *p, float *q, float *r, int n)

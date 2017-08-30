@@ -7,6 +7,14 @@
 \autor Gilberto Espinoza
 \date
 */
+
+//**********************************************************************
+/**
+    Creamos un nuevo vector con la dimension dada
+    \param dim : Dimension del vector
+    \return Inicio del vector
+*/
+float * crear(int dim);
 //**********************************************************************
 /**
     Copiamos los valores de un vector en otro, regresamos este nuevo vector
@@ -21,6 +29,24 @@ float * copiar(float *p,int dim);
     \param Dimension del vector
 */
 void pintar(float *p, int n);
+//**********************************************************************
+/**
+    Funcion que crea un vector dado el nombre de un archivo
+
+	\param Nombre del archivo donde esta el vector
+	\param Direccion de donde se guarda la dimension del vector
+	\return Direccion del primer elemento del vector
+*/
+float * leer(char * nombre_archivo, int *n);
+//**********************************************************************
+/**
+    Guardar el vector en un archivo
+
+	\param Nombre del archivo donde se guardara el vector
+	\param Dirrecion del vector
+	\param Dimension del vector
+*/
+void escribir(char * nombre_archivo, float *p, int n);
 //**********************************************************************
 /**
     Suma de dos vectores
@@ -77,24 +103,7 @@ float norma(float *p, int n);
 float angulo(float *p, float *q, int n);
 
 //**********************************************************************
-/**
-    Funcion que crea un vector dado el nombre de un archivo
 
-	\param Nombre del archivo donde esta el vector
-	\param Direccion de donde se guarda la dimension del vector
-	\return Direccion del primer elemento del vector
-*/
-float * leer(char * nombre_archivo, int *n);
-//**********************************************************************
-/**
-    Guardar el vector en un archivo
-
-	\param Nombre del archivo donde se guardara el vector
-	\param Dirrecion del vector
-	\param Dimension del vector
-*/
-void escribir(char * nombre_archivo, float *p, int n);
-//**********************************************************************
 
 
 #endif // VECTOR_H_INCLUDED
