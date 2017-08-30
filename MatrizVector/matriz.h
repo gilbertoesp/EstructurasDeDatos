@@ -17,6 +17,14 @@
 float * crearMatriz(int ren,int col);
 //**********************************************************************
 /**
+    Copiamos los valores de una matriz en otra, regresamos esta nueva matriz
+    \param ren : Cantidad de Renglones
+	\param col : Cantidad de Columnas
+	\return Direccion de inicio de la matriz
+*/
+float * copiarMatriz(float *p,int ren,int col);
+//**********************************************************************
+/**
     Imprime una matriz en consola
 	\param Inicio de la matriz. A[0][0]
 	\param Renglones

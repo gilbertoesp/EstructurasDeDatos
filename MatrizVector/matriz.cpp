@@ -10,7 +10,21 @@
 #include <iomanip> //std::setw
 #include <fstream> // Manejo de archivos
 
+//**********************************************************************
+float * copiarMatriz(float *p,int ren,int col)
+{
+    float *copia, *copia1, *p1;
+    int i;
+    //Creacion del espacio de la matriz
+    copia = (float*) malloc(sizeof(float)* ((ren) * (col)) );
+    // Iteradores de las matrices
+    copia1 = copia
+    p1 = p;
+    //copiando elemento a elemento de la matriz
+    for(i = 0 ; i < ren*col ; i++,p1++,copia1++) *copia1 = *p1;
 
+    return copia;
+}
 //**********************************************************************
 float * crearMatriz(int ren, int col)
 {
