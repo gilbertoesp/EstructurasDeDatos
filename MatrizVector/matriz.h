@@ -14,7 +14,7 @@
 	\param col : Cantidad de Columnas
 	\return Direccion de inicio de la matriz
 */
-float * crearMatriz(int ren,int col);
+float * crear(int ren,int col);
 //**********************************************************************
 /**
     Copiamos los valores de una matriz en otra, regresamos esta nueva matriz
@@ -22,7 +22,7 @@ float * crearMatriz(int ren,int col);
 	\param col : Cantidad de Columnas
 	\return Direccion de inicio de la matriz
 */
-float * copiarMatriz(float *p,int ren,int col);
+float * copiar(float *p,int ren,int col);
 //**********************************************************************
 /**
     Imprime una matriz en consola

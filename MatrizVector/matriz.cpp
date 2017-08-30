@@ -10,25 +10,26 @@
 #include <iomanip> //std::setw
 #include <fstream> // Manejo de archivos
 
+
 //**********************************************************************
-float * copiarMatriz(float *p,int ren,int col)
+float * crear(int ren, int col)
+{
+    return (float*) malloc(sizeof(float)* ((ren) * (col)) );
+}
+//**********************************************************************
+float * copiar(float *p,int ren,int col)
 {
     float *copia, *copia1, *p1;
     int i;
     //Creacion del espacio de la matriz
     copia = (float*) malloc(sizeof(float)* ((ren) * (col)) );
     // Iteradores de las matrices
-    copia1 = copia
+    copia1 = copia;
     p1 = p;
     //copiando elemento a elemento de la matriz
     for(i = 0 ; i < ren*col ; i++,p1++,copia1++) *copia1 = *p1;
 
     return copia;
-}
-//**********************************************************************
-float * crearMatriz(int ren, int col)
-{
-    return (float*) malloc(sizeof(float)* ((ren) * (col)) );
 }
 //**********************************************************************
 /*
@@ -213,17 +214,17 @@ float * prod_mat_mat_archivo(char * nombre_archivo)
     entrada >> m;
     entrada >> n;
     entrada >> k;
-    //Creando espacio y copia del puntero para regresar
+    //Creando espacio y copia del puntero para iterar y modificar la matriz
     p =  (float*) malloc(sizeof(float)* ((m) * (n)) );
     p1 = p;
 
     q =  (float*) malloc(sizeof(float)* ((n) * (k)) );
     q1 = q;
-
+    //Puntero donde estara la solucion
     r =  (float*) malloc(sizeof(float)* ((m) * (k)) );
     r1 = r;
 
-    //Variable dada para ir leyendo el archivo e itrera
+    //Variable dada para ir leyendo el archivo e iterar
     float x;
 
     //Empezamos a leer el archivo, la primer matriz es A[m][n]
