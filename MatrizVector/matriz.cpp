@@ -1,0 +1,190 @@
+/**
+	GEM-.cpp
+[Descripcion]
+@autor Gilberto Espinoza
+@date
+*/
+
+#include <iostream>
+#include <cstdlib>
+#include <iomanip> //std::setw
+
+//**********************************************************************
+/*
+    ASCII codes:
+*/
+#define BARRA_VER 179
+#define ESQ_SUP_IZQ 218
+#define ESQ_SUP_DER 191
+#define ESQ_INF_IZQ 192
+#define ESQ_INF_DER 217
+
+void pintar(float *p, int ren, int col)
+{
+    float *p1;
+    int i,j;
+    //Tomamamos el incio de la matriz
+    p1 = p;
+
+    std::cout << char(ESQ_SUP_IZQ);
+    for(i = 0 ; i < col ; ++i) std::cout << " ";
+    std::cout << char(ESQ_SUP_DER) << std::endl;
+
+    for(i = 0 ; i < ren ; ++i){
+        std::cout << char(BARRA_VER);
+        for(j = 0 ; j < col ; ++j, p1++){
+            //Imprimiendo valor de la posicion de la matriz
+            std::cout << std::setw(5) << *p1;
+        }
+        std::cout << char(BARRA_VER);
+        std::cout << std::endl;
+    }
+
+    std::cout << char(ESQ_INF_IZQ);
+    for(i = 0 ; i < col ; ++i) std::cout << " ";
+    std::cout << char(ESQ_INF_DER) << std::endl;
+
+}
+//**********************************************************************
+float * leer(char * nombre_archivo, int *ren, int *col)
+{
+    std::ifstream entrada;
+    entrada.open(nombre_archivo);
+
+    if(!entrada){
+        std::cout << "Error: no se pudo abrir el archivo..." << std::endl;
+
+        system("pause");
+        return NULL;
+    }
+    //Guardando dimensiones
+    entrada >> *ren;
+    entrada >> *col;
+    //Creando espacio y copia del puntero para regresar
+    float *p, *p1;
+    p =  (float*) malloc(sizeof(float)* ((*ren) * (*col)) );
+    p1 = p;
+    //Variable dada para ir leyendo el archivo e itrera
+    float x;
+    int i;
+    //Empezamos a leer el archivo
+    for(i = 0 ; i < ((*ren)*(*col)) ; ++i, ++p1){
+        entrada >> x;
+        (*p1) = x;
+    }
+
+    entrada.close();
+
+    return p;
+}
+//**********************************************************************
+void escribir(char * nombre_archivo, float *p, int ren, int col)
+{
+    float *p1;
+    int i,j;
+
+    std::ofstream salida;
+    salida.open(nombre_archivo);
+
+    //Se escriben las dimensiones
+    salida << ren << " " << col << std::endl;
+    salida << std::endl;
+    //Para recorrer la matriz copiamos el puntero
+    p1 = p;
+
+    //Se escribe elemento a elemento
+    for(i = 0 ; i < (*ren) ; ++i){
+        for(j = 0 ; j < (*col) ; ++j, ++p1){
+            salida << *p1 << " ";
+        }
+        salida << std::endl;
+    }
+    salida << std::endl;
+    std::cout << "\nGuardada matriz en " << nombre_archivo << std::endl;
+    salida.close();
+}
+//**********************************************************************
+void suma(float *p, float *q, float *r, int ren, int col)
+{
+    float *p1,*q1,*r1;
+    int i;
+
+    p1 = p;
+    q1 = q;
+    r1 = r;
+
+    for(i = 0 ; i < ren*col ; ++i, ++p1, ++q1, ++r1){
+        *r1 = *p1 + *q1;
+    }
+}
+//**********************************************************************
+void resta(float *p, float *q, float *r, int ren, int col)
+{
+    float *p1,*q1,*r1;
+    int i;
+
+    p1 = p;
+    q1 = q;
+    r1 = r;
+
+    for(i = 0 ; i < ren*col ; ++i, ++p1, ++q1, ++r1){
+        *r1 = *p1 - *q1;
+    }
+}
+//**********************************************************************
+void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
+{
+    float *p1,*q1,*r1;
+    // Iteran m,n,k respectivamente
+    int i,j,l;
+
+    p1 = p;
+    q1 = q;
+    r1 = r;
+
+    for(i = 0 ; i < m ; i++){
+        for(j = 0 ; j < n ; j++){
+            for(l = 0 ; l < k ; l++, r1++){
+                *r1 = (*p1) * (*q1);
+            }
+        }
+    }
+}
+//**********************************************************************
+void prod_mat_mat_2(float *p, float *q, float *r, int m, int n, int k)
+{
+
+}
+//**********************************************************************
+void prod_mat_mat_3(float *p, float *q, float *r, int m, int n, int k)
+{
+
+}
+//**********************************************************************
+void prod_mat_mat_4(float *p, float *q, float *r, int m, int n, int k)
+{
+
+}
+//**********************************************************************
+float * prod_mat_mat_archivo(char * nombre_archivo)
+{
+
+}
+//**********************************************************************
+
+//**********************************************************************
+
+//**********************************************************************
+
+//**********************************************************************
+
+//**********************************************************************
+
+//**********************************************************************
+
+//**********************************************************************
+
+//**********************************************************************
+
+//**********************************************************************
+
