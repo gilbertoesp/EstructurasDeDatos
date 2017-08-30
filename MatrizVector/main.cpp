@@ -12,8 +12,8 @@
 
 int main()
 {
-    // Punteros a matrices
-    float *A,*B,*C;
+    // Punteros a matrices, inicializados en NULL para proteccion
+    float *A=NULL,*B=NULL,*C=NULL;
     //Dimensiones
     int renA,colA,renB,colB,renC,colC;
 
@@ -36,19 +36,25 @@ int main()
     pintar(B,renB,colB);
 
     // Se crea una matriz de dimensiones compatibles a la operacion a realizar
+
     renC = renA;
     colC = colA;
-    C = crearMatriz(renC,colC);
 
+//    C = crearMatriz(renC,colC);
 
-    suma(A,B,C,renA,colA);
+    ///Seccion de pruebas para las operaciones con matrices
+    //suma(A,B,C,renA,colA);
+    //resta(A,B,C,renA,colA);
+
 
     std::cout << std::endl;
     std::cout << std::endl;
     pintar(C,renC,colC);
 
-    escribir("matrizC.txt",C,renC,colC);
+    ///escribir("matrizC.txt",C,renC,colC);
 
+
+    ///Liberacion de memoria
     free(A);
     free(B);
     free(C);
