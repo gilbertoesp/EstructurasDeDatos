@@ -7,7 +7,14 @@
 @autor Gilberto Espinoza
 @date
 */
-
+//**********************************************************************
+/**
+    Creamos una matriz de dimensiones ren x col, dadas en los parametros
+	\param ren : Cantidad de Renglones
+	\param col : Cantidad de Columnas
+	\return Direccion de inicio de la matriz
+*/
+float * crearMatriz(int ren,int col);
 //**********************************************************************
 /**
     Imprime una matriz en consola

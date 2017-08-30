@@ -8,7 +8,14 @@
 #include <iostream>
 #include <cstdlib>
 #include <iomanip> //std::setw
+#include <fstream> // Manejo de archivos
 
+
+//**********************************************************************
+float * crearMatriz(int ren, int col)
+{
+    return (float*) malloc(sizeof(float)* ((ren) * (col)) );
+}
 //**********************************************************************
 /*
     ASCII codes:
@@ -18,7 +25,8 @@
 #define ESQ_SUP_DER 191
 #define ESQ_INF_IZQ 192
 #define ESQ_INF_DER 217
-
+//Constante para dar espaciado a los valores de la matriz y estos puedan ser apreciados
+#define ESPACIADO 5
 void pintar(float *p, int ren, int col)
 {
     float *p1;
@@ -27,21 +35,23 @@ void pintar(float *p, int ren, int col)
     p1 = p;
 
     std::cout << char(ESQ_SUP_IZQ);
-    for(i = 0 ; i < col ; ++i) std::cout << " ";
+    //Cantidad de columnas por el espacio dejado para la apreciacion de los datos
+    for(i = 0 ; i < col * ESPACIADO ; ++i) std::cout << " ";
     std::cout << char(ESQ_SUP_DER) << std::endl;
 
     for(i = 0 ; i < ren ; ++i){
         std::cout << char(BARRA_VER);
         for(j = 0 ; j < col ; ++j, p1++){
             //Imprimiendo valor de la posicion de la matriz
-            std::cout << std::setw(5) << *p1;
+            std::cout << std::setw(ESPACIADO) << *p1;
         }
         std::cout << char(BARRA_VER);
         std::cout << std::endl;
     }
 
     std::cout << char(ESQ_INF_IZQ);
-    for(i = 0 ; i < col ; ++i) std::cout << " ";
+    //Cantidad de columnas por el espacio dejado para la apreciacion de los datos
+    for(i = 0 ; i < col * ESPACIADO ; ++i) std::cout << " ";
     std::cout << char(ESQ_INF_DER) << std::endl;
 
 }
@@ -93,13 +103,13 @@ void escribir(char * nombre_archivo, float *p, int ren, int col)
     p1 = p;
 
     //Se escribe elemento a elemento
-    for(i = 0 ; i < (*ren) ; ++i){
-        for(j = 0 ; j < (*col) ; ++j, ++p1){
+    for(i = 0 ; i < (ren) ; ++i){
+        for(j = 0 ; j < (col) ; ++j, ++p1){
             salida << *p1 << " ";
         }
         salida << std::endl;
     }
-    salida << std::endl;
+
     std::cout << "\nGuardada matriz en " << nombre_archivo << std::endl;
     salida.close();
 }
@@ -144,8 +154,11 @@ void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
 
     for(i = 0 ; i < m ; i++){
         for(j = 0 ; j < n ; j++){
-            for(l = 0 ; l < k ; l++, r1++){
+            for(l = 0 ; l < k ; l++){
                 *r1 = (*p1) * (*q1);
+                p1++;
+                q1 += k;
+
             }
         }
     }
@@ -168,7 +181,52 @@ void prod_mat_mat_4(float *p, float *q, float *r, int m, int n, int k)
 //**********************************************************************
 float * prod_mat_mat_archivo(char * nombre_archivo)
 {
+    std::ifstream entrada;
+    entrada.open(nombre_archivo);
 
+    if(!entrada){
+        std::cout << "Error: no se pudo abrir el archivo..." << std::endl;
+
+        system("pause");
+        return NULL;
+    }
+    // Variables necesitadas
+    int m,n,k;
+    float *p,*p1,*q,*q1,*r,*r1;
+    // iteradores
+    int i,j,l;
+    //Guardando dimensiones
+    entrada >> m;
+    entrada >> n;
+    entrada >> k;
+    //Creando espacio y copia del puntero para regresar
+    p =  (float*) malloc(sizeof(float)* ((m) * (n)) );
+    p1 = p;
+
+    q =  (float*) malloc(sizeof(float)* ((n) * (k)) );
+    q1 = q;
+
+    r =  (float*) malloc(sizeof(float)* ((m) * (k)) );
+    r1 = r;
+
+    //Variable dada para ir leyendo el archivo e itrera
+    float x;
+
+    //Empezamos a leer el archivo, la primer matriz es A[m][n]
+    for(i = 0 ; i < ((m)*(n)) ; ++i, ++p1){
+        entrada >> x;
+        (*p1) = x;
+    }
+    //La segunda matriz es B[n][k]
+    for(i = 0 ; i < ((n)*(k)) ; ++i, ++q1){
+        entrada >> x;
+        (*q1) = x;
+    }
+    //Saliendo de forma segura
+    entrada.close();
+    free(p);
+    free(q);
+    return r;
 }
 //**********************************************************************
 
