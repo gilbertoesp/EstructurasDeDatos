@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1503977123 source:c:\users\gilberto espinoza\documents\estrucutasdedatos\matrizvector\main.cpp
+1504072377 source:c:\users\gilberto espinoza\documents\estrucutasdedatos\matrizvector\main.cpp
 	<iostream>
 	<cstdlib>
 	"vector.h"
+	"matriz.h"
 
 1503975753 c:\users\gilberto espinoza\documents\estrucutasdedatos\matrizvector\vector.h
 
@@ -11,4 +12,12 @@
 	<stdlib.h>
 	<fstream>
 	<cmath>
+
+1504072593 c:\users\gilberto espinoza\documents\estrucutasdedatos\matrizvector\matriz.h
+
+1504072602 source:c:\users\gilberto espinoza\documents\estrucutasdedatos\matrizvector\matriz.cpp
+	<iostream>
+	<cstdlib>
+	<iomanip>
+	<fstream>
 
