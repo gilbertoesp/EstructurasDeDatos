@@ -8,7 +8,6 @@
 #include <iostream>
 #include <cstdlib>
 #include "vector.h"
-using namespace std;
 
 //**********************************************************************
 int main()

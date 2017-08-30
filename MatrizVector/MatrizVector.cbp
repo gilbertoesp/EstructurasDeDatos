@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="matriz.cpp" />
+		<Unit filename="matriz.h" />
 		<Unit filename="vector.cpp" />
 		<Unit filename="vector.h" />
 		<Extensions>
