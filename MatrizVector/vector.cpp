@@ -44,6 +44,20 @@ int main()
 	return 0;
 }
 */
+float * copiar(float *p,int dim)
+{
+    float *copia, *copia1, *p1;
+    int i;
+    //Creacion del espacio de la matriz
+    copia = (float*) malloc(sizeof(float)* (dim) );
+    // Iteradores de las matrices
+    copia1 = copia;
+    p1 = p;
+    //copiando elemento a elemento de la matriz
+    for(i = 0 ; i < dim ; i++,p1++,copia1++) *copia1 = *p1;
+
+    return copia;
+}
 //**********************************************************************
 void pintar(float *p, int n)
 {

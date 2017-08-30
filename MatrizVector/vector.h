@@ -9,6 +9,13 @@
 */
 //**********************************************************************
 /**
+    Copiamos los valores de un vector en otro, regresamos este nuevo vector
+    \param dim : dimension
+	\return Direccion de inicio del vector
+*/
+float * copiar(float *p,int dim);
+//**********************************************************************
+/**
     Funcion que pinta un vector entre corchetes
     \param Inicio del vector
     \param Dimension del vector
