@@ -157,8 +157,31 @@ void resta(float *p, float *q, float *r, int ren, int col)
     }
 }
 //**********************************************************************
+void prod_mat_vec(float *p, float *q, float *r, int m, int n)
+{
+    // Iteradores de las matrices
+    float *p1,*q1,*r1;
+
+    int i,j;
+
+    p1 = p;
+    q1 = q;
+    r1 = r;
+
+    for(i = 0 ; i < m ; i++, r1++){
+        //eliminamos posible basura
+        *r1 = 0.0;
+        //Reiniciamos el vector b
+        q1 = q;
+        for(j = 0 ; j < n ; j++, p1++, q1++){
+            *r1 += (*p1) * (*q1);
+        }
+    }
+}
+//**********************************************************************
 void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
 {
+    // Iteradores de las matrices
     float *p1,*q1,*r1;
     // Iteran m,n,k respectivamente
     int i,j,l;
@@ -168,12 +191,18 @@ void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
     r1 = r;
 
     for(i = 0 ; i < m ; i++){
-        for(j = 0 ; j < n ; j++){
-            for(l = 0 ; l < k ; l++){
-                *r1 = (*p1) * (*q1);
+        for(l = 0 ; l < k ; l++){
+            //Limpiamos de posible basura
+            *r1 = 0.0;
+            //Posicionamos el puntero de la matriz B en el inicio de la columna a asignar
+            q1 = q + l;
+            for(j = 0 ; j < n ; j++){
+                //Sumatoria de la multiplicacion
+                *r1 += (*p1) * (*q1);
+                //Avanzamos en el renglon de la matriz A
                 p1++;
+                //Avanzamos en la columna de la matriz B
                 q1 += k;
-
             }
         }
     }

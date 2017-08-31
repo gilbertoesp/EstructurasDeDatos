@@ -72,6 +72,14 @@ void suma(float *p, float *q, float *r, int ren, int col);
 void resta(float *p, float *q, float *r, int ren, int col);
 //**********************************************************************
 /**
+
+	\param
+	\param
+	\return
+*/
+void prod_mat_vec(float *p, float *q, float *r, int m, int n);
+//**********************************************************************
+/**
     Primera forma para multiplicacion de matrices
     \param Inicio de la matriz A
 	\param Inicio de la matriz B
@@ -123,14 +131,6 @@ void prod_mat_mat_4(float *p, float *q, float *r, int m, int n, int k);
 	\return Direccion de la matriz AxB creada
 */
 float * prod_mat_mat_archivo(char * nombre_archivo);
-//**********************************************************************
-/**
-
-	\param
-	\param
-	\return
-*/
-void prod_mat_vec(float *p, float *q, float *r, int m, int n);
 //**********************************************************************
 /**
 
