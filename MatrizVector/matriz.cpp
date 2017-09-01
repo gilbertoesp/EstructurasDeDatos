@@ -183,13 +183,26 @@ void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
 {
     // Iteradores de las matrices
     float *p1,*q1,*r1;
-    // Iteran m,n,k respectivamente
-    int i,j,l;
+    // Iteran m,k,n respectivamente
+    int i,j,a;
 
     p1 = p;
     q1 = q;
     r1 = r;
 
+    /// (m x n) * (n x k) = (m x k)
+    //Se toma cada renglon de Matriz_A
+    for(i = 0 ; i < m ; ++i){
+        //Cada columna de Matriz_B
+        for(j = 0 ; j < k ; ++j,r1++){
+            //y con n cada elemento de ellas, se multiplican y suman para ser guaradas en (i, j)
+            *(r1) = 0.0;
+            for(a = 0 ; a < n ; ++a){
+                *(r1) += *(p1 + a + i * n) * *(q1 + j + a * k);
+            }
+        }
+    }
+/*
     for(i = 0 ; i < m ; i++){
         for(l = 0 ; l < k ; l++){
             //Limpiamos de posible basura
@@ -200,12 +213,13 @@ void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
                 //Sumatoria de la multiplicacion
                 *r1 += (*p1) * (*q1);
                 //Avanzamos en el renglon de la matriz A
-                p1++;
+                //p1++;
                 //Avanzamos en la columna de la matriz B
-                q1 += k;
+                //q1 += k;
             }
         }
     }
+*/
 }
 //**********************************************************************
 void prod_mat_mat_2(float *p, float *q, float *r, int m, int n, int k)
