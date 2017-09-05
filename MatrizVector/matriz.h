@@ -135,12 +135,22 @@ void prod_mat_mat_4(float *p, float *q, float *r, int m, int n, int k);
 float * prod_mat_mat_archivo(char * nombre_archivo, int *ren, int *col);
 //**********************************************************************
 /**
-
-	\param
-	\param
-	\return
+    Intercambia dos renglones p y q de longitud n
+	\param Inicio de la renglon 1 a intercambiar
+	\param Inicio de la renglon 2 a intercambiar
+	\param Longitud del renglon
 */
-void intercambiarRen(float *p, int i, int j, int n);
+void intercambiarRen(float *p,float *q, int n);
+//**********************************************************************
+/**
+    Funcion que dado el renglon de una matriz, este es multiplicado por el reciproco
+    del elemento inicial de p, se empieza desde el puntero p y avanza en el renglon la cantidad n
+    de veces.
+	\param Elemento a calcular su reciproco y hacer uno
+	\param Cantidad de elementos que siguen despues de p
+	\return Reciprobo de p. Elemento por el cual el renglon fue multiplicado
+*/
+float hacer_uno(float *p, int n);
 //**********************************************************************
 /**
 
@@ -148,23 +158,7 @@ void intercambiarRen(float *p, int i, int j, int n);
 	\param
 	\return
 */
-void intercambiarCol(float *p, int i, int j, int m);
-//**********************************************************************
-/**
-
-	\param
-	\param
-	\return
-*/
-float hacer_uno(float *p, int m);
-//**********************************************************************
-/**
-
-	\param
-	\param
-	\return
-*/
-float hacer_cero(float *p, int m);
+float hacer_cero(float *p,float *q, int n);
 //**********************************************************************
 /**
 
