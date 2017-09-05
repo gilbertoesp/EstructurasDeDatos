@@ -163,6 +163,8 @@ float hacer_uno(float *p, int n);
 */
 float hacer_cero(float *p,float *q, int n);
 //**********************************************************************
+
+//**********************************************************************
 /**
     Tomamos una matriz y un vector y modificamos estos para que la matriz en p, quede de forma
     triangular superior, con la diagonal mayor de 1's, estas modificaciones se hacen a la par con
