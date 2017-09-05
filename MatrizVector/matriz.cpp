@@ -197,29 +197,16 @@ void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
         for(j = 0 ; j < k ; ++j,r1++){
             //y con n cada elemento de ellas, se multiplican y suman para ser guaradas en (i, j)
             *(r1) = 0.0;
-            for(a = 0 ; a < n ; ++a){
-                *(r1) += *(p1 + a + i * n) * *(q1 + j + a * k);
+            //Posicionamos el recorredor al incio del renglon
+            p1 = p + i * n;
+            //Posicionamos el recorredor al inicio de la columna
+            q1 = q + j;
+            //Avanzamos con el puntero directo
+            for(a = 0 ; a < n ; ++a, p1++, q1 += k){
+                *(r1) += *(p1) * *(q1);
             }
         }
     }
-/*
-    for(i = 0 ; i < m ; i++){
-        for(l = 0 ; l < k ; l++){
-            //Limpiamos de posible basura
-            *r1 = 0.0;
-            //Posicionamos el puntero de la matriz B en el inicio de la columna a asignar
-            q1 = q + l;
-            for(j = 0 ; j < n ; j++){
-                //Sumatoria de la multiplicacion
-                *r1 += (*p1) * (*q1);
-                //Avanzamos en el renglon de la matriz A
-                //p1++;
-                //Avanzamos en la columna de la matriz B
-                //q1 += k;
-            }
-        }
-    }
-*/
 }
 //**********************************************************************
 void prod_mat_mat_2(float *p, float *q, float *r, int m, int n, int k)
@@ -237,7 +224,7 @@ void prod_mat_mat_4(float *p, float *q, float *r, int m, int n, int k)
 
 }
 //**********************************************************************
-float * prod_mat_mat_archivo(char * nombre_archivo)
+float * prod_mat_mat_archivo(char * nombre_archivo, int *ren, int *col)
 {
     std::ifstream entrada;
     entrada.open(nombre_archivo);
@@ -250,10 +237,10 @@ float * prod_mat_mat_archivo(char * nombre_archivo)
     }
     // Variables necesitadas
     int m,n,k;
-    float *p,*p1,*q,*q1,*r,*r1;
+    float *p,*p1,*q,*q1,*r;
     // iteradores
-    int i,j,l;
-    //Guardando dimensiones
+    int i;
+    //Guardando dimensiones los tres primeros numeros
     entrada >> m;
     entrada >> n;
     entrada >> k;
@@ -265,7 +252,6 @@ float * prod_mat_mat_archivo(char * nombre_archivo)
     q1 = q;
     //Puntero donde estara la solucion
     r =  (float*) malloc(sizeof(float)* ((m) * (k)) );
-    r1 = r;
 
     //Variable dada para ir leyendo el archivo e iterar
     float x;
@@ -280,10 +266,17 @@ float * prod_mat_mat_archivo(char * nombre_archivo)
         entrada >> x;
         (*q1) = x;
     }
+
+    ///Multiplicacion
+    prod_mat_mat_1(p,q,r,m,n,k);
+
     //Saliendo de forma segura
     entrada.close();
     free(p);
     free(q);
+
+    *ren = m;
+    *col = k;
     return r;
 }
 //**********************************************************************

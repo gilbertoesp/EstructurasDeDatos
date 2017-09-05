@@ -128,9 +128,11 @@ void prod_mat_mat_4(float *p, float *q, float *r, int m, int n, int k);
     siendo la primera de m x n y la segunda de n x k, calcula su multiplicacion.
     y crea la matriz donde guardar esta para despues regresar su direccion
 	\param Nombre del archivo
+	\param Renglones de matriz resultado
+	\param Columnas de la matriz resultado
 	\return Direccion de la matriz AxB creada
 */
-float * prod_mat_mat_archivo(char * nombre_archivo);
+float * prod_mat_mat_archivo(char * nombre_archivo, int *ren, int *col);
 //**********************************************************************
 /**
 

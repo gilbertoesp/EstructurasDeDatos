@@ -18,40 +18,42 @@ int main()
     int renA,colA,renB,colB,renC,colC;
 
     //Nombres de matrices
-    char matrizA[] = {"matrizA.txt"};
+    char matrizA[] = {"matrizD.txt"};
     char matrizB[] = {"matrizB.txt"};
 
     //leyendo matrices
+/*
     A = leer(matrizA,&renA,&colA);
     B = leer(matrizB,&renB,&colB);
-
-    if(A == NULL || B == NULL){
+/*
+    if(!A|| !B){
         std::cout << "Falla en lectura" << std::endl;
         return 0;
     }
-
-    pintar(A,renA,colA);
+*/
+    //pintar(A,renA,colA);
     std::cout << std::endl;
     std::cout << std::endl;
-    pintar(B,renB,colB);
+    //pintar(B,renB,colB);
 
     // Se crea una matriz de dimensiones compatibles a la operacion a realizar
 
     renC = renA;
     colC = colB;
-    C = crear(renC,colC);
+    //C = crear(renC,colC);
 
     ///Seccion de pruebas para las operaciones con matrices
     //suma(A,B,C,renA,colA);
     //resta(A,B,C,renA,colA);
     //prod_mat_vec(A,B,C,renA,colA);
-    prod_mat_mat_1(A,B,C,renA,colA,colB);
+    //prod_mat_mat_1(A,B,C,renA,colA,colB);
+    prod_mat_mat_archivo(matrizA, &renC, &colC);
 
     std::cout << std::endl;
     std::cout << std::endl;
     pintar(C,renC,colC);
 
-    ///escribir("matrizC.txt",C,renC,colC);
+    //escribir("matrizC.txt",C,renC,colC);
 
 
     ///Liberacion de memoria

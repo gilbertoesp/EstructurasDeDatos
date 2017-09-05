@@ -21,3 +21,25 @@
 	<iomanip>
 	<fstream>
 
+1504575573 source:c:\users\gilbe\documents\estructurasdedatos\matrizvector\vector.cpp
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<cmath>
+
+1504580696 source:c:\users\gilbe\documents\estructurasdedatos\matrizvector\main.cpp
+	<iostream>
+	<cstdlib>
+	"vector.h"
+	"matriz.h"
+
+1504575573 c:\users\gilbe\documents\estructurasdedatos\matrizvector\vector.h
+
+1504579878 c:\users\gilbe\documents\estructurasdedatos\matrizvector\matriz.h
+
+1504580634 source:c:\users\gilbe\documents\estructurasdedatos\matrizvector\matriz.cpp
+	<iostream>
+	<cstdlib>
+	<iomanip>
+	<fstream>
+
