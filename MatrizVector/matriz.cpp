@@ -41,7 +41,7 @@ float * copiar(float *p,int ren,int col)
 #define ESQ_INF_IZQ 192
 #define ESQ_INF_DER 217
 //Constante para dar espaciado a los valores de la matriz y estos puedan ser apreciados
-#define ESPACIADO 5
+#define ESPACIADO 8
 void pintar(float *p, int ren, int col)
 {
     float *p1;
@@ -309,7 +309,19 @@ float hacer_uno(float *p, int n)
 //**********************************************************************
 float hacer_cero(float *p,float *q, int n)
 {
-    return 0.0;
+    float *p1,*q1,valor;
+
+    p1 = p;
+    q1 = q;
+
+    valor = -(*q1);
+
+    for(int i = 0 ; i < n ; i++, p1++,q1++){
+        //Haciendo la suma
+        *q1 = *q1 + valor * (*p1);
+    }
+
+    return valor;
 }
 //**********************************************************************
 

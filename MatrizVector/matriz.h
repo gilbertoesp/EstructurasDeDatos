@@ -153,10 +153,13 @@ void intercambiarRen(float *p,float *q, int n);
 float hacer_uno(float *p, int n);
 //**********************************************************************
 /**
-
-	\param
-	\param
-	\return
+    Dado un lugar de una matriz donde se encuentra un 1 (hacer_uno), recibido en p
+    realiza las operaciones para que el elemento q sea 0, multiplicando p por el inverso de q
+    y luego sumandolo a este mismo. Mismo proceso se repete una cantidad n de veces al avance del
+    renglon.
+	\param Renglon que comienza en 1;
+	\param Renglon que comienza en el elemento que queremos hacer cero
+	\return Valor por el cual el renglon p fue multiplicado para hacer cero
 */
 float hacer_cero(float *p,float *q, int n);
 //**********************************************************************

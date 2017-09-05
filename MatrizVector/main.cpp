@@ -50,10 +50,17 @@ int main()
     //C = prod_mat_mat_archivo(matrizA, &renC, &colC);
     hacer_uno(A,colA);
 
+
     std::cout << std::endl;
     std::cout << std::endl;
     pintar(A,renA,colA);
 
+    hacer_cero(A, A+colA, colA);
+
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+    pintar(A,renA,colA);
     //escribir("matrizC.txt",C,renC,colC);
 
 
