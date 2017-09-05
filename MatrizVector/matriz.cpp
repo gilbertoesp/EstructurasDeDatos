@@ -41,7 +41,7 @@ float * copiar(float *p,int ren,int col)
 #define ESQ_INF_IZQ 192
 #define ESQ_INF_DER 217
 //Constante para dar espaciado a los valores de la matriz y estos puedan ser apreciados
-#define ESPACIADO 8
+#define ESPACIADO 12
 void pintar(float *p, int ren, int col)
 {
     float *p1;
@@ -316,17 +316,42 @@ float hacer_cero(float *p,float *q, int n)
 
     valor = -(*q1);
 
+    std::cout << "\nValor: " << valor << std::endl;
+
     for(int i = 0 ; i < n ; i++, p1++,q1++){
         //Haciendo la suma
-        *q1 = *q1 + valor * (*p1);
+        *q1 = *q1 + (valor * (*p1));
     }
 
     return valor;
 }
 //**********************************************************************
-float reducir(float *p, float *q, int n)
+void reducir(float *p, float *q, int n)
 {
-
+    //Recorredores de la matriz y el vector
+    float *p1,*q1, valor;
+    p1 = p;
+    q1 = q;
+    //Recoremos la matriz
+    // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
+    for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
+        //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
+        // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
+        valor = hacer_uno(p1, n - i);
+        //Modificamos el vector con el valor el cual manipulamos la matriz
+        *q1 = (*q1) * valor;
+        // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
+        // Para ello empezamos este contador con uno para modificar el de abajo de p1, y el ciclo se acaba en la
+        // cantidad de renglones restantes por procesar
+        for(int j = 1 ; j < n - i ; j++){
+            //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
+            // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
+            valor = hacer_cero(p1, p1 + (j * n), n - i);
+            //Modificamos el elemento del vector que corresponde
+            *(q1 + j) = *(q1 + j) + valor * (*q1);
+        }
+        pintar(p,n,n);
+    }
 }
 //**********************************************************************
 
