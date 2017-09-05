@@ -47,7 +47,7 @@ int main()
     //resta(A,B,C,renA,colA);
     //prod_mat_vec(A,B,C,renA,colA);
     //prod_mat_mat_1(A,B,C,renA,colA,colB);
-    prod_mat_mat_archivo(matrizA, &renC, &colC);
+    C = prod_mat_mat_archivo(matrizA, &renC, &colC);
 
     std::cout << std::endl;
     std::cout << std::endl;
