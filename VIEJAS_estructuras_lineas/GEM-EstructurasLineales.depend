@@ -1,0 +1,133 @@
+# depslib dependency file v1.0
+1488873571 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\main.cpp
+	<iostream>
+	<cstdlib>
+	"lista_doble.h"
+
+1488225080 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\pila.cpp
+	<iostream>
+	<cstdlib>
+	"pila.h"
+
+1487881289 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\pila.h
+	"caja.h"
+
+1487705329 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\caja.h
+
+1487881529 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\cola.h
+	"caja.h"
+
+1488224760 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\cola.cpp
+	<iostream>
+	<cstdlib>
+	"cola.h"
+
+1488870353 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord.h"
+
+1488443333 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord.h
+	"caja.h"
+
+1488494386 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord_repalta.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord_repAlta.h"
+
+1488487626 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord_repalta.h
+	"cajaDos.h"
+
+1488488268 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\cajados.h
+
+1488494433 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord_repbaja.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord_repBaja.h"
+
+1488492385 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord_repbaja.h
+	"caja.h"
+
+1488872079 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_doble.h
+	"cajaDobleLigada.h"
+
+1488869807 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\cajadobleligada.h
+
+1488872222 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_doble.cpp
+	<iostream>
+	<cstdlib>
+	"lista_doble.h"
+
+1488224760 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\cola.cpp
+	<iostream>
+	<cstdlib>
+	"cola.h"
+
+1487881529 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\cola.h
+	"caja.h"
+
+1487705329 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\caja.h
+
+1488958296 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_doble.cpp
+	<iostream>
+	<cstdlib>
+	"lista_doble.h"
+
+1488958848 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_doble.h
+	"cajaDobleLigada.h"
+
+1488869807 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\cajadobleligada.h
+
+1488870353 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_ord.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord.h"
+
+1488443333 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_ord.h
+	"caja.h"
+
+1488494386 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_ord_repalta.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord_repAlta.h"
+
+1488487626 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_ord_repalta.h
+	"cajaDos.h"
+
+1488488268 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\cajados.h
+
+1488494433 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_ord_repbaja.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord_repBaja.h"
+
+1488492385 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_ord_repbaja.h
+	"caja.h"
+
+1489652367 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_mitad.cpp
+	<iostream>
+	<cstdlib>
+	"lista_mitad.h"
+
+1489652472 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_mitad.h
+	"cajaDobleLigada.h"
+
+1488966900 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\pila.cpp
+	<iostream>
+	<cstdlib>
+	"pila.h"
+
+1487881289 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\pila.h
+	"caja.h"
+
+1490770756 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\main.cpp
+	<iostream>
+	<cstdlib>
+	"ListaDoble.h"
+
+1489782380 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\listaord.h
+	"caja.h"
+
+1490771208 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\listadoble.h
+	"cajaDobleLigada.h"
+

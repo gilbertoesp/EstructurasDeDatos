@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GEM-EstructurasLineales" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/GEM-EstructurasLineales" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/GEM-EstructurasLineales" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="ListaDoble.h" />
+		<Unit filename="ListaOrd.h" />
+		<Unit filename="caja.h" />
+		<Unit filename="cajaDobleLigada.h" />
+		<Unit filename="cajaDos.h" />
+		<Unit filename="cola.cpp" />
+		<Unit filename="cola.h" />
+		<Unit filename="lista_doble.cpp" />
+		<Unit filename="lista_doble.h" />
+		<Unit filename="lista_mitad.cpp" />
+		<Unit filename="lista_mitad.h" />
+		<Unit filename="lista_ord.cpp" />
+		<Unit filename="lista_ord.h" />
+		<Unit filename="lista_ord_repAlta.cpp" />
+		<Unit filename="lista_ord_repAlta.h" />
+		<Unit filename="lista_ord_repBaja.cpp" />
+		<Unit filename="lista_ord_repBaja.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="pila.cpp" />
+		<Unit filename="pila.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
