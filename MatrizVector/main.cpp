@@ -15,16 +15,16 @@ int main()
     // Punteros a matrices, inicializados en NULL para proteccion
     float *A=NULL,*B=NULL,*C=NULL;
     //Dimensiones
-    int renA,colA,renB,colB,renC,colC;
+    int renA,colA,dimA,renC,colC;
 
     //Nombres de matrices
     char matrizA[] = {"matrizA.txt"};
-    char matrizB[] = {"matrizB.txt"};
+    char vectorA[] = {"vectorA.txt"};
 
     //leyendo matrices
 
     A = leer(matrizA,&renA,&colA);
-    //B = leer(matrizB,&renB,&colB);
+    B = leer(vectorA,&dimA);
 /*
     if(!A|| !B){
         std::cout << "Falla en lectura" << std::endl;
