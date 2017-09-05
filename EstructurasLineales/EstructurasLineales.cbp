@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="caja.h" />
+		<Unit filename="pila.cpp" />
+		<Unit filename="pila.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
