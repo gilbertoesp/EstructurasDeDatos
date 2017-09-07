@@ -382,11 +382,18 @@ void resolver(float *p, float *q, int n)
     //Reducimos la matriz
     reducir(p1,q1,n);
     ///Sustitucion hacia atras
+    //Recorremos la matriz hasta el penultimo renglon
     for(int i = 0 ; i < n - 1 ; i++){
+        //Posicionamos el apuntador de la matriz arriba del 1 empezando por el ultimo
         p1 = p + (n - i - 2 ) * n + (n - i - 1);
+        //Posicionamos el vector en el mismo renglon que la p que manipulamos
         q1 = q + (n - i - 2);
+        //Extraemos el valor de la incognita recien descubierta, siendo la primera resulta por reducir
+        // y en cada iteracion se descubre la siguiente
         valor = *(q1+1);
+        //Recorremos la matriz hacia "arriba", retrocedemos en el vector y en la columna
         for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
+            //A cada resultado en el vector le restamos la multiplicaicion del elemento de la columna por la incognita recien resuelta
             *q1 = *q1 - (valor * *p1);
         }
     }
