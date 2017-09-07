@@ -164,15 +164,11 @@ float hacer_uno(float *p, int n);
 float hacer_cero(float *p,float *q, int n);
 //**********************************************************************
 /**
-    Dada una matriz en inicio p y un vector con inicio en q, ambas con dimension n, buscamos el elemento en la
-    columna i
-*/
-void pivotear(float *p, float *q, int n, int i);
-//**********************************************************************
-/**
     Tomamos una matriz y un vector y modificamos estos para que la matriz en p, quede de forma
     triangular superior, con la diagonal mayor de 1's, estas modificaciones se hacen a la par con
     el vector en q. Este metodo solo acepta matrices cuadradas junto con vectores de la misma dimension.
+    Para la reduccion este metodo involucra PIVOTEO PARCIAL, revisando que el valor que se cambia a uno sea en
+    efecto el mayor absoluto
 
 	\param Matriz a reducir, inicio en A[1][1]
 	\param Vector b que es el resultado de la matriz. Sera modificado

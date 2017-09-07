@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <iomanip> //std::setw
 #include <fstream> // Manejo de archivos
+#include <cmath> // abs
 
 
 //**********************************************************************
@@ -335,6 +336,19 @@ void reducir(float *p, float *q, int n)
     //Recoremos la matriz
     // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
     for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
+        ///Pivoteo
+        //Revisamos uno por uno cada elemento debajo de p1
+        for(int j = 1 ; j < n - i ; j++){
+            // Si el elemento debajo de p1, es mayor se intercambia
+            if( std::abs(*(p1 + j * n )) > std::abs(*p1) ){
+                intercambiarRen(p1, (p1 + j * n ), n - i);
+                //Intercambiamos los valores del vector resutlado, con un metodo de burbuja simple
+                valor = *q1;
+                *q1 = *(q1 + j);
+                *(q1 + j) = valor;
+            }
+
+        }
         //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
         // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
         valor = hacer_uno(p1, n - i);
