@@ -294,69 +294,436 @@ void intercambiarRen(float *p,float *q, int n)
         *q1 = aux;
     }
 }
-//**********************************************************************
-float hacer_uno(float *p, int n)
-{
-    float *p1, valor;
+///********     PRIMERA FORMA DE RESOLVER   **************************************************************
+    float hacer_uno(float *p, int n)
+    {
+        float *p1, valor;
 
-    p1 = p;
+        p1 = p;
 
-    valor = 1.0 / *p1;
+        valor = 1.0 / *p1;
 
-    for(int i = 0 ; i < n ; i++, p1++){
-        *p1 = valor * (*p1);
-    }
-    return valor;
-}
-//**********************************************************************
-float hacer_cero(float *p,float *q, int n)
-{
-    float *p1,*q1,valor;
-
-    p1 = p;
-    q1 = q;
-
-    valor = -(*q1);
-
-    for(int i = 0 ; i < n ; i++, p1++,q1++){
-        //Haciendo la suma
-        *q1 = *q1 + (valor * (*p1));
-    }
-
-    return valor;
-}
-//**********************************************************************
-void reducir(float *p, float *q, int n)
-{
-    //Recorredores de la matriz y el vector
-    float *p1,*q1, valor;
-    p1 = p;
-    q1 = q;
-    //Recoremos la matriz
-    // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
-    for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
-        ///Pivoteo
-        //Revisamos uno por uno cada elemento debajo de p1
-        for(int j = 1 ; j < n - i ; j++){
-            // Si el elemento debajo de p1, es mayor se intercambia
-            if( std::abs(*(p1 + j * n )) > std::abs(*p1) ){
-                intercambiarRen(p1, (p1 + j * n ), n - i);
-                //Intercambiamos los valores del vector resutlado, con un metodo de burbuja simple
-                valor = *q1;
-                *q1 = *(q1 + j);
-                *(q1 + j) = valor;
-            }
-
+        for(int i = 0 ; i < n ; i++, p1++){
+            *p1 = valor * (*p1);
         }
-        pintar(p,n,n);
-        std::cout << std::endl;
-        pintar(q,n);
-        std::cout << std::endl;
+        return valor;
+    }
+    //**********************************************************************
+    float hacer_cero(float *p,float *q, int n)
+    {
+        float *p1,*q1,valor;
+
+        p1 = p;
+        q1 = q;
+
+        valor = -(*q1);
+
+        for(int i = 0 ; i < n ; i++, p1++,q1++){
+            //Haciendo la suma
+            *q1 = *q1 + (valor * (*p1));
+        }
+
+        return valor;
+    }
+    //**********************************************************************
+    void reducir(float *p, float *q, int n)
+    {
+        //Recorredores de la matriz y el vector
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Recoremos la matriz
+        // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
+        for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
+            ///Pivoteo
+            //Revisamos uno por uno cada elemento debajo de p1
+            for(int j = 1 ; j < n - i ; j++){
+                // Si el elemento debajo de p1, es mayor se intercambia
+                if( std::abs(*(p1 + j * n )) > std::abs(*p1) ){
+                    intercambiarRen(p1, (p1 + j * n ), n - i);
+                    //Intercambiamos los valores del vector resutlado, con un metodo de burbuja simple
+                    valor = *q1;
+                    *q1 = *(q1 + j);
+                    *(q1 + j) = valor;
+                }
+
+            }
+            //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
+            // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
+            valor = hacer_uno(p1, n - i);
+            //Modificamos el vector con el valor el cual manipulamos la matriz
+            *q1 = (*q1) * valor;
+            // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
+            // Para ello empezamos este contador con uno para modificar el de abajo de p1, y el ciclo se acaba en la
+            // cantidad de renglones restantes por procesar
+            for(int j = 1 ; j < n - i ; j++){
+                //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
+                // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
+                valor = hacer_cero(p1, p1 + (j * n), n - i);
+                //Modificamos el elemento del vector que corresponde
+                *(q1 + j) = *(q1 + j) + valor * (*q1);
+            }
+        }
+    }
+    //**********************************************************************
+    void resolver(float *p, float *q, int n)
+    {
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Reducimos la matriz
+        reducir(p1,q1,n);
+        ///Sustitucion hacia atras
+        //Recorremos la matriz hasta el penultimo renglon
+        for(int i = 0 ; i < n - 1 ; i++){
+            //Posicionamos el apuntador de la matriz arriba del 1 empezando por el ultimo
+            p1 = p + (n - i - 2 ) * n + (n - i - 1);
+            //Posicionamos el vector en el mismo renglon que la p que manipulamos
+            q1 = q + (n - i - 2);
+            //Extraemos el valor de la incognita recien descubierta, siendo la primera resulta por reducir
+            // y en cada iteracion se descubre la siguiente
+            valor = *(q1+1);
+            //Recorremos la matriz hacia "arriba", retrocedemos en el vector y en la columna
+            for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
+                //A cada resultado en el vector le restamos la multiplicaicion del elemento de la columna por la incognita recien resuelta
+                *q1 = *q1 - (valor * *p1);
+            }
+        }
+
+
+    }
+    //**********************************************************************
+///********     SEGUNDA FORMA DE RESOLVER   **************************************************************
+    float hacer_uno_2(float *p, int n, int dim)
+    {
+        float *p1, valor;
+
+        p1 = p;
+
+        valor = 1.0 / *p1;
+        //*** En esta version en vez de avanzar hacia enfrente, lo hacemos hacia abajo
+        for(int i = 0 ; i < n ; i++, p1+=dim){
+            *p1 = valor * (*p1);
+        }
+        return valor;
+    }
+    //**********************************************************************
+    float hacer_cero_2(float *p,float *q, int n,int dim)
+    {
+        float *p1,*q1,valor;
+
+        p1 = p;
+        q1 = q;
+
+        valor = -(*q1);
+        // *** En esta version en vez de dos renglones manejamos dos columnas entonces en vez de
+        // avanzar 1 en 1, avanzamos en n
+        for(int i = 0 ; i < n ; i++, p1 += dim, q1 += dim){
+            //Haciendo la suma
+            *q1 = *q1 + (valor * (*p1));
+        }
+
+        return valor;
+    }
+    //**********************************************************************
+    void reducir_2(float *p, float *q, int n)
+    {
+        //Recorredores de la matriz y el vector
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Recoremos la matriz
+        // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
+        for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
+            //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
+            // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
+            valor = hacer_uno_2(p1, n - i,n);
+            //Modificamos el vector con el valor el cual manipulamos la matriz
+            *q1 = (*q1) * valor;
+            // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
+            // Para ello empezamos este contador con uno para modificar el de abajo de p1, y el ciclo se acaba en la
+            // cantidad de renglones restantes por procesar
+            for(int j = 1 ; j < n - i ; j++){
+                //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
+                // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
+                // *** En esta version le damos la direccion del renglon de al lado
+                valor = hacer_cero_2(p1, p1 + (j), n - i,n);
+                //Modificamos el elemento del vector que corresponde
+                *(q1 + j) = *(q1 + j) + valor * (*q1);
+                std::cout << std::endl;
+                std::cout << std::endl;
+                pintar(p,n,n);
+            }
+        }
+    }
+    //**********************************************************************
+    void resolver_2(float *p, float *q, int n)
+    {
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Reducimos la matriz
+        reducir_2(p1,q1,n);
+        // *** En esta version son las operaciones transpuestas
+        ///Sustitucion hacia atras
+        //Recorremos la matriz hasta el penultimo renglon
+        for(int i = 0 ; i < n - 1 ; i++){
+            //Posicionamos el apuntador de la matriz arriba del 1 empezando por el ultimo
+            p1 = p + (n-i-1) * n + (n - i - 2 );
+            //Posicionamos el vector en el mismo renglon que la p que manipulamos
+            q1 = q + (n - i - 2);
+            //Extraemos el valor de la incognita recien descubierta, siendo la primera resulta por reducir
+            // y en cada iteracion se descubre la siguiente
+            valor = *(q1+1);
+            //Recorremos la matriz hacia "arriba", retrocedemos en el vector y en la columna
+            for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1--){
+                //A cada resultado en el vector le restamos la multiplicaicion del elemento de la columna por la incognita recien resuelta
+                *q1 = *q1 - (valor * *p1);
+            }
+        }
+
+
+    }
+    //**********************************************************************
+///********     TERCER FORMA DE RESOLVER   **************************************************************
+    float hacer_uno_3(float *p, int n)
+    {
+        float *p1, valor;
+
+        p1 = p;
+
+        valor = 1.0 / *p1;
+
+        for(int i = 0 ; i < n ; i++, p1++){
+            *p1 = valor * (*p1);
+        }
+        return valor;
+    }
+    //**********************************************************************
+    float hacer_cero_3(float *p,float *q, int n)
+    {
+        float *p1,*q1,valor;
+
+        p1 = p;
+        q1 = q;
+
+        valor = -(*q1);
+
+        for(int i = 0 ; i < n ; i++, p1++,q1++){
+            //Haciendo la suma
+            *q1 = *q1 + (valor * (*p1));
+        }
+
+        return valor;
+    }
+    //**********************************************************************
+    void reducir_3(float *p, float *q, int n)
+    {
+        //Recorredores de la matriz y el vector
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Recoremos la matriz
+        // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
+        for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
+            ///Pivoteo
+            //Revisamos uno por uno cada elemento debajo de p1
+            for(int j = 1 ; j < n - i ; j++){
+                // Si el elemento debajo de p1, es mayor se intercambia
+                if( std::abs(*(p1 + j * n )) > std::abs(*p1) ){
+                    intercambiarRen(p1, (p1 + j * n ), n - i);
+                    //Intercambiamos los valores del vector resutlado, con un metodo de burbuja simple
+                    valor = *q1;
+                    *q1 = *(q1 + j);
+                    *(q1 + j) = valor;
+                }
+
+            }
+            pintar(p,n,n);
+            std::cout << std::endl;
+            pintar(q,n);
+            std::cout << std::endl;
+            //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
+            // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
+            valor = hacer_uno(p1, n - i);
+            //Modificamos el vector con el valor el cual manipulamos la matriz
+            *q1 = (*q1) * valor;
+            // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
+            // Para ello empezamos este contador con uno para modificar el de abajo de p1, y el ciclo se acaba en la
+            // cantidad de renglones restantes por procesar
+            for(int j = 1 ; j < n - i ; j++){
+                //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
+                // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
+                valor = hacer_cero(p1, p1 + (j * n), n - i);
+                //Modificamos el elemento del vector que corresponde
+                *(q1 + j) = *(q1 + j) + valor * (*q1);
+            }
+            pintar(p,n,n);
+            std::cout << std::endl;
+            pintar(q,n);
+            std::cout << std::endl;
+        }
+    }
+    //**********************************************************************
+    void resolver_3(float *p, float *q, int n)
+    {
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Reducimos la matriz
+        reducir(p1,q1,n);
+        ///Sustitucion hacia atras
+        //Recorremos la matriz hasta el penultimo renglon
+        for(int i = 0 ; i < n - 1 ; i++){
+            //Posicionamos el apuntador de la matriz arriba del 1 empezando por el ultimo
+            p1 = p + (n - i - 2 ) * n + (n - i - 1);
+            //Posicionamos el vector en el mismo renglon que la p que manipulamos
+            q1 = q + (n - i - 2);
+            //Extraemos el valor de la incognita recien descubierta, siendo la primera resulta por reducir
+            // y en cada iteracion se descubre la siguiente
+            valor = *(q1+1);
+            //Recorremos la matriz hacia "arriba", retrocedemos en el vector y en la columna
+            for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
+                //A cada resultado en el vector le restamos la multiplicaicion del elemento de la columna por la incognita recien resuelta
+                *q1 = *q1 - (valor * *p1);
+            }
+        }
+
+
+    }
+    //**********************************************************************
+///********     CUARTA FORMA DE RESOLVER   **************************************************************
+    float hacer_uno_4(float *p, int n)
+    {
+        float *p1, valor;
+
+        p1 = p;
+
+        valor = 1.0 / *p1;
+
+        for(int i = 0 ; i < n ; i++, p1++){
+            *p1 = valor * (*p1);
+        }
+        return valor;
+    }
+    //**********************************************************************
+    float hacer_cero_4(float *p,float *q, int n)
+    {
+        float *p1,*q1,valor;
+
+        p1 = p;
+        q1 = q;
+
+        valor = -(*q1);
+
+        for(int i = 0 ; i < n ; i++, p1++,q1++){
+            //Haciendo la suma
+            *q1 = *q1 + (valor * (*p1));
+        }
+
+        return valor;
+    }
+    //**********************************************************************
+    void reducir_4(float *p, float *q, int n)
+    {
+        //Recorredores de la matriz y el vector
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Recoremos la matriz
+        // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
+        for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
+            ///Pivoteo
+            //Revisamos uno por uno cada elemento debajo de p1
+            for(int j = 1 ; j < n - i ; j++){
+                // Si el elemento debajo de p1, es mayor se intercambia
+                if( std::abs(*(p1 + j * n )) > std::abs(*p1) ){
+                    intercambiarRen(p1, (p1 + j * n ), n - i);
+                    //Intercambiamos los valores del vector resutlado, con un metodo de burbuja simple
+                    valor = *q1;
+                    *q1 = *(q1 + j);
+                    *(q1 + j) = valor;
+                }
+
+            }
+            pintar(p,n,n);
+            std::cout << std::endl;
+            pintar(q,n);
+            std::cout << std::endl;
+            //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
+            // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
+            valor = hacer_uno(p1, n - i);
+            //Modificamos el vector con el valor el cual manipulamos la matriz
+            *q1 = (*q1) * valor;
+            // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
+            // Para ello empezamos este contador con uno para modificar el de abajo de p1, y el ciclo se acaba en la
+            // cantidad de renglones restantes por procesar
+            for(int j = 1 ; j < n - i ; j++){
+                //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
+                // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
+                valor = hacer_cero(p1, p1 + (j * n), n - i);
+                //Modificamos el elemento del vector que corresponde
+                *(q1 + j) = *(q1 + j) + valor * (*q1);
+            }
+            pintar(p,n,n);
+            std::cout << std::endl;
+            pintar(q,n);
+            std::cout << std::endl;
+        }
+    }
+    //**********************************************************************
+    void resolver_4(float *p, float *q, int n)
+    {
+        float *p1,*q1, valor;
+        p1 = p;
+        q1 = q;
+        //Reducimos la matriz
+        reducir(p1,q1,n);
+        ///Sustitucion hacia atras
+        //Recorremos la matriz hasta el penultimo renglon
+        for(int i = 0 ; i < n - 1 ; i++){
+            //Posicionamos el apuntador de la matriz arriba del 1 empezando por el ultimo
+            p1 = p + (n - i - 2 ) * n + (n - i - 1);
+            //Posicionamos el vector en el mismo renglon que la p que manipulamos
+            q1 = q + (n - i - 2);
+            //Extraemos el valor de la incognita recien descubierta, siendo la primera resulta por reducir
+            // y en cada iteracion se descubre la siguiente
+            valor = *(q1+1);
+            //Recorremos la matriz hacia "arriba", retrocedemos en el vector y en la columna
+            for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
+                //A cada resultado en el vector le restamos la multiplicaicion del elemento de la columna por la incognita recien resuelta
+                *q1 = *q1 - (valor * *p1);
+            }
+        }
+
+
+    }
+    //**********************************************************************
+//**********************************************************************
+float * inversa(float *p, int n)
+{
+    float *p1, *inv, *q, valor;
+
+    inv = crear(n,n);
+    q = inv;
+    p1 = p;
+
+    for(int i = 0 ; i < n ; i++){
+        for(int j = 0 ; j < n ; j++,q++){
+            if( i == j) *q = 1;
+            else *q = 0;
+        }
+    }
+    std::cout << std::endl;
+    pintar(inv,n,n);
+    q=inv;
+
+    for(int i = 0 ; i < n ; i++, p1 += n+1){
         //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
         // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
         valor = hacer_uno(p1, n - i);
         //Modificamos el vector con el valor el cual manipulamos la matriz
-        *q1 = (*q1) * valor;
+        for(int j = 1 ; j < n - i ; j++) *(q+j) = *(q+j) + valor * *(q);
         // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
         // Para ello empezamos este contador con uno para modificar el de abajo de p1, y el ciclo se acaba en la
         // cantidad de renglones restantes por procesar
@@ -364,45 +731,15 @@ void reducir(float *p, float *q, int n)
             //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
             // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
             valor = hacer_cero(p1, p1 + (j * n), n - i);
-            //Modificamos el elemento del vector que corresponde
-            *(q1 + j) = *(q1 + j) + valor * (*q1);
+            for(int j = 1 ; j < n - i ; j++) *(q+j) = *(q+j) + valor * *(q);
+
         }
+        std::cout << "\n-------------------------------------------" << std::endl;
         pintar(p,n,n);
         std::cout << std::endl;
-        pintar(q,n);
-        std::cout << std::endl;
+        pintar(inv,n,n);
     }
+    return inv;
 }
-//**********************************************************************
-void resolver(float *p, float *q, int n)
-{
-    float *p1,*q1, valor;
-    p1 = p;
-    q1 = q;
-    //Reducimos la matriz
-    reducir(p1,q1,n);
-    ///Sustitucion hacia atras
-    //Recorremos la matriz hasta el penultimo renglon
-    for(int i = 0 ; i < n - 1 ; i++){
-        //Posicionamos el apuntador de la matriz arriba del 1 empezando por el ultimo
-        p1 = p + (n - i - 2 ) * n + (n - i - 1);
-        //Posicionamos el vector en el mismo renglon que la p que manipulamos
-        q1 = q + (n - i - 2);
-        //Extraemos el valor de la incognita recien descubierta, siendo la primera resulta por reducir
-        // y en cada iteracion se descubre la siguiente
-        valor = *(q1+1);
-        //Recorremos la matriz hacia "arriba", retrocedemos en el vector y en la columna
-        for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
-            //A cada resultado en el vector le restamos la multiplicaicion del elemento de la columna por la incognita recien resuelta
-            *q1 = *q1 - (valor * *p1);
-        }
-    }
 
-
-}
-//**********************************************************************
-
-//**********************************************************************
-
-//**********************************************************************
 
