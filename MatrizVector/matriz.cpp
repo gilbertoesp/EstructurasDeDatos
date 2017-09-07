@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include "vector.h"
 #include <iomanip> //std::setw
 #include <fstream> // Manejo de archivos
 #include <cmath> // abs
@@ -42,7 +43,7 @@ float * copiar(float *p,int ren,int col)
 #define ESQ_INF_IZQ 192
 #define ESQ_INF_DER 217
 //Constante para dar espaciado a los valores de la matriz y estos puedan ser apreciados
-#define ESPACIADO 12
+#define ESPACIADO 15
 void pintar(float *p, int ren, int col)
 {
     float *p1;
@@ -317,8 +318,6 @@ float hacer_cero(float *p,float *q, int n)
 
     valor = -(*q1);
 
-    std::cout << "\nValor: " << valor << std::endl;
-
     for(int i = 0 ; i < n ; i++, p1++,q1++){
         //Haciendo la suma
         *q1 = *q1 + (valor * (*p1));
@@ -349,6 +348,10 @@ void reducir(float *p, float *q, int n)
             }
 
         }
+        pintar(p,n,n);
+        std::cout << std::endl;
+        pintar(q,n);
+        std::cout << std::endl;
         //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
         // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
         valor = hacer_uno(p1, n - i);
@@ -365,10 +368,31 @@ void reducir(float *p, float *q, int n)
             *(q1 + j) = *(q1 + j) + valor * (*q1);
         }
         pintar(p,n,n);
+        std::cout << std::endl;
+        pintar(q,n);
+        std::cout << std::endl;
     }
 }
 //**********************************************************************
+void resolver(float *p, float *q, int n)
+{
+    float *p1,*q1, valor;
+    p1 = p;
+    q1 = q;
+    //Reducimos la matriz
+    reducir(p1,q1,n);
+    ///Sustitucion hacia atras
+    for(int i = 0 ; i < n - 1 ; i++){
+        p1 = p + (n - i - 2 ) * n + (n - i - 1);
+        q1 = q + (n - i - 2);
+        valor = *(q1+1);
+        for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
+            *q1 = *q1 - (valor * *p1);
+        }
+    }
 
+
+}
 //**********************************************************************
 
 //**********************************************************************

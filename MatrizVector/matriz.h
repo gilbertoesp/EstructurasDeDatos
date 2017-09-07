@@ -177,12 +177,14 @@ float hacer_cero(float *p,float *q, int n);
 void reducir(float *p, float *q, int n);
 //**********************************************************************
 /**
-
-	\param
-	\param
-	\return
+    Dada una matriz cuadrada y un vector de dimension n, los reduce y hace sustitucion hacia atras para
+    encontrar un vector x que multiplicado por la matriz dada da como resultado al vector dado.
+    Utiliza el metodo reducir, el cual es Gauss-Jordan con Pivoteo Parcial
+	\param Matriz A
+	\param Vector b, en este vector quedara la solucion
+	\param Dimension de la matriz y vector
 */
-float resolver(float *p, float *q, int n);
+void resolver(float *p, float *q, int n);
 //**********************************************************************
 /**
 
