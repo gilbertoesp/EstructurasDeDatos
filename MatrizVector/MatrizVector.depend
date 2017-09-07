@@ -27,7 +27,7 @@
 	<fstream>
 	<cmath>
 
-1504588122 source:c:\users\gilbe\documents\estructurasdedatos\matrizvector\main.cpp
+1504784321 source:c:\users\gilbe\documents\estructurasdedatos\matrizvector\main.cpp
 	<iostream>
 	<cstdlib>
 	"vector.h"
@@ -35,11 +35,13 @@
 
 1504575573 c:\users\gilbe\documents\estructurasdedatos\matrizvector\vector.h
 
-1504767506 c:\users\gilbe\documents\estructurasdedatos\matrizvector\matriz.h
+1504783257 c:\users\gilbe\documents\estructurasdedatos\matrizvector\matriz.h
 
-1504587988 source:c:\users\gilbe\documents\estructurasdedatos\matrizvector\matriz.cpp
+1504784331 source:c:\users\gilbe\documents\estructurasdedatos\matrizvector\matriz.cpp
 	<iostream>
 	<cstdlib>
+	"vector.h"
 	<iomanip>
 	<fstream>
+	<cmath>
 

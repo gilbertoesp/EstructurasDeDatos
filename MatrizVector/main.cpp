@@ -19,7 +19,7 @@ int main()
 
     //Nombres de matrices
     char matrizA[] = {"matrizA.txt"};
-    char vectorA[] = {"vectorA.txt"};
+    char vectorA[] = {"vectorC.txt"};
 
     //leyendo matrices
 
@@ -51,7 +51,16 @@ int main()
     //hacer_cero(A, A+colA, colA);
 
     ///REDUCIR
-    reducir(A,B, dim);
+    //reducir(A,B, dim);
+    //reducir_2(A,B, dim);
+    ///RESOLVER
+    //resolver(A,B,dim);
+    resolver_2(A,B,dim);
+    ///INVERSA
+    //C = inversa(A,renA);
+    //*(A + (renA-2) * renA + renA - 1 ) = 99;
+    //std::cout << "\n\nValor " << *(A + (renA-2) * renA + renA - 1 ) << std::endl;
+
 /*
     float *p1,*q1, valor;
     p1 = A;
