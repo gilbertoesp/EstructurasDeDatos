@@ -389,7 +389,24 @@ void intercambiarRen(float *p,float *q, int n)
                 *q1 = *q1 - (valor * *p1);
             }
         }
-
+/*
+void resolver(float *p, float *q, int n)
++{
++    float *p1,*q1, valor;
++    p1 = p;
++    q1 = q;
++    //Reducimos la matriz
++    reducir(p1,q1,n);
++    ///Sustitucion hacia atras
++    for(int i = 0 ; i < n - 1 ; i++){
++        p1 = p + (n - i - 2 ) * n + (n - i - 1);
++        q1 = q + (n - i - 2);
++        valor = *(q1+1);
++        for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
++            *q1 = *q1 - (valor * *p1);
++        }
++    }
+*/
 
     }
     //**********************************************************************
@@ -486,6 +503,7 @@ void intercambiarRen(float *p,float *q, int n)
     }
     //**********************************************************************
 ///********     TERCER FORMA DE RESOLVER   **************************************************************
+/// *** En esta version ademas de recorrerse renglones en reversa
     float hacer_uno_3(float *p, int n)
     {
         float *p1, valor;
@@ -493,8 +511,8 @@ void intercambiarRen(float *p,float *q, int n)
         p1 = p;
 
         valor = 1.0 / *p1;
-
-        for(int i = 0 ; i < n ; i++, p1++){
+        //*** En esta version en vez de avanzar hacia enfrente, lo hacemos hacia abajo
+        for(int i = 0 ; i < n ; i++, p1--){
             *p1 = valor * (*p1);
         }
         return valor;
@@ -508,8 +526,9 @@ void intercambiarRen(float *p,float *q, int n)
         q1 = q;
 
         valor = -(*q1);
-
-        for(int i = 0 ; i < n ; i++, p1++,q1++){
+        // *** En esta version en vez de dos renglones manejamos dos columnas entonces en vez de
+        // avanzar 1 en 1, avanzamos en n
+        for(int i = 0 ; i < n ; i++, p1--, q1--){
             //Haciendo la suma
             *q1 = *q1 + (valor * (*p1));
         }
@@ -521,31 +540,15 @@ void intercambiarRen(float *p,float *q, int n)
     {
         //Recorredores de la matriz y el vector
         float *p1,*q1, valor;
-        p1 = p;
+        // *** Final del primer renglon
+        p1 = p + n - 1;
         q1 = q;
         //Recoremos la matriz
-        // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
-        for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
-            ///Pivoteo
-            //Revisamos uno por uno cada elemento debajo de p1
-            for(int j = 1 ; j < n - i ; j++){
-                // Si el elemento debajo de p1, es mayor se intercambia
-                if( std::abs(*(p1 + j * n )) > std::abs(*p1) ){
-                    intercambiarRen(p1, (p1 + j * n ), n - i);
-                    //Intercambiamos los valores del vector resutlado, con un metodo de burbuja simple
-                    valor = *q1;
-                    *q1 = *(q1 + j);
-                    *(q1 + j) = valor;
-                }
-
-            }
-            pintar(p,n,n);
-            std::cout << std::endl;
-            pintar(q,n);
-            std::cout << std::endl;
+        // Avanzamos el apuntador de la matriz en diagonal ( += n - 1) y el vector en lineal
+        for(int i = 0 ; i < n ; i++, p1 += n-1, q1++){
             //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
             // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
-            valor = hacer_uno(p1, n - i);
+            valor = hacer_uno_3(p1, n - i);
             //Modificamos el vector con el valor el cual manipulamos la matriz
             *q1 = (*q1) * valor;
             // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
@@ -554,14 +557,11 @@ void intercambiarRen(float *p,float *q, int n)
             for(int j = 1 ; j < n - i ; j++){
                 //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
                 // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
-                valor = hacer_cero(p1, p1 + (j * n), n - i);
+                valor = hacer_cero_3(p1, p1 + (j * n), n - i);
                 //Modificamos el elemento del vector que corresponde
                 *(q1 + j) = *(q1 + j) + valor * (*q1);
             }
-            pintar(p,n,n);
-            std::cout << std::endl;
-            pintar(q,n);
-            std::cout << std::endl;
+
         }
     }
     //**********************************************************************
@@ -571,12 +571,12 @@ void intercambiarRen(float *p,float *q, int n)
         p1 = p;
         q1 = q;
         //Reducimos la matriz
-        reducir(p1,q1,n);
+        reducir_3(p1,q1,n);
         ///Sustitucion hacia atras
         //Recorremos la matriz hasta el penultimo renglon
         for(int i = 0 ; i < n - 1 ; i++){
             //Posicionamos el apuntador de la matriz arriba del 1 empezando por el ultimo
-            p1 = p + (n - i - 2 ) * n + (n - i - 1);
+            p1 = p + (n - i - 2 ) * n + ( i );
             //Posicionamos el vector en el mismo renglon que la p que manipulamos
             q1 = q + (n - i - 2);
             //Extraemos el valor de la incognita recien descubierta, siendo la primera resulta por reducir
@@ -584,12 +584,10 @@ void intercambiarRen(float *p,float *q, int n)
             valor = *(q1+1);
             //Recorremos la matriz hacia "arriba", retrocedemos en el vector y en la columna
             for(int j = 0 ; j < n - (i - 1) ; j++, q1--, p1 -= n){
-                //A cada resultado en el vector le restamos la multiplicaicion del elemento de la columna por la incognita recien resuelta
+                //A cada resultado en el vector le restamos la multiplicacion del elemento de la columna por la incognita recien resuelta
                 *q1 = *q1 - (valor * *p1);
             }
         }
-
-
     }
     //**********************************************************************
 ///********     CUARTA FORMA DE RESOLVER   **************************************************************
