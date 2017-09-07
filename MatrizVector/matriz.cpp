@@ -591,21 +591,21 @@ void resolver(float *p, float *q, int n)
     }
     //**********************************************************************
 ///********     CUARTA FORMA DE RESOLVER   **************************************************************
-    float hacer_uno_4(float *p, int n)
+    float hacer_uno_4(float *p, int n, int dim)
     {
         float *p1, valor;
 
         p1 = p;
 
         valor = 1.0 / *p1;
-
-        for(int i = 0 ; i < n ; i++, p1++){
+        //*** En esta version en vez de avanzar hacia enfrente, lo hacemos hacia abajo
+        for(int i = 0 ; i < n ; i++, p1+=dim){
             *p1 = valor * (*p1);
         }
         return valor;
     }
     //**********************************************************************
-    float hacer_cero_4(float *p,float *q, int n)
+    float hacer_cero_4(float *p,float *q, int n,int dim)
     {
         float *p1,*q1,valor;
 
@@ -613,8 +613,9 @@ void resolver(float *p, float *q, int n)
         q1 = q;
 
         valor = -(*q1);
-
-        for(int i = 0 ; i < n ; i++, p1++,q1++){
+        // *** En esta version en vez de dos renglones manejamos dos columnas entonces en vez de
+        // avanzar 1 en 1, avanzamos en n
+        for(int i = 0 ; i < n ; i++, p1 += dim, q1 += dim){
             //Haciendo la suma
             *q1 = *q1 + (valor * (*p1));
         }
@@ -626,31 +627,14 @@ void resolver(float *p, float *q, int n)
     {
         //Recorredores de la matriz y el vector
         float *p1,*q1, valor;
-        p1 = p;
+        p1 = p + n - 1;
         q1 = q;
         //Recoremos la matriz
         // Avanzamos el apuntador de la matriz en diagonal ( += n + 1) y el vector en lineal
-        for(int i = 0 ; i < n ; i++, p1 += n+1, q1++){
-            ///Pivoteo
-            //Revisamos uno por uno cada elemento debajo de p1
-            for(int j = 1 ; j < n - i ; j++){
-                // Si el elemento debajo de p1, es mayor se intercambia
-                if( std::abs(*(p1 + j * n )) > std::abs(*p1) ){
-                    intercambiarRen(p1, (p1 + j * n ), n - i);
-                    //Intercambiamos los valores del vector resutlado, con un metodo de burbuja simple
-                    valor = *q1;
-                    *q1 = *(q1 + j);
-                    *(q1 + j) = valor;
-                }
-
-            }
-            pintar(p,n,n);
-            std::cout << std::endl;
-            pintar(q,n);
-            std::cout << std::endl;
+        for(int i = 0 ; i < n ; i++, p1 += n-1, q1++){
             //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
             // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
-            valor = hacer_uno(p1, n - i);
+            valor = hacer_uno_4(p1, n - i, n);
             //Modificamos el vector con el valor el cual manipulamos la matriz
             *q1 = (*q1) * valor;
             // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
@@ -659,7 +643,7 @@ void resolver(float *p, float *q, int n)
             for(int j = 1 ; j < n - i ; j++){
                 //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
                 // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
-                valor = hacer_cero(p1, p1 + (j * n), n - i);
+                valor = hacer_cero_4(p1, p1 - (j), n - i,n);
                 //Modificamos el elemento del vector que corresponde
                 *(q1 + j) = *(q1 + j) + valor * (*q1);
             }

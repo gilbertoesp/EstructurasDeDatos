@@ -262,7 +262,7 @@ void intercambiarRen(float *p,float *q, int n);
         \param Renglon que comienza en el elemento que queremos hacer cero
         \return Valor por el cual el renglon p fue multiplicado para hacer cero
     */
-    float hacer_cerO_3(float *p,float *q, int n);
+    float hacer_cero_3(float *p,float *q, int n);
     //**********************************************************************
     /**
         Tomamos una matriz y un vector y modificamos estos para que la matriz en p, quede de forma
@@ -295,9 +295,10 @@ void intercambiarRen(float *p,float *q, int n);
         de veces.
         \param Elemento a calcular su reciproco y hacer uno
         \param Cantidad de elementos que siguen despues de p
+        \param Dimension de la matriz
         \return Reciprobo de p. Elemento por el cual el renglon fue multiplicado
     */
-    float hacer_uno_4(float *p, int n);
+    float hacer_uno_4(float *p, int n,int dim);
     //**********************************************************************
     /**
         Dado un lugar de una matriz donde se encuentra un 1 (hacer_uno), recibido en p
@@ -306,9 +307,10 @@ void intercambiarRen(float *p,float *q, int n);
         renglon.
         \param Renglon que comienza en 1;
         \param Renglon que comienza en el elemento que queremos hacer cero
+        \param Dimension de la matriz
         \return Valor por el cual el renglon p fue multiplicado para hacer cero
     */
-    float hacer_cero_4(float *p,float *q, int n);
+    float hacer_cero_4(float *p,float *q, int n, int dim);
     //**********************************************************************
     /**
         Tomamos una matriz y un vector y modificamos estos para que la matriz en p, quede de forma
