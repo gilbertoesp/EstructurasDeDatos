@@ -684,38 +684,39 @@ void resolver(float *p, float *q, int n)
 //**********************************************************************
 float * inversa(float *p, int n)
 {
-    float *p1, *inv, *q, valor;
+    float *p1, *inv, *q1, valor;
 
     inv = crear(n,n);
-    q = inv;
+    q1 = inv;
     p1 = p;
-
+    //Creando matriz identidad en inv
     for(int i = 0 ; i < n ; i++){
-        for(int j = 0 ; j < n ; j++,q++){
-            if( i == j) *q = 1;
-            else *q = 0;
+        for(int j = 0 ; j < n ; j++,q1++){
+            if( i == j) *q1 = 1;
+            else *q1 = 0;
         }
     }
-    std::cout << std::endl;
-    pintar(inv,n,n);
-    q=inv;
 
-    for(int i = 0 ; i < n ; i++, p1 += n+1){
-        //Hacemos uno el primer elemento del renglon, y dada esta modificacion, manipulamos
-        // todo lo que esta por enfrente de esta posicion, hasta n (dimension de la matriz)
+    q1=inv;
+
+    for(int i = 0 ; i < n ; i++, p1 += n+1, q1 += n+1){
         valor = hacer_uno(p1, n - i);
-        //Modificamos el vector con el valor el cual manipulamos la matriz
-        for(int j = 1 ; j < n - i ; j++) *(q+j) = *(q+j) + valor * *(q);
-        // Haremos cero todos los renglones por debajo del renglon que acabamos de hacer uno
-        // Para ello empezamos este contador con uno para modificar el de abajo de p1, y el ciclo se acaba en la
-        // cantidad de renglones restantes por procesar
-        for(int j = 1 ; j < n - i ; j++){
-            //Hacemos cero con base al renglon recien hecho uno, todos lo que le siguen por debajo recorriendo
-            // cada renglon, cada uno de estos renglones tienen una longitud n - i, dado que avanzamos en diagonal
-            valor = hacer_cero(p1, p1 + (j * n), n - i);
-            for(int j = 1 ; j < n - i ; j++) *(q+j) = *(q+j) + valor * *(q);
 
+        for(int j = 0 ; j < n - i ; j++) *(q1+j) = valor * *(q1+j);
+        //Hacemos cero la columna por debajo de p1
+        for(int j = 1 ; j < n - i ; j++){
+            //Haciendo cero los renglones por debajo
+            valor = hacer_cero(p1, p1 + (j * n), n - i);
+            valor = hacer_cero_2(p1, p1 + j, n- i, n);
+            //Modificamos los renglones corespondientes en la identidad
+            //for(int a = 0 ; j < n - i ; j++) *(q1 + j + n) += valor * *(q1+j);
         }
+/*
+        for(int j = 1 ; j < n - i ; j++){
+            valor = hacer_cero_2(p1, p1 + j, n- i, n);
+            for(int a = 0 ; j < n - i ; j++) *(q1 + j + n) += valor * *(q1+j);
+        }
+*/
         std::cout << "\n-------------------------------------------" << std::endl;
         pintar(p,n,n);
         std::cout << std::endl;
