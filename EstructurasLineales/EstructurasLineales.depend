@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1505080197 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\cola.cpp
+
+1505080240 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\listaordenada.cpp
+
+1505165774 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\main.cpp
+	<cstdlib>
+	<iostream>
+
+1505165898 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\pila.cpp
+	<iostream>
+	<cstdlib>
+	"Pila.h"
+	"Caja.h"
+
+1505165873 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\pila.h
+	"Caja.h"
+
+1505165854 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\caja.h
+
