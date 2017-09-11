@@ -1,9 +1,9 @@
 #ifndef CAJA_H_INCLUDED
 #define CAJA_H_INCLUDED
 
-struct caja{
+struct Caja{
     int valor;
-    caja *siguiente;
+    Caja *siguiente;
 };
 
 
