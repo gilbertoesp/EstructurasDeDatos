@@ -336,20 +336,22 @@ void intercambiarRen(float *p,float *q, int n);
     void resolver_4(float *p, float *q, int n);
 //**********************************************************************
 /**
-
-	\param
-	\param
-	\return
+    Utilizando las variaciones de las funciones hacer uno y hacer cero esta funcion toma una matriz cuadrada, crea una matriz
+    identidad de la misma dimension para luego esta se convierta en la inversa
+	\param Matriz a invertir
+	\param Dimension
+	\return Matriz inversa
 */
 float * inversa(float *p, int n);
 //**********************************************************************
 /**
-
-	\param
-	\param
-	\return
+    Utilizando las variaciones de las funciones hacer uno y hacer cero esta funcion toma una matriz cuadrada, crea una matriz
+    identidad de la misma dimension para luego esta se convierta en la inversa
+	\param Matriz a invertir
+	\param Dimension
+	\return Matriz inversa
 */
-
+float * inversa_2(float *p, int n);
 //**********************************************************************
 
 #endif // MATRIZ_H_INCLUDED

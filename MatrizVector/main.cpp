@@ -56,11 +56,11 @@ int main()
     //reducir_3(A,B,dim);
     //reducir_4(A,B,dim);
     ///RESOLVER
-    //resolver(A,B,dim);
+    resolver(A,B,dim);
     //resolver_2(A,B,dim);
     //resolver_3(A,B,dim);
     ///INVERSA
-    C = inversa(A,renA);
+    //C = inversa(A,renA);
 
     //*(A + (renA-2) * renA + renA - 1 ) = 99;
     //std::cout << "\n\nValor " << *(A + (renA-2) * renA + renA - 1 ) << std::endl;
@@ -86,9 +86,9 @@ int main()
     pintar(B,dim);
 
     ///Liberacion de memoria
-    free(A);
+    if(!A) free(A);
     if(!B) free(B);
-    free(C);
+    if(!C) free(C);
 
     std::cout << std::endl;
     std::cout << std::endl;

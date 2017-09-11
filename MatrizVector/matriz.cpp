@@ -213,17 +213,92 @@ void prod_mat_mat_1(float *p, float *q, float *r, int m, int n, int k)
 //**********************************************************************
 void prod_mat_mat_2(float *p, float *q, float *r, int m, int n, int k)
 {
+    // Iteradores de las matrices
+    float *p1,*q1,*r1;
+    // Iteran m,k,n respectivamente
+    int i,j,a;
 
+    p1 = p;
+    q1 = q;
+    r1 = r;
+
+    /// (m x n) * (n x k) = (m x k)
+    //Se toma cada renglon de Matriz_A
+    for(i = 0 ; i < m ; ++i){
+        //Cada columna de Matriz_B
+        for(j = 0 ; j < k ; ++j,r1++){
+            //y con n cada elemento de ellas, se multiplican y suman para ser guaradas en (i, j)
+            *(r1) = 0.0;
+            //Posicionamos el recorredor al incio del renglon
+            p1 = p + i * n;
+            //Posicionamos el recorredor al inicio de la columna
+            q1 = q + j;
+            //Avanzamos con el puntero directo
+            for(a = 0 ; a < n ; ++a, p1++, q1 += k){
+                *(r1) += *(p1) * *(q1);
+            }
+        }
+    }
 }
 //**********************************************************************
 void prod_mat_mat_3(float *p, float *q, float *r, int m, int n, int k)
 {
+    // Iteradores de las matrices
+    float *p1,*q1,*r1;
+    // Iteran m,k,n respectivamente
+    int i,j,a;
 
+    p1 = p;
+    q1 = q;
+    r1 = r;
+
+    /// (m x n) * (n x k) = (m x k)
+    //Se toma cada renglon de Matriz_A
+    for(i = 0 ; i < m ; ++i){
+        //Cada columna de Matriz_B
+        for(j = 0 ; j < k ; ++j,r1++){
+            //y con n cada elemento de ellas, se multiplican y suman para ser guaradas en (i, j)
+            *(r1) = 0.0;
+            //Posicionamos el recorredor al incio del renglon
+            p1 = p + i * n;
+            //Posicionamos el recorredor al inicio de la columna
+            q1 = q + j;
+            //Avanzamos con el puntero directo
+            for(a = 0 ; a < n ; ++a, p1++, q1 += k){
+                *(r1) += *(p1) * *(q1);
+            }
+        }
+    }
 }
 //**********************************************************************
 void prod_mat_mat_4(float *p, float *q, float *r, int m, int n, int k)
 {
+    // Iteradores de las matrices
+    float *p1,*q1,*r1;
+    // Iteran m,k,n respectivamente
+    int i,j,a;
 
+    p1 = p;
+    q1 = q;
+    r1 = r;
+
+    /// (m x n) * (n x k) = (m x k)
+    //Se toma cada renglon de Matriz_A
+    for(i = 0 ; i < m ; ++i){
+        //Cada columna de Matriz_B
+        for(j = 0 ; j < k ; ++j,r1++){
+            //y con n cada elemento de ellas, se multiplican y suman para ser guaradas en (i, j)
+            *(r1) = 0.0;
+            //Posicionamos el recorredor al incio del renglon
+            p1 = p + i * n;
+            //Posicionamos el recorredor al inicio de la columna
+            q1 = q + j;
+            //Avanzamos con el puntero directo
+            for(a = 0 ; a < n ; ++a, p1++, q1 += k){
+                *(r1) += *(p1) * *(q1);
+            }
+        }
+    }
 }
 //**********************************************************************
 float * prod_mat_mat_archivo(char * nombre_archivo, int *ren, int *col)
@@ -467,9 +542,6 @@ void resolver(float *p, float *q, int n)
                 valor = hacer_cero_2(p1, p1 + (j), n - i,n);
                 //Modificamos el elemento del vector que corresponde
                 *(q1 + j) = *(q1 + j) + valor * (*q1);
-                std::cout << std::endl;
-                std::cout << std::endl;
-                pintar(p,n,n);
             }
         }
     }
@@ -647,10 +719,6 @@ void resolver(float *p, float *q, int n)
                 //Modificamos el elemento del vector que corresponde
                 *(q1 + j) = *(q1 + j) + valor * (*q1);
             }
-            pintar(p,n,n);
-            std::cout << std::endl;
-            pintar(q,n);
-            std::cout << std::endl;
         }
     }
     //**********************************************************************
@@ -700,6 +768,42 @@ float * inversa(float *p, int n)
     q1=inv;
 
     for(int i = 0 ; i < n ; i++, p1 += n+1, q1 += n+1){
+        valor = hacer_uno_3(p1, n - i);
+
+        for(int j = 0 ; j < n - i ; j++) *(q1+j) = valor * *(q1+j);
+        //Hacemos cero la columna por debajo de p1
+        for(int j = 1 ; j < n - i ; j++){
+            //Haciendo cero los renglones por debajo
+            valor = hacer_cero_3(p1, p1 + (j * n), n - i);
+            for(int a = 0 ; a < n - i ; a++) *(q1 + a * n) += valor * *(q1+a);
+            valor = hacer_cero_4(p1, p1 + j, n- i, n);
+            //Modificamos los renglones corespondientes en la identidad
+            for(int a = 0 ; a < n - i ; a++) *(q1 + a) += valor * *(q1+a);
+
+        }
+
+    }
+    return inv;
+}
+//**********************************************************************
+float * inversa_2(float *p, int n)
+{
+    float *p1, *inv, *q1, valor;
+
+    inv = crear(n,n);
+    q1 = inv;
+    p1 = p;
+    //Creando matriz identidad en inv
+    for(int i = 0 ; i < n ; i++){
+        for(int j = 0 ; j < n ; j++,q1++){
+            if( i == j) *q1 = 1;
+            else *q1 = 0;
+        }
+    }
+
+    q1=inv;
+
+    for(int i = 0 ; i < n ; i++, p1 += n+1, q1 += n+1){
         valor = hacer_uno(p1, n - i);
 
         for(int j = 0 ; j < n - i ; j++) *(q1+j) = valor * *(q1+j);
@@ -707,22 +811,14 @@ float * inversa(float *p, int n)
         for(int j = 1 ; j < n - i ; j++){
             //Haciendo cero los renglones por debajo
             valor = hacer_cero(p1, p1 + (j * n), n - i);
-            valor = hacer_cero_2(p1, p1 + j, n- i, n);
+            for(int a = 0 ; a < n - i ; a++) *(q1 + a * n) += valor * *(q1+a);
+            valor = hacer_cero_4(p1, p1 + j, n- i, n);
             //Modificamos los renglones corespondientes en la identidad
-            //for(int a = 0 ; j < n - i ; j++) *(q1 + j + n) += valor * *(q1+j);
+            for(int a = 0 ; a < n - i ; a++) *(q1 + a) += valor * *(q1+a);
+
         }
-/*
-        for(int j = 1 ; j < n - i ; j++){
-            valor = hacer_cero_2(p1, p1 + j, n- i, n);
-            for(int a = 0 ; j < n - i ; j++) *(q1 + j + n) += valor * *(q1+j);
-        }
-*/
-        std::cout << "\n-------------------------------------------" << std::endl;
-        pintar(p,n,n);
-        std::cout << std::endl;
-        pintar(inv,n,n);
+
     }
     return inv;
 }
-
 
