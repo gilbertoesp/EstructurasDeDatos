@@ -192,7 +192,7 @@ int ListaOrd::borrar(int a)
     free(p);
     cuantos--;
     return 1; //Borrado satisfactoriamente
-}
+}p=
 //**********************************************************************
 void ListaOrd::pintar(void)
 {
