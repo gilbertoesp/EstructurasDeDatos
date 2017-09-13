@@ -26,6 +26,8 @@ Pila::~Pila()
         principio = principio->siguiente;
         delete p;
     }
+    principio = NULL;
+    cuantos = 0;
 }
 //**********************************************************************
 void Pila::agregar(int a)
