@@ -9,7 +9,12 @@ class Cola{
     int cuantos;
 
 public:
-
+	Cola();
+	~Cola();
+	void agregar(int a);
+	int sacar();
+	void pintar();
+	int  cuantosSon();
 };
 
 #endif // COLA_H_INCLUDED
