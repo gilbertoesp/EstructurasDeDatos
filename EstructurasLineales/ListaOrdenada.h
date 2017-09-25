@@ -6,9 +6,6 @@
     Estructura lineal que organiza los datos dados de menor a mayor
 */
 //*******************************************************************************************
-enum Posicion{VACIO,PRINCIPIO,EN_MEDIO,FINAL};
-enum Boolean{NO,SI};
-//*******************************************************************************************
 class ListaOrdenada{
     ///Inicio de la lista. Variable auxiliar para desplazarnos en la Lista de forma interna
 	Caja *principio,*anterior;

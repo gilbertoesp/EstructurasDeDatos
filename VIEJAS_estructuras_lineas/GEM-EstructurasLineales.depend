@@ -4,10 +4,14 @@
 	<cstdlib>
 	"lista_doble.h"
 
+1488958296 le.h"
+
 1488225080 source:c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\pila.cpp
 	<iostream>
 	<cstdlib>
 	"pila.h"
+
+1489782380 
 
 1487881289 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\pila.h
 	"caja.h"
@@ -27,6 +31,8 @@
 	<cstdlib>
 	"lista_ord.h"
 
+1488870353 .h"
+
 1488443333 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord.h
 	"caja.h"
 
@@ -35,8 +41,12 @@
 	<cstdlib>
 	"lista_ord_repAlta.h"
 
+1488494386 _repAlta.h"
+
 1488487626 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord_repalta.h
 	"cajaDos.h"
+
+1488487626 "
 
 1488488268 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\cajados.h
 
@@ -45,11 +55,15 @@
 	<cstdlib>
 	"lista_ord_repBaja.h"
 
+1488494433 _repBaja.h"
+
 1488492385 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_ord_repbaja.h
 	"caja.h"
 
 1488872079 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\lista_doble.h
 	"cajaDobleLigada.h"
+
+1490771208 Ligada.h"
 
 1488869807 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\gem-estructuraslineales\cajadobleligada.h
 
@@ -109,6 +123,8 @@
 	<cstdlib>
 	"lista_mitad.h"
 
+1489652367 ad.h"
+
 1489652472 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\lista_mitad.h
 	"cajaDobleLigada.h"
 
@@ -125,9 +141,81 @@
 	<cstdlib>
 	"ListaDoble.h"
 
+1490770756 e.h"
+
 1489782380 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\listaord.h
 	"caja.h"
 
 1490771208 c:\users\gilberto espinoza\documents\megasync\estructuras de datos\parcial2\gem-estructuraslineales\listadoble.h
 	"cajaDobleLigada.h"
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/cola.cpp
+	<iostream>
+	<cstdlib>
+	"cola.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/cola.h
+	"caja.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/caja.h
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_doble.cpp
+	<iostream>
+	<cstdlib>
+	"lista_doble.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_doble.h
+	"cajaDobleLigada.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/cajaDobleLigada.h
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_mitad.cpp
+	<iostream>
+	<cstdlib>
+	"lista_mitad.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_mitad.h
+	"cajaDobleLigada.h"
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_ord.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_ord.h
+	"caja.h"
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_ord_repAlta.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord_repAlta.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_ord_repAlta.h
+	"cajaDos.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/cajaDos.h
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_ord_repBaja.cpp
+	<iostream>
+	<cstdlib>
+	"lista_ord_repBaja.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/lista_ord_repBaja.h
+	"caja.h"
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/main.cpp
+	<iostream>
+	<cstdlib>
+	"ListaDoble.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/ListaDoble.h
+	"cajaDobleLigada.h"
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/pila.cpp
+	<iostream>
+	<cstdlib>
+	"pila.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/VIEJAS_estructuras_lineas/pila.h
+	"caja.h"
 

@@ -32,14 +32,12 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Caja.h" />
-<<<<<<< HEAD
-=======
-		<Unit filename="Caja.h" />
->>>>>>> 8c36e193278bb5b0cc0dcd383852678e60817711
 		<Unit filename="Cola.cpp" />
 		<Unit filename="Cola.h" />
 		<Unit filename="ListaOrdenada.cpp" />
 		<Unit filename="ListaOrdenada.h" />
+		<Unit filename="ListaOrdenadaRepBaja.cpp" />
+		<Unit filename="ListaOrdenadaRepBaja.h" />
 		<Unit filename="Pila.cpp" />
 		<Unit filename="Pila.h" />
 		<Unit filename="main.cpp" />

@@ -20,39 +20,49 @@
 
 1505165854 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\caja.h
 
-1505336164 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.cpp
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.cpp
 	<cstdlib>
 	<iostream>
 	"Caja.h"
 	"Cola.h"
 
-1506327265 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
+1506330230 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
 
-1506327708 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
 	"Caja.h"
 
-1506325427 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
 	<cstdlib>
 	<iostream>
 	"Caja.h"
 	"ListaOrdenada.h"
 
-1506328279 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
+1506330223 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
 	"Caja.h"
 
-1505433755 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
+1506372667 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
 	<cstdlib>
 	<iostream>
 	"Pila.h"
 	"Cola.h"
 	"ListaOrdenada.h"
+	"ListaOrdenadaRepBaja.h"
 
-1506327709 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
 	"Caja.h"
 
-1505336203 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.cpp
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.cpp
 	<iostream>
 	<cstdlib>
 	"Pila.h"
+	"Caja.h"
+
+1506374667 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"ListaOrdenadaRepBaja.h"
+
+1506330159 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.h
 	"Caja.h"
 
