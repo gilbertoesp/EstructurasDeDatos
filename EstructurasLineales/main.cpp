@@ -60,7 +60,7 @@ int main()
     lista.pintar();
     std::cout << std::endl;
     std::cout << "Cantidad de elementos en la Lista: " << lista.cuantosSon() << std::endl;
-    std<<cout << "\nSacando el primer valor de la lista: " << lista.sacar() << std::endl;
+    std::cout << "\nSacando el primer valor de la lista: " << lista.sacar() << std::endl;
     std::cout << "\nPintando Lista: " << std::endl;
     lista.pintar();
     std::cout << std::endl;

@@ -7,6 +7,8 @@
 	<cstdlib>
 	<iostream>
 
+1505165873 
+
 1505165898 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\pila.cpp
 	<iostream>
 	<cstdlib>
@@ -17,4 +19,40 @@
 	"Caja.h"
 
 1505165854 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\caja.h
+
+1505336164 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"Cola.h"
+
+1505331615 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
+
+1505334735 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
+	"Caja.h"
+
+1506325427 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"ListaOrdenada.h"
+
+1505433941 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
+	"Caja.h"
+
+1505433755 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
+	<cstdlib>
+	<iostream>
+	"Pila.h"
+	"Cola.h"
+	"ListaOrdenada.h"
+
+1505331615 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
+	"Caja.h"
+
+1505336203 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.cpp
+	<iostream>
+	<cstdlib>
+	"Pila.h"
+	"Caja.h"
 
