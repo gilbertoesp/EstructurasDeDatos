@@ -26,9 +26,9 @@
 	"Caja.h"
 	"Cola.h"
 
-1505331615 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
+1506327265 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
 
-1505334735 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
+1506327708 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
 	"Caja.h"
 
 1506325427 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
@@ -37,7 +37,7 @@
 	"Caja.h"
 	"ListaOrdenada.h"
 
-1505433941 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
+1506328279 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
 	"Caja.h"
 
 1505433755 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
@@ -47,7 +47,7 @@
 	"Cola.h"
 	"ListaOrdenada.h"
 
-1505331615 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
+1506327709 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
 	"Caja.h"
 
 1505336203 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.cpp

@@ -71,6 +71,7 @@ int main()
     std::cout << std::endl;
 
 
+    std::cout << "\n\n" << std::endl;
     system("pause");
     return 0;
 }

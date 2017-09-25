@@ -1,6 +1,7 @@
 /**
-	GEM-.cpp
-[Descripcion]
+	Pila.cpp
+    Estructura Lineal tipo Pila que segui la naturaleza de First Out Last Out.
+
  Gilberto Espinoza
 @date
 */

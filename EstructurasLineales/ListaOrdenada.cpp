@@ -1,5 +1,6 @@
 /**
-	LISTA ORDENADA
+	ListaOrdenada.cpp
+	Estructura lineal que organiza los datos dados de menor a mayor
 */
 #include <cstdlib>
 #include <iostream>
@@ -57,14 +58,14 @@ void ListaOrdenada::buscar(int a)
 				else if(!p->siguiente)		donde = FINAL;
 				else						donde = EN_MEDIO;
                 //Dado que se encontro, regresamos
-                return;
+                break;
             //Llegamos a un elemento mayor al buscado y no se encontro
 			}else{
 				encontrado = NO;
 				if(!anterior)				donde = PRINCIPIO;
 				else						donde = EN_MEDIO;
 				//Como el ya estamos en un valor mayor al cual buscamos, regresamos
-				return;
+				break;
 			}
 		}
 	}
@@ -102,6 +103,8 @@ int ListaOrdenada::agregar(int a)
 		default:
 			return 0;
 	}
+
+	lugar_agregado = p;
 	cuantos++;
 	return 1;
 }
@@ -161,8 +164,12 @@ int ListaOrdenada::cuantosSon()
     return cuantos;
 }
 //*******************************************************************************************
+Caja * ListaOrdenada::LugarAgregado()
+{
+    return lugar_agregado;
+}
 
-
+//*******************************************************************************************
 
 
 
