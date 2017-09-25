@@ -11,7 +11,7 @@ class ListaOrdenada{
 	Caja *principio,*anterior;
 	int cuantos;
 	Posicion donde;
-	Boolean encontrado
+	Boolean encontrado;
 
 public:
 /**
@@ -33,27 +33,27 @@ public:
 	\param
 	\return
 */
-	void agregar(int a);
+	int agregar(int a);
 /**
 	\param
 	\return
 */
-	void borrar(int a);	
+	int borrar(int a);
 /**
 	\param
 	\return
 */
 	int sacar();
 /**
-	\param
-	\return
+    \param
+    \return
 */
-	Caja * LugarAgregado();
+    void pintar();
 /**
 	\param
 	\return
 */
 	int cuantosSon();
-}
+};
 
 #endif // LISTAORDENADA_H_INCLUDED

@@ -24,13 +24,13 @@ ListaOrdenada::~ListaOrdenada()
 		principio = principio->siguiente;
 		delete p;
 	}
-	principio = anterior = NULL
+	principio = anterior = NULL;
 	cuantos = 0;
 }
 //*******************************************************************************************
 void ListaOrdenada::buscar(int a)
 {
-	Caja *p;
+	Caja *p = NULL;
 
 	if(!principio){
 		encontrado = NO;
@@ -49,25 +49,27 @@ void ListaOrdenada::buscar(int a)
 				p = p->siguiente;
 				//Verificamos si no llegamos al final de la Lista
 				if(!p)						donde = FINAL;
-				//Hemos encontrado el valor buscado
+            //Hemos encontrado el valor buscado
 			}else if(p->valor == a){
 				encontrado = SI;
 				//Vemos en que seccion de la lista se encuentra
 				if(p == principio)			donde = PRINCIPIO;
 				else if(!p->siguiente)		donde = FINAL;
 				else						donde = EN_MEDIO;
-				//Llegamos a un elemento mayor al buscado y no se encontro
+                //Dado que se encontro, regresamos
+                return;
+            //Llegamos a un elemento mayor al buscado y no se encontro
 			}else{
 				encontrado = NO;
 				if(!anterior)				donde = PRINCIPIO;
 				else						donde = EN_MEDIO;
-				//Como el ya estamos en un valor mayor al cual buscamos, rompemos el ciclo
-				break;
+				//Como el ya estamos en un valor mayor al cual buscamos, regresamos
+				return;
 			}
 		}
 	}
 	return;
-}	
+}
 //*******************************************************************************************
 int ListaOrdenada::agregar(int a)
 {
@@ -75,7 +77,7 @@ int ListaOrdenada::agregar(int a)
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
 	buscar(a);
 
-	if(encontrado) return 0;
+	if(encontrado == SI) return 0;
 
 	p = new Caja;
 	p->valor = a;
@@ -106,12 +108,12 @@ int ListaOrdenada::agregar(int a)
 //*******************************************************************************************
 int ListaOrdenada::borrar(int a)
 {
-	Caja *p;
+	Caja *p = NULL;
 	//Buscamos el elemento a borrar
 	buscar(a);
-	if(!encontrado) return 0;
+	if(encontrado == NO) return 0;
 
-	if(anterior == NULL){
+	if(!anterior){
 		p = principio;
 		principio = p->siguiente;
 	}else{
@@ -122,6 +124,24 @@ int ListaOrdenada::borrar(int a)
 	delete p;
 	cuantos--;
 	return 1;
+}
+//*******************************************************************************************
+#define VACIO 9999999
+int ListaOrdenada::sacar()
+{
+	Caja *p;
+	int valor;
+
+	if(!principio) valor = VACIO;
+	else{
+		p = principio;
+		valor = p->valor;
+		principio = p->siguiente;
+
+		delete p;
+		cuantos--;
+	}
+	return valor;
 }
 //*******************************************************************************************
 void ListaOrdenada::pintar()
@@ -136,25 +156,11 @@ void ListaOrdenada::pintar()
 	}
 }
 //*******************************************************************************************
-#define VACIO 9999999
-int ListaOrdenada::sacar()
+int ListaOrdenada::cuantosSon()
 {
-	Caja *p;
-	int valor;
-
-	if(!principio) valor = VACIO;
-	else{
-		p = principio;
-		valor = p->siguiente;
-		principio = p->siguiente;
-
-		delete p;
-		cuantos--;
-	}
-	return valor;
+    return cuantos;
 }
 //*******************************************************************************************
-
 
 
 
