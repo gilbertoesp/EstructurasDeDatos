@@ -8,9 +8,4 @@ struct Caja{
     int valor;
     Caja *siguiente;
 };
-/// Enumeraciones necesarias para ubicarnos en las Listas
-//*******************************************************************************************
-enum Posicion{VACIO,PRINCIPIO,EN_MEDIO,FINAL};
-enum Boolean{NO,SI};
-//*******************************************************************************************
 #endif // CAJA_H_INCLUDED

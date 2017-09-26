@@ -1,7 +1,8 @@
-#ifndef LISTAORDENADAREBBAJA_H_INCLUDED
-#define LISTAORDENADAREBBAJA_H_INCLUDED
+#ifndef LISTAORDENADAREPBAJA_H_INCLUDED
+#define LISTAORDENADAREPBAJA_H_INCLUDED
 
 #include "Caja.h"
+#include "Enumeraciones.h"
 /**
     Estructura lineal que organiza los datos dados de menor a mayor
 	Esta Lista permite la repeticion de Datos, se recomineda que la repeticion de esta sea
@@ -65,4 +66,4 @@ public:
     Caja * LugarAgregado();
 };
 
-#endif // LISTAORDENADAREBBAJA_H_INCLUDED
+#endif // LISTAORDENADAREPBAJA_H_INCLUDED
