@@ -10,6 +10,7 @@
 #include "ListaOrdenada.h"
 #include "ListaOrdenadaRepBaja.h"
 #include "ListaOrdenadaRepAlta.h"
+#include "ListaDobleLigada.h"
 
 int main()
 {
@@ -127,6 +128,39 @@ int main()
     listaRA.pintar();
     std::cout << std::endl;
 //*************************************************************************************************************************************
+    std::cout << "\n\n\t\t\tLISTA DOBLE LIGADA\n" << std::endl;
+    std::cout << "Agregando 8, 5, 9, 4, 7 a la Lista" << std::endl;
+    ListaDobleLigada listaDL;
+    listaDL.agregar(8);
+    listaDL.agregar(5);
+    listaDL.agregar(9);
+    listaDL.agregar(4);
+    listaDL.agregar(7);
+    std::cout << "\nPintando Lista 1: ";
+    listaDL.pintar1();
+    std::cout << std::endl;
+    std::cout << "\nPintando Lista 2: ";
+    listaDL.pintar2();
+    std::cout << std::endl;
+    std::cout << "Cantidad de elementos en la Lista: " << listaDL.cuantosSon() << std::endl;
+    std::cout << "\nSacando el primer valor de la listaDL: " << listaDL.sacar() << std::endl;
+    std::cout << "\nPintando Lista 1: ";
+    listaDL.pintar1();
+    std::cout << std::endl;
+    std::cout << "\nPintando Lista 2: ";
+    listaDL.pintar2();
+    std::cout << std::endl;
+    std::cout << "Eliminando el elemento 8" << std::endl;
+    listaDL.borrar(8);
+    std::cout << std::endl;
+    std::cout << "\nPintando Lista 1: ";
+    listaDL.pintar1();
+    std::cout << std::endl;
+    std::cout << "\nPintando Lista 2: ";
+    listaDL.pintar2();
+    std::cout << std::endl;
+//*************************************************************************************************************************************
+
     std::cout << "\n\n" << std::endl;
     system("pause");
     return 0;
