@@ -2,6 +2,7 @@
 #define LISTAORDENADA_H_INCLUDED
 
 #include "Caja.h"
+#include "Enumeraciones.h"
 /**
     Estructura lineal que organiza los datos dados de menor a mayor
 */

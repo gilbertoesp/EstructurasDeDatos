@@ -9,6 +9,7 @@
 #include "Cola.h"
 #include "ListaOrdenada.h"
 #include "ListaOrdenadaRepBaja.h"
+#include "ListaOrdenadaRepAlta.h"
 
 int main()
 {
@@ -97,7 +98,35 @@ int main()
     listaRB.pintar();
     std::cout << std::endl;
 //*************************************************************************************************************************************
-
+    std::cout << "\n\n\t\t\tLISTA ORDENADA CON REPETICION ALTA\n" << std::endl;
+    std::cout << "Agregando 8, 5, 9, 4, 7, 8, 4 a la Lista" << std::endl;
+    ListaOrdenadaRepAlta listaRA;
+    listaRA.agregar(8);
+    listaRA.agregar(5);
+    listaRA.agregar(9);
+    listaRA.agregar(4);
+    listaRA.agregar(7);
+    listaRA.agregar(8);
+    listaRA.agregar(4);
+    std::cout << "\nPintando Lista: " << std::endl;
+    listaRA.pintar();
+    std::cout << std::endl;
+    std::cout << "Cantidad de elementos en la Lista: " << listaRA.cuantosSon() << std::endl;
+    std::cout << "\nSacando el primer valor de la listaRA: " << listaRA.sacar() << std::endl;
+    std::cout << "\nPintando Lista: " << std::endl;
+    listaRA.pintar();
+    std::cout << std::endl;
+    std::cout << "Eliminando el elemento 8" << std::endl;
+    listaRA.borrar(8);
+    std::cout << "\nPintando Lista: " << std::endl;
+    listaRA.pintar();
+    std::cout << std::endl;
+    std::cout << "Eliminando el elemento 8" << std::endl;
+    listaRA.borrar(8);
+    std::cout << "\nPintando Lista: " << std::endl;
+    listaRA.pintar();
+    std::cout << std::endl;
+//*************************************************************************************************************************************
     std::cout << "\n\n" << std::endl;
     system("pause");
     return 0;
