@@ -1,6 +1,6 @@
 /**
 	ListaOrden1.cpp
-	Estructura lineal que organiza los datos dados de menor a mayor
+	Estructura lineal que organiza los datos por su NOMBRE de forma ascendete
 */
 #include <cstdlib>
 #include <iostream>
@@ -32,7 +32,7 @@ ListaOrden1::~ListaOrden1()
 	cuantos = 0;
 }
 //*******************************************************************************************
-void ListaOrden1::buscar(int a)
+void ListaOrden1::buscar(CajaPersona *a)
 {
 	CajaPersona *p = NULL;
 
@@ -54,7 +54,7 @@ void ListaOrden1::buscar(int a)
 				//Verificamos si no llegamos al final de la Lista
 				if(!p)						donde = FINAL;
             //Hemos encontrado el valor buscado
-			}else if(p->valor == a){
+			}else if(p-> == a){
 				encontrado = SI;
 				//Vemos en que seccion de la lista se encuentra
 				if(p == principio)			donde = PRINCIPIO;

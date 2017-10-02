@@ -4,7 +4,7 @@
 #include "CajaPersona.h"
 #include "Enumeraciones.h"
 /**
-    Estructura lineal que organiza los datos dados de menor a mayor
+	Estructura lineal que organiza los datos por su NOMBRE de forma ascendete
 */
 //*******************************************************************************************
 class ListaOrden1{
@@ -30,19 +30,19 @@ public:
         busqueda en las variables auxiliares (CajaPersona*) anterior, (Posicion) donde y (Boolean) encontrado
         \param a Dato a buscar
     */
-	void buscar(int a);
+	void buscar(CajaPersona *a)
     /**
         Agrega el nuevo dato al estructura
         \param a Dato a agregar
         \return 0 Si el dato ya esta en la Lista, 1 Si se agrego de manera satisfactorio
     */
-	int agregar(int a);
+	int agregar(CajaPersona *a);
     /**
         Elimina un Dato especifico de la lista
         \param Dato a eliminar
         \return 0 Si el dato no se encuentra, (no se logro borrar) 1 si el dato fue borrado
     */
-	int borrar(int a);
+	int borrar(CajaPersona *p);
     /**
         Retira el dato que sigue segun la naturaleza de la estructura, eliminando su espacio en memoria
         y solo regresando el Dato (int)
@@ -50,7 +50,7 @@ public:
     */
 	int sacar();
     /**
-        Pinta la estructra en orden
+        Pinta la estructura en orden
     */
     void pintar();
     /**

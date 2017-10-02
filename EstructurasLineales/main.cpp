@@ -9,9 +9,13 @@
 #include "Cola.h"
 #include "ListaOrdenada.h"
 #include "ListaOrdenadaRepBaja.h"
+<<<<<<< HEAD
 #include "ListaOrdenadaRepAlta.h"
 #include "ListaDobleLigada.h"
 #include "ListaMitad.h"
+=======
+#include "ListaOrdenadaRepAlta.h"
+>>>>>>> 2a5b46b8b6a4c658349be76081e14a00cb194edc
 
 int main()
 {
@@ -129,6 +133,7 @@ int main()
     listaRA.pintar();
     std::cout << std::endl;
 //*************************************************************************************************************************************
+<<<<<<< HEAD
     std::cout << "\n\n\t\t\tLISTA DOBLE LIGADA\n" << std::endl;
     std::cout << "Agregando 8, 5, 9, 4, 7 a la Lista" << std::endl;
     ListaDobleLigada listaDL;
@@ -195,6 +200,8 @@ int main()
     //std::cout << "\tMitad anterior de la lista: " << listaM.Mitad()->anterior->valor << std::endl;
 //*************************************************************************************************************************************
 
+=======
+>>>>>>> 2a5b46b8b6a4c658349be76081e14a00cb194edc
     std::cout << "\n\n" << std::endl;
     system("pause");
     return 0;

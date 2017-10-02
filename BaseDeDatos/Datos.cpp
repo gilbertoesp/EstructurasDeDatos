@@ -9,6 +9,8 @@
 
 #include <iostream>
 #include <cstdlib>
+
+#include <string>
 #include "Datos.h"
 #include "CajaPersona.h"
 
@@ -72,24 +74,24 @@ void Datos::agregar(std::string nombre, std::string apellido)
 }
 //**********************************************************************
 #define VACIO 999999
-int Datos::sacar()
+std::string Datos::sacar()
 {
     CajaPersona *p;
-    int valor;
+    std::string dato;
+
     if(principio){
         p = principio;
         principio = principio->siguiente;
 
-        valor = p->valor;
+        p->nombre + " " + p->apellido;
 
         delete p;
-
         cuantos--;
     }else{
-        valor = VACIO;
+        dato = "NULL";
     }
 
-    return p->nombre.concat(" ");
+    return dato;
 }
 //**********************************************************************
 void Datos::pintarNombre()

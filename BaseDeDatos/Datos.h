@@ -39,7 +39,7 @@ public:
         y solo regresando el Dato (int)
         \return Siguiente valor en la estructura
     */
-    int sacar();
+    std::string sacar();
     /**
         Pinta la estructra en orden, mostrando primero el nombre
     */

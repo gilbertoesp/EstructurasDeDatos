@@ -27,6 +27,9 @@ bool BaseDeDatos::agregar(std::string nombre, std::string apellido)
 
     data.pintarNombre();
 
+    orden1.agregar(p);
+
+    return true;
 }
 //******************************************************************************************
 //bool borrar(string nombre, string apellido);
