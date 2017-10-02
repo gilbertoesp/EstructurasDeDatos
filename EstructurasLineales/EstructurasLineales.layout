@@ -27,7 +27,11 @@
 			<Cursor1 position="832" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
+	<File name="Pila.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
 	<File name="Caja.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 2a5b46b8b6a4c658349be76081e14a00cb194edc
 		<Cursor>
 			<Cursor1 position="303" topLine="0" />
 		</Cursor>
