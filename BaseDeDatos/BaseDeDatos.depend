@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1506963251 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDeDatos.cpp
+	<cstdlib>
+	<iostream>
+	<string>
+	"BaseDeDatos.h"
+
+1506963251 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDeDatos.h
+	"Datos.h"
+	"ListaOrden1.h"
+	"ListaOrden2.h"
+	<string>
+
+1506963166 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Datos.h
+	"CajaPersona.h"
+	<string>
+
+1506963067 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/CajaPersona.h
+	<string>
+
+1506963301 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaOrden1.h
+	"CajaPersona.h"
+	"Enumeraciones.h"
+
+1506376445 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Enumeraciones.h
+
+1506963301 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaOrden2.h
+	"CajaPersona.h"
+	"Enumeraciones.h"
+

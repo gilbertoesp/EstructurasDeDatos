@@ -1,40 +1,40 @@
 /**
-	ListaDobleLigada.cpp
+	ListaOrden2.cpp
 	Estructura lineal que organiza los datos dados de menor a mayor
 */
 #include <cstdlib>
 #include <iostream>
 //Estructura base
-#include "CajaDobleLigada.h"
+#include "Caja.h"
 //Prototipos
-#include "ListaDobleLigada.h"
+#include "ListaOrden2.h"
 
 //*******************************************************************************************
-ListaDobleLigada::ListaDobleLigada()
+ListaOrden2::ListaOrden2()
 {
-	principio = anterior = final = NULL;
+	principio = anterior = NULL;
 	cuantos = 0;
-    lugar_agregado = NULL;
+	lugar_agregado = NULL;
     donde = VACIO;
 	encontrado = NO;
 }
 //*******************************************************************************************
-ListaDobleLigada::~ListaDobleLigada()
+ListaOrden2::~ListaOrden2()
 {
-	CajaDobleLigada *p;
+	Caja *p;
 
 	while(principio){
 		p = principio;
 		principio = principio->siguiente;
 		delete p;
 	}
-	principio = anterior = final = NULL;
+	principio = anterior = NULL;
 	cuantos = 0;
 }
 //*******************************************************************************************
-void ListaDobleLigada::buscar(int a)
+void ListaOrden2::buscar(int a)
 {
-	CajaDobleLigada *p = NULL;
+	Caja *p = NULL;
 
 	if(!principio){
 		encontrado = NO;
@@ -75,41 +75,33 @@ void ListaDobleLigada::buscar(int a)
 	return;
 }
 //*******************************************************************************************
-int ListaDobleLigada::agregar(int a)
+int ListaOrden2::agregar(int a)
 {
-	CajaDobleLigada *p;
+	Caja *p;
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
 	buscar(a);
 
 	if(encontrado == SI) return 0;
 
-	p = new CajaDobleLigada;
+	p = new Caja;
 	p->valor = a;
 
 	switch(donde){
 		case VACIO:
 			p->siguiente = NULL;
-			p->anterior = NULL;
-			final = p;
 			principio = p;
 			break;
 		case PRINCIPIO:
 			p->siguiente = principio;
-			principio->anterior = p;
 			principio = p;
-			p->anterior = NULL;
 			break;
 		case EN_MEDIO:
-		    anterior->siguiente->anterior = p;
 			p->siguiente = anterior->siguiente;
 			anterior->siguiente = p;
-			p->anterior = anterior;
 			break;
 		case FINAL:
 			p->siguiente = NULL;
 			anterior->siguiente = p;
-			p->anterior = anterior;
-			final = p;
 			break;
 		default:
 			return 0;
@@ -120,9 +112,9 @@ int ListaDobleLigada::agregar(int a)
 	return 1;
 }
 //*******************************************************************************************
-int ListaDobleLigada::borrar(int a)
+int ListaOrden2::borrar(int a)
 {
-	CajaDobleLigada *p = NULL;
+	Caja *p = NULL;
 	//Buscamos el elemento a borrar
 	buscar(a);
 	if(encontrado == NO) return 0;
@@ -133,7 +125,6 @@ int ListaDobleLigada::borrar(int a)
 	}else{
 		p = anterior->siguiente;
 		anterior->siguiente = p->siguiente;
-		p->siguiente->anterior = anterior;
 	}
 
 	delete p;
@@ -142,17 +133,14 @@ int ListaDobleLigada::borrar(int a)
 }
 //*******************************************************************************************
 #define VACIO 9999999
-int ListaDobleLigada::sacar()
+int ListaOrden2::sacar()
 {
-	CajaDobleLigada *p;
-	int valor;
+	Caja *p;
 
 	if(!principio) valor = VACIO;
 	else{
 		p = principio;
-		valor = p->valor;
 		principio = p->siguiente;
-		principio->anterior = NULL;
 
 		delete p;
 		cuantos--;
@@ -160,36 +148,24 @@ int ListaDobleLigada::sacar()
 	return valor;
 }
 //*******************************************************************************************
-void ListaDobleLigada::pintar1()
+void ListaOrden2::pintar()
 {
-	CajaDobleLigada *p;
+	Caja *p;
 
 	p = principio;
 
-	while(p){
-		std::cout << p->valor << " ";
-		p = p->siguiente;
-	}
+    while(p){
+        std::cout << p->apellido << " " << p->nombre << std::endl;
+        p = p->siguiente;
+    }
 }
 //*******************************************************************************************
-void ListaDobleLigada::pintar2()
-{
-	CajaDobleLigada *p;
-
-	p = final;
-
-	while(p){
-		std::cout << p->valor << " ";
-		p = p->anterior;
-	}
-}
-//*******************************************************************************************
-int ListaDobleLigada::cuantosSon()
+int ListaOrden2::cuantosSon()
 {
     return cuantos;
 }
 //*******************************************************************************************
-CajaDobleLigada * ListaDobleLigada::LugarAgregado()
+Caja * ListaOrden2::LugarAgregado()
 {
     return lugar_agregado;
 }

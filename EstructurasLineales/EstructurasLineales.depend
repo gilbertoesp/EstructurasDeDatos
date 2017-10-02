@@ -31,7 +31,7 @@
 1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
 	"Caja.h"
 
-1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
+1506458800 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
 	<cstdlib>
 	<iostream>
 	"Caja.h"
@@ -41,7 +41,7 @@
 	"Caja.h"
 	"Enumeraciones.h"
 
-1506406439 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
+1506937399 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
 	<cstdlib>
 	<iostream>
 	"Pila.h"
@@ -50,6 +50,7 @@
 	"ListaOrdenadaRepBaja.h"
 	"ListaOrdenadaRepAlta.h"
 	"ListaDobleLigada.h"
+	"ListaMitad.h"
 
 1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
 	"Caja.h"
@@ -60,7 +61,7 @@
 	"Pila.h"
 	"Caja.h"
 
-1506375701 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.cpp
+1506546134 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.cpp
 	<cstdlib>
 	<iostream>
 	"Caja.h"
@@ -70,7 +71,7 @@
 	"Caja.h"
 	"Enumeraciones.h"
 
-1506390590 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.cpp
+1506458808 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.cpp
 	<cstdlib>
 	<iostream>
 	"CajaRepeticion.h"
@@ -85,7 +86,7 @@
 	"CajaRepeticion.h"
 	"Enumeraciones.h"
 
-1506406264 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaDobleLigada.cpp
+1506458786 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaDobleLigada.cpp
 	<cstdlib>
 	<iostream>
 	"CajaDobleLigada.h"
@@ -97,13 +98,13 @@
 	"CajaDobleLigada.h"
 	"Enumeraciones.h"
 
-1506406396 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.cpp
+1506937313 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.cpp
 	<cstdlib>
 	<iostream>
 	"CajaDobleLigada.h"
 	"ListaMitad.h"
 
-1506406403 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.h
+1506936700 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.h
 	"CajaDobleLigada.h"
 	"Enumeraciones.h"
 

@@ -15,6 +15,9 @@ ListaOrdenadaRepAlta::ListaOrdenadaRepAlta()
 {
 	principio = anterior = NULL;
 	cuantos = 0;
+	lugar_agregado = NULL;
+    donde = VACIO;
+	encontrado = NO;
 }
 //*******************************************************************************************
 ListaOrdenadaRepAlta::~ListaOrdenadaRepAlta()

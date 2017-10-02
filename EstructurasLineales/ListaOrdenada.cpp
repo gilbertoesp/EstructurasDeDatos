@@ -14,6 +14,9 @@ ListaOrdenada::ListaOrdenada()
 {
 	principio = anterior = NULL;
 	cuantos = 0;
+	lugar_agregado = NULL;
+    donde = VACIO;
+	encontrado = NO;
 }
 //*******************************************************************************************
 ListaOrdenada::~ListaOrdenada()

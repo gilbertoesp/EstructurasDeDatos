@@ -1,5 +1,5 @@
 /**
-	ListaDobleLigada.cpp
+	ListaMitad.cpp
 	Estructura lineal que organiza los datos dados de menor a mayor
 */
 #include <cstdlib>
@@ -7,19 +7,19 @@
 //Estructura base
 #include "CajaDobleLigada.h"
 //Prototipos
-#include "ListaDobleLigada.h"
+#include "ListaMitad.h"
 
 //*******************************************************************************************
-ListaDobleLigada::ListaDobleLigada()
+ListaMitad::ListaMitad()
 {
-	principio = anterior = final = NULL;
-	cuantos = 0;
-    lugar_agregado = NULL;
-    donde = VACIO;
+	principio = anterior = mitad = NULL;
+	cuantos = mayores = menores = 0;
+    lugar_agregado= NULL;
+	donde = VACIO;
 	encontrado = NO;
 }
 //*******************************************************************************************
-ListaDobleLigada::~ListaDobleLigada()
+ListaMitad::~ListaMitad()
 {
 	CajaDobleLigada *p;
 
@@ -28,11 +28,11 @@ ListaDobleLigada::~ListaDobleLigada()
 		principio = principio->siguiente;
 		delete p;
 	}
-	principio = anterior = final = NULL;
+	principio = anterior = mitad = NULL;
 	cuantos = 0;
 }
 //*******************************************************************************************
-void ListaDobleLigada::buscar(int a)
+void ListaMitad::buscar(int a)
 {
 	CajaDobleLigada *p = NULL;
 
@@ -75,7 +75,7 @@ void ListaDobleLigada::buscar(int a)
 	return;
 }
 //*******************************************************************************************
-int ListaDobleLigada::agregar(int a)
+int ListaMitad::agregar(int a)
 {
 	CajaDobleLigada *p;
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
@@ -90,37 +90,43 @@ int ListaDobleLigada::agregar(int a)
 		case VACIO:
 			p->siguiente = NULL;
 			p->anterior = NULL;
-			final = p;
 			principio = p;
+            //Inicializamos mitad y mayores
+			mitad = p;
 			break;
 		case PRINCIPIO:
 			p->siguiente = principio;
 			principio->anterior = p;
 			principio = p;
 			p->anterior = NULL;
+
 			break;
 		case EN_MEDIO:
 		    anterior->siguiente->anterior = p;
 			p->siguiente = anterior->siguiente;
 			anterior->siguiente = p;
 			p->anterior = anterior;
+
 			break;
 		case FINAL:
 			p->siguiente = NULL;
 			anterior->siguiente = p;
 			p->anterior = anterior;
-			final = p;
+
 			break;
 		default:
 			return 0;
 	}
 
 	lugar_agregado = p;
+
+    ajustarMitad(lugar_agregado);
+
 	cuantos++;
 	return 1;
 }
 //*******************************************************************************************
-int ListaDobleLigada::borrar(int a)
+int ListaMitad::borrar(int a)
 {
 	CajaDobleLigada *p = NULL;
 	//Buscamos el elemento a borrar
@@ -133,8 +139,9 @@ int ListaDobleLigada::borrar(int a)
 	}else{
 		p = anterior->siguiente;
 		anterior->siguiente = p->siguiente;
-		p->siguiente->anterior = anterior;
 	}
+
+    //ajustarMitad(p);
 
 	delete p;
 	cuantos--;
@@ -142,7 +149,7 @@ int ListaDobleLigada::borrar(int a)
 }
 //*******************************************************************************************
 #define VACIO 9999999
-int ListaDobleLigada::sacar()
+int ListaMitad::sacar()
 {
 	CajaDobleLigada *p;
 	int valor;
@@ -152,7 +159,8 @@ int ListaDobleLigada::sacar()
 		p = principio;
 		valor = p->valor;
 		principio = p->siguiente;
-		principio->anterior = NULL;
+
+        //ajustarMitad(p);
 
 		delete p;
 		cuantos--;
@@ -160,7 +168,7 @@ int ListaDobleLigada::sacar()
 	return valor;
 }
 //*******************************************************************************************
-void ListaDobleLigada::pintar1()
+void ListaMitad::pintar()
 {
 	CajaDobleLigada *p;
 
@@ -172,32 +180,40 @@ void ListaDobleLigada::pintar1()
 	}
 }
 //*******************************************************************************************
-void ListaDobleLigada::pintar2()
-{
-	CajaDobleLigada *p;
-
-	p = final;
-
-	while(p){
-		std::cout << p->valor << " ";
-		p = p->anterior;
-	}
-}
-//*******************************************************************************************
-int ListaDobleLigada::cuantosSon()
+int ListaMitad::cuantosSon()
 {
     return cuantos;
 }
 //*******************************************************************************************
-CajaDobleLigada * ListaDobleLigada::LugarAgregado()
+int ListaMitad::mayoresSon()
+{
+    return mayores;
+}
+//*******************************************************************************************
+int ListaMitad::menoresSon()
+{
+    return menores;
+}
+//*******************************************************************************************
+CajaDobleLigada * ListaMitad::LugarAgregado()
 {
     return lugar_agregado;
 }
+//********************************************************************************************
+CajaDobleLigada * ListaMitad::Mitad()
+{
+    return mitad;
+}
+//********************************************************************************************
+void ListaMitad::ajustarMitad(CajaDobleLigada lugar)
+{
+    CajaDobleLigada *p1;
 
-//*******************************************************************************************
+    p1 = lugar;
 
-
-
+    if(lugar)
+}
+//********************************************************************************************
 
 
 

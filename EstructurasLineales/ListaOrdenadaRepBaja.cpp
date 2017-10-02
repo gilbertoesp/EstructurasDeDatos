@@ -16,6 +16,9 @@ ListaOrdenadaRepBaja::ListaOrdenadaRepBaja()
 {
 	principio = anterior = NULL;
 	cuantos = 0;
+    lugar_agregado = NULL;
+    donde = VACIO;
+	encontrado = NO;
 }
 //*******************************************************************************************
 ListaOrdenadaRepBaja::~ListaOrdenadaRepBaja()
@@ -83,6 +86,7 @@ void ListaOrdenadaRepBaja::agregar(int a)
 	p = new Caja;
 	p->valor = a;
     if(a == 9) std::cout << "donde: " << donde << std::endl;
+
 	switch(donde){
 		case VACIO:
 			p->siguiente = NULL;
@@ -97,8 +101,14 @@ void ListaOrdenadaRepBaja::agregar(int a)
 			anterior->siguiente = p;
 			break;
 		case FINAL:
-		    p->siguiente = NULL;
-            anterior->siguiente = p;
+            if(encontrado == SI){
+                p->siguiente = anterior->siguiente;
+                anterior->siguiente = p;
+            }else{
+                p->siguiente = NULL;
+                anterior->siguiente = p;
+            }
+
 			break;
 		default:
 			return;

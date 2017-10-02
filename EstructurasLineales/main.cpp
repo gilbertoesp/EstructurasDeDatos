@@ -11,6 +11,7 @@
 #include "ListaOrdenadaRepBaja.h"
 #include "ListaOrdenadaRepAlta.h"
 #include "ListaDobleLigada.h"
+#include "ListaMitad.h"
 
 int main()
 {
@@ -59,8 +60,6 @@ int main()
     lista.agregar(9);
     lista.agregar(4);
     lista.agregar(7);
-    lista.agregar(7);
-    lista.agregar(10);
     std::cout << "\nPintando Lista: " << std::endl;
     lista.pintar();
     std::cout << std::endl;
@@ -85,6 +84,8 @@ int main()
     listaRB.agregar(7);
     listaRB.agregar(8);
     listaRB.agregar(4);
+    listaRB.agregar(9);
+    listaRB.agregar(9);
     std::cout << "\nPintando Lista: " << std::endl;
     listaRB.pintar();
     std::cout << std::endl;
@@ -159,6 +160,39 @@ int main()
     std::cout << "\nPintando Lista 2: ";
     listaDL.pintar2();
     std::cout << std::endl;
+//*************************************************************************************************************************************
+    std::cout << "\n\n\t\t\tLISTA CON MITAD\n" << std::endl;
+    std::cout << "Agregando 8, 5, 9, 4, 7, 6, 3, 0 a la Lista" << std::endl;
+    ListaMitad listaM;
+    listaM.agregar(8);
+    listaM.agregar(5);
+    listaM.agregar(9);
+    listaM.agregar(4);
+    listaM.agregar(7);
+    listaM.agregar(6);
+    listaM.agregar(3);
+    //listaM.agregar(0);
+    std::cout << "\nPintando Lista: " << std::endl;
+    listaM.pintar();
+    std::cout << std::endl;
+    std::cout << "\nCantidad de elementos en la Lista: " << listaM.cuantosSon() << std::endl;
+    std::cout << "Cantidad de Mayores: " << listaM.mayoresSon() << std::endl;
+    std::cout << "Cantidad de menores: " << listaM.menoresSon() << std::endl;
+    std::cout << "\tMitad de la lista: " << listaM.Mitad()->valor << std::endl;
+    //std::cout << "\tMitad siguiente de la lista: " << listaM.Mitad()->siguiente->valor << std::endl;
+    //std::cout << "\tMitad anterior de la lista: " << listaM.Mitad()->anterior->valor << std::endl;
+    std::cout << "\nSacando el primer valor de la listaM: " << listaM.sacar() << std::endl;
+    std::cout << "\nPintando Lista: " << std::endl;
+    listaM.pintar();
+    std::cout << std::endl;
+    //std::cout << "\nEliminando el elemento 8" << std::endl;
+    //listaM.borrar(8);
+    std::cout << "\nPintando Lista: " << std::endl;
+    listaM.pintar();
+    std::cout << std::endl;
+    std::cout << "\tMitad de la lista: " << listaM.Mitad()->valor << std::endl;
+    //std::cout << "\tMitad siguiente de la lista: " << listaM.Mitad()->siguiente->valor << std::endl;
+    //std::cout << "\tMitad anterior de la lista: " << listaM.Mitad()->anterior->valor << std::endl;
 //*************************************************************************************************************************************
 
     std::cout << "\n\n" << std::endl;
