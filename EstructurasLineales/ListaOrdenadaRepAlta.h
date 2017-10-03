@@ -1,17 +1,17 @@
-#ifndef LISTAORDENADA_H_INCLUDED
-#define LISTAORDENADA_H_INCLUDED
+#ifndef LISTAORDENADAREPALTA_H_INCLUDED
+#define LISTAORDENADAREPALTA_H_INCLUDED
 
-#include "Caja.h"
+#include "CajaRepeticion.h"
 #include "Enumeraciones.h"
 /**
     Estructura lineal que organiza los datos dados de menor a mayor
 */
 //*******************************************************************************************
-class ListaOrdenada{
+class ListaOrdenadaRepAlta{
     ///Inicio de la lista. Variable auxiliar para desplazarnos en la Lista de forma interna
-	Caja *principio,*anterior;
+	CajaRepeticion *principio,*anterior;
 	/// Ultimo dato en ser agregado
-	Caja *lugar_agregado;
+	CajaRepeticion *lugar_agregado;
 	int cuantos;
 	Posicion donde;
 	Boolean encontrado;
@@ -20,14 +20,14 @@ public:
     /**
         Constructor que inicializa los atributos del objeto en NULL o 0, segun corresponda
     */
-	ListaOrdenada();
+	ListaOrdenadaRepAlta();
     /**
        Destructor que libera la memoria solicitada de toda la estructura
     */
-	~ListaOrdenada();
+	~ListaOrdenadaRepAlta();
     /**
-        Dado un Dato, los busca en la ListaOrdenada desde principio, guardando la informacion de la
-        busqueda en las variables auxiliares (Caja*) anterior, (Posicion) donde y (Boolean) encontrado
+        Dado un Dato, los busca en la ListaOrdenadaRepAlta desde principio, guardando la informacion de la
+        busqueda en las variables auxiliares (CajaRepeticion*) anterior, (Posicion) donde y (Boolean) encontrado
         \param a Dato a buscar
     */
 	void buscar(int a);
@@ -62,7 +62,7 @@ public:
     utiliza esta funcion
     \return Ultimo dato en ser agregado a la estructura
 */
-    Caja * LugarAgregado();
+    CajaRepeticion * LugarAgregado();
 };
 
-#endif // LISTAORDENADA_H_INCLUDED
+#endif // LISTAORDENADAREPALTA_H_INCLUDED

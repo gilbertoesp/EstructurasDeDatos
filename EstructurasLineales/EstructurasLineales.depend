@@ -7,6 +7,8 @@
 	<cstdlib>
 	<iostream>
 
+1505165873 
+
 1505165898 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\pila.cpp
 	<iostream>
 	<cstdlib>
@@ -17,4 +19,68 @@
 	"Caja.h"
 
 1505165854 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\caja.h
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"Cola.h"
+
+1506376588 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
+	"Caja.h"
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"ListaOrdenada.h"
+
+1506376603 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
+	"Caja.h"
+	"Enumeraciones.h"
+
+1506390551 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
+	<cstdlib>
+	<iostream>
+	"Pila.h"
+	"Cola.h"
+	"ListaOrdenada.h"
+	"ListaOrdenadaRepBaja.h"
+	"ListaOrdenadaRepAlta.h"
+
+1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
+	"Caja.h"
+
+1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.cpp
+	<iostream>
+	<cstdlib>
+	"Pila.h"
+	"Caja.h"
+
+1506375701 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"ListaOrdenadaRepBaja.h"
+
+1506390496 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.h
+	"Caja.h"
+	"Enumeraciones.h"
+
+1506390315 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.cpp
+	<cstdlib>
+	<iostream>
+	"CajaRepeticion.h"
+	"Enumeraciones.h"
+	"ListaOrdenadaRepAlta.h"
+
+1506389311 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/CajaRepeticion.h
+
+1506376445 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Enumeraciones.h
+
+1506390438 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.h
+	"CajaRepeticion.h"
+	"Enumeraciones.h"
 

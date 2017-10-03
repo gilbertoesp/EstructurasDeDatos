@@ -1,6 +1,6 @@
 /**
     Cola.cpp
-    Estructura Lineal de tipo cola, FIFO
+    Estructura Lineal tipo Cola que segui la naturaleza de First Out First Out.
     Gilberto Espinoza
 */
 #include <cstdlib>

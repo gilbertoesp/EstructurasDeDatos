@@ -1,13 +1,15 @@
-#ifndef LISTAORDENADA_H_INCLUDED
-#define LISTAORDENADA_H_INCLUDED
+#ifndef LISTAORDENADAREPBAJA_H_INCLUDED
+#define LISTAORDENADAREPBAJA_H_INCLUDED
 
 #include "Caja.h"
 #include "Enumeraciones.h"
 /**
     Estructura lineal que organiza los datos dados de menor a mayor
+	Esta Lista permite la repeticion de Datos, se recomineda que la repeticion de esta sea
+	pequena ya que genera una nueva caja por cada valor repetido o no
 */
 //*******************************************************************************************
-class ListaOrdenada{
+class ListaOrdenadaRepBaja{
     ///Inicio de la lista. Variable auxiliar para desplazarnos en la Lista de forma interna
 	Caja *principio,*anterior;
 	/// Ultimo dato en ser agregado
@@ -20,13 +22,13 @@ public:
     /**
         Constructor que inicializa los atributos del objeto en NULL o 0, segun corresponda
     */
-	ListaOrdenada();
+	ListaOrdenadaRepBaja();
     /**
        Destructor que libera la memoria solicitada de toda la estructura
     */
-	~ListaOrdenada();
+	~ListaOrdenadaRepBaja();
     /**
-        Dado un Dato, los busca en la ListaOrdenada desde principio, guardando la informacion de la
+        Dado un Dato, los busca en la ListaOrdenadaRepBaja desde principio, guardando la informacion de la
         busqueda en las variables auxiliares (Caja*) anterior, (Posicion) donde y (Boolean) encontrado
         \param a Dato a buscar
     */
@@ -34,9 +36,8 @@ public:
     /**
         Agrega el nuevo dato al estructura
         \param a Dato a agregar
-        \return 0 Si el dato ya esta en la Lista, 1 Si se agrego de manera satisfactorio
     */
-	int agregar(int a);
+	void agregar(int a);
     /**
         Elimina un Dato especifico de la lista
         \param Dato a eliminar
@@ -65,4 +66,4 @@ public:
     Caja * LugarAgregado();
 };
 
-#endif // LISTAORDENADA_H_INCLUDED
+#endif // LISTAORDENADAREPBAJA_H_INCLUDED

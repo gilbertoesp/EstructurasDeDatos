@@ -1,24 +1,25 @@
 /**
-	ListaOrdenada.cpp
+	ListaOrdenadaRepAlta.cpp
 	Estructura lineal que organiza los datos dados de menor a mayor
 */
 #include <cstdlib>
 #include <iostream>
 //Estructura base
-#include "Caja.h"
+#include "CajaRepeticion.h"
+#include "Enumeraciones.h"
 //Prototipos
-#include "ListaOrdenada.h"
+#include "ListaOrdenadaRepAlta.h"
 
 //*******************************************************************************************
-ListaOrdenada::ListaOrdenada()
+ListaOrdenadaRepAlta::ListaOrdenadaRepAlta()
 {
 	principio = anterior = NULL;
 	cuantos = 0;
 }
 //*******************************************************************************************
-ListaOrdenada::~ListaOrdenada()
+ListaOrdenadaRepAlta::~ListaOrdenadaRepAlta()
 {
-	Caja *p;
+	CajaRepeticion *p;
 
 	while(principio){
 		p = principio;
@@ -29,9 +30,9 @@ ListaOrdenada::~ListaOrdenada()
 	cuantos = 0;
 }
 //*******************************************************************************************
-void ListaOrdenada::buscar(int a)
+void ListaOrdenadaRepAlta::buscar(int a)
 {
-	Caja *p = NULL;
+	CajaRepeticion *p = NULL;
 
 	if(!principio){
 		encontrado = NO;
@@ -72,16 +73,27 @@ void ListaOrdenada::buscar(int a)
 	return;
 }
 //*******************************************************************************************
-int ListaOrdenada::agregar(int a)
+int ListaOrdenadaRepAlta::agregar(int a)
 {
-	Caja *p;
+	CajaRepeticion *p;
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
 	buscar(a);
 
-	if(encontrado == SI) return 0;
+    if(encontrado){
+        switch(donde){
+            case PRINCIPIO:
+                principio->cuantos++;
+                break;
+            default:
+                anterior->siguiente->cuantos++;
+                break;
+        }
+        return 1;
+    }
 
-	p = new Caja;
+	p = new CajaRepeticion;
 	p->valor = a;
+	p->cuantos = 1;
 
 	switch(donde){
 		case VACIO:
@@ -109,62 +121,76 @@ int ListaOrdenada::agregar(int a)
 	return 1;
 }
 //*******************************************************************************************
-int ListaOrdenada::borrar(int a)
+int ListaOrdenadaRepAlta::borrar(int a)
 {
-	Caja *p = NULL;
+	CajaRepeticion *p = NULL;
 	//Buscamos el elemento a borrar
 	buscar(a);
 	if(encontrado == NO) return 0;
-
+    //Si hay mas de 1 en la lista solo reduce su numero de repeticiones
 	if(!anterior){
-		p = principio;
-		principio = p->siguiente;
+	    if(principio->cuantos > 1){
+            principio->cuantos--;
+        }else{
+            p = principio;
+            principio = p->siguiente;
+            delete p;
+        }
 	}else{
-		p = anterior->siguiente;
-		anterior->siguiente = p->siguiente;
+        if(anterior->siguiente->cuantos > 1){
+            (anterior->siguiente->cuantos)--;
+        }else{
+            p = anterior->siguiente;
+            anterior->siguiente = p->siguiente;
+            delete p;
+        }
 	}
-
-	delete p;
 	cuantos--;
 	return 1;
 }
 //*******************************************************************************************
 #define VACIO 9999999
-int ListaOrdenada::sacar()
+int ListaOrdenadaRepAlta::sacar()
 {
-	Caja *p;
+	CajaRepeticion *p;
 	int valor;
 
 	if(!principio) valor = VACIO;
 	else{
-		p = principio;
-		valor = p->valor;
-		principio = p->siguiente;
+        if(principio->cuantos > 1 ){
+            valor = principio->valor;
+            principio->cuantos--;
+        }else{
+            p = principio;
+            valor = p->valor;
+            principio = p->siguiente;
 
-		delete p;
-		cuantos--;
+            delete p;
+        }
 	}
+    cuantos--;
 	return valor;
 }
 //*******************************************************************************************
-void ListaOrdenada::pintar()
+void ListaOrdenadaRepAlta::pintar()
 {
-	Caja *p;
+	CajaRepeticion *p;
 
 	p = principio;
 
 	while(p){
-		std::cout << p->valor << " ";
+		std::cout << "[" << p->valor << ", " << p->cuantos << "], ";
 		p = p->siguiente;
 	}
+	std::cout << "\b\b ";
 }
 //*******************************************************************************************
-int ListaOrdenada::cuantosSon()
+int ListaOrdenadaRepAlta::cuantosSon()
 {
     return cuantos;
 }
 //*******************************************************************************************
-Caja * ListaOrdenada::LugarAgregado()
+CajaRepeticion * ListaOrdenadaRepAlta::LugarAgregado()
 {
     return lugar_agregado;
 }

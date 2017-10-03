@@ -1,22 +1,24 @@
 /**
-	ListaOrdenada.cpp
+	ListaOrdenadaRepBaja.cpp
 	Estructura lineal que organiza los datos dados de menor a mayor
+	Esta Lista permite la repeticion de Datos, se recomineda que la repeticion de esta sea
+	pequena ya que genera una nueva caja por cada valor repetido o no
 */
 #include <cstdlib>
 #include <iostream>
 //Estructura base
 #include "Caja.h"
 //Prototipos
-#include "ListaOrdenada.h"
+#include "ListaOrdenadaRepBaja.h"
 
 //*******************************************************************************************
-ListaOrdenada::ListaOrdenada()
+ListaOrdenadaRepBaja::ListaOrdenadaRepBaja()
 {
 	principio = anterior = NULL;
 	cuantos = 0;
 }
 //*******************************************************************************************
-ListaOrdenada::~ListaOrdenada()
+ListaOrdenadaRepBaja::~ListaOrdenadaRepBaja()
 {
 	Caja *p;
 
@@ -29,7 +31,7 @@ ListaOrdenada::~ListaOrdenada()
 	cuantos = 0;
 }
 //*******************************************************************************************
-void ListaOrdenada::buscar(int a)
+void ListaOrdenadaRepBaja::buscar(int a)
 {
 	Caja *p = NULL;
 
@@ -49,21 +51,21 @@ void ListaOrdenada::buscar(int a)
 				anterior = p;
 				p = p->siguiente;
 				//Verificamos si no llegamos al final de la Lista
-				if(!p)						donde = FINAL;
+				if(!p)					    	donde = FINAL;
             //Hemos encontrado el valor buscado
 			}else if(p->valor == a){
 				encontrado = SI;
 				//Vemos en que seccion de la lista se encuentra
-				if(p == principio)			donde = PRINCIPIO;
-				else if(!p->siguiente)		donde = FINAL;
-				else						donde = EN_MEDIO;
+				if(p == principio)			    donde = PRINCIPIO;
+				else if(p->siguiente == NULL)   donde = FINAL;
+				else						    donde = EN_MEDIO;
                 //Dado que se encontro, regresamos
                 break;
             //Llegamos a un elemento mayor al buscado y no se encontro
 			}else{
 				encontrado = NO;
-				if(!anterior)				donde = PRINCIPIO;
-				else						donde = EN_MEDIO;
+				if(!anterior)			       	donde = PRINCIPIO;
+				else						    donde = EN_MEDIO;
 				//Como el ya estamos en un valor mayor al cual buscamos, regresamos
 				break;
 			}
@@ -72,17 +74,15 @@ void ListaOrdenada::buscar(int a)
 	return;
 }
 //*******************************************************************************************
-int ListaOrdenada::agregar(int a)
+void ListaOrdenadaRepBaja::agregar(int a)
 {
 	Caja *p;
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
 	buscar(a);
 
-	if(encontrado == SI) return 0;
-
 	p = new Caja;
 	p->valor = a;
-
+    if(a == 9) std::cout << "donde: " << donde << std::endl;
 	switch(donde){
 		case VACIO:
 			p->siguiente = NULL;
@@ -97,25 +97,25 @@ int ListaOrdenada::agregar(int a)
 			anterior->siguiente = p;
 			break;
 		case FINAL:
-			p->siguiente = NULL;
-			anterior->siguiente = p;
+		    p->siguiente = NULL;
+            anterior->siguiente = p;
 			break;
 		default:
-			return 0;
+			return;
 	}
 
 	lugar_agregado = p;
 	cuantos++;
-	return 1;
+	return;
 }
 //*******************************************************************************************
-int ListaOrdenada::borrar(int a)
+int ListaOrdenadaRepBaja::borrar(int a)
 {
 	Caja *p = NULL;
 	//Buscamos el elemento a borrar
 	buscar(a);
 	if(encontrado == NO) return 0;
-
+    //se borra el princio?
 	if(!anterior){
 		p = principio;
 		principio = p->siguiente;
@@ -130,7 +130,7 @@ int ListaOrdenada::borrar(int a)
 }
 //*******************************************************************************************
 #define VACIO 9999999
-int ListaOrdenada::sacar()
+int ListaOrdenadaRepBaja::sacar()
 {
 	Caja *p;
 	int valor;
@@ -147,7 +147,7 @@ int ListaOrdenada::sacar()
 	return valor;
 }
 //*******************************************************************************************
-void ListaOrdenada::pintar()
+void ListaOrdenadaRepBaja::pintar()
 {
 	Caja *p;
 
@@ -159,12 +159,12 @@ void ListaOrdenada::pintar()
 	}
 }
 //*******************************************************************************************
-int ListaOrdenada::cuantosSon()
+int ListaOrdenadaRepBaja::cuantosSon()
 {
     return cuantos;
 }
 //*******************************************************************************************
-Caja * ListaOrdenada::LugarAgregado()
+Caja * ListaOrdenadaRepBaja::LugarAgregado()
 {
     return lugar_agregado;
 }
