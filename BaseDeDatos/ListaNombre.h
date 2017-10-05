@@ -1,29 +1,34 @@
-#ifndef DATOS_H_INCLUDED
-#define DATOS_H_INCLUDED
+#ifndef LISTANOMBRE_H_INCLUDED
+#define LISTANOMBRE_H_INCLUDED
 
 /**
 	...
 
 	\author Gilberto Espinoza
 */
+#include "Caja.h"
 #include "Persona.h"
+#include "Enumeraciones.h"
 //*************************************************************************************************
 /**
 	...
 	\param
 	\return
 */
-class Datos{
-    Persona *principio, *lugar_agregado;
+class ListaNombre{
+    Caja *principio, *anterior;
+    Boolean encontrado;
+    Posicion donde;
 public:
+    ListaNombre() {principio = anterior = NULL;}
 
-    Datos() {principio = lugar_agregado = NULL;}
+    ~ListaNombre();
 
-    ~Datos();
+    void buscar(Persona *persona);
 
-    void agregar(std::string nombre, std::string apellido);
+    void agregar(Persona *persona);
 
-    Persona * lugarAgregado() { return lugar_agregado; }
+    void pintar();
 };
 //*************************************************************************************************
 /**
@@ -35,4 +40,4 @@ public:
 //*************************************************************************************************
 
 
-#endif // DATOS_H_INCLUDED
+#endif // LISTANOMBRE_H_INCLUDED

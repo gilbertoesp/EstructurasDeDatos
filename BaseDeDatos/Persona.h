@@ -1,29 +1,22 @@
-#ifndef DATOS_H_INCLUDED
-#define DATOS_H_INCLUDED
+#ifndef PERSONA_H_INCLUDED
+#define PERSONA_H_INCLUDED
 
 /**
-	...
+	Estructura simple que guarda el nombre de una persona, nombre y apellido, adicionalmente contiene
+	una variable para guardar el que siga de el (Persona *) y asi generar una estructura lineal
 
 	\author Gilberto Espinoza
 */
-#include "Persona.h"
+#include <string>
 //*************************************************************************************************
 /**
 	...
 	\param
-	\return
+	\param
 */
-class Datos{
-    Persona *principio, *lugar_agregado;
-public:
-
-    Datos() {principio = lugar_agregado = NULL;}
-
-    ~Datos();
-
-    void agregar(std::string nombre, std::string apellido);
-
-    Persona * lugarAgregado() { return lugar_agregado; }
+struct Persona{
+    std::string nombre, apellido;
+    Persona *siguiente;
 };
 //*************************************************************************************************
 /**
@@ -35,4 +28,4 @@ public:
 //*************************************************************************************************
 
 
-#endif // DATOS_H_INCLUDED
+#endif // PERSONA_H_INCLUDED

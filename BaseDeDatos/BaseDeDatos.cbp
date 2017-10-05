@@ -31,21 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="BaseDeDatos.cpp" />
-		<Unit filename="BaseDeDatos.h" />
-		<Unit filename="CajaPersona.h" />
-		<Unit filename="Datos.cpp" />
-		<Unit filename="Datos.h" />
-		<Unit filename="Enumeraciones.h" />
-		<Unit filename="ListaOrden1.cpp" />
-		<Unit filename="ListaOrden1.h" />
-		<Unit filename="ListaOrden2.cpp" />
-		<Unit filename="ListaOrden2.h" />
-		<Unit filename="main.cpp" />
 		<Extensions>
+			<envvars />
 			<code_completion />
 			<debugger />
-			<envvars />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

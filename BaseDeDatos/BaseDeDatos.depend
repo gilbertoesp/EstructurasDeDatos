@@ -1,30 +1,42 @@
 # depslib dependency file v1.0
-1506963251 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDeDatos.cpp
-	<cstdlib>
+1507236252 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.cpp
 	<iostream>
+	<cstdlib>
+	"BaseDatos.h"
 	<string>
-	"BaseDeDatos.h"
 
-1506963251 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDeDatos.h
+1507236270 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.h
+	"Persona.h"
 	"Datos.h"
-	"ListaOrden1.h"
-	"ListaOrden2.h"
+	"ListaNombre.h"
 	<string>
 
-1506970373 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Datos.h
-	"CajaPersona.h"
+1507232317 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Persona.h
 	<string>
 
-1506963067 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/CajaPersona.h
-	<string>
+1507236243 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Datos.h
+	"Persona.h"
 
-1506963301 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaOrden1.h
-	"CajaPersona.h"
+1507236152 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaNombre.h
+	"Caja.h"
+	"Persona.h"
 	"Enumeraciones.h"
+
+1507232317 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Caja.h
+	"Persona.h"
 
 1506376445 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Enumeraciones.h
 
-1506963301 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaOrden2.h
-	"CajaPersona.h"
-	"Enumeraciones.h"
+1507236291 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Datos.cpp
+	<iostream>
+	<cstdlib>
+	"Datos.h"
+	"Persona.h"
+
+1507236338 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaNombre.cpp
+	<iostream>
+	<cstdlib>
+	"Caja.h"
+	"Persona.h"
+	"ListaNombre.h"
 

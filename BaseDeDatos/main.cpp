@@ -1,37 +1,28 @@
 /**
-    Base Da Datos
+	...
 
-    Programa que simula una base de datos de nombres y apellidos, recibiendo cada uno en entradas,
+	\author Gilberto Espinoza
 */
-#include <cstdlib>
 #include <iostream>
+#include <cstdlib>
 
-#include <string>
-#include "BaseDeDatos.h"
-
-
+#include "BaseDatos.h"
+//*************************************************************************************************
 int main()
 {
-    BaseDeDatos database;
+    BaseDatos database;
 
+    database.agregar("Fernando", "Sotomayor");
+    database.agregar("Alejandro", "Sanz");
+    database.agregar("Zarina", "Garcia");
 
+    std::cout << "------Orden por Nombre -------" << std::endl;
+    database.pintarNombre();
+    std::cout << "------Orden por Apellido -------" << std::endl;
+//    database.pintarApellido();
 }
 
+//*************************************************************************************************
 
-/*
-    std::ifstream entrada;
 
-    std::string dato1,dato2;
-
-    char archivo[] = {"baseDatos.txt"};
-
-    entrada.open(archivo);
-
-    getline(entrada, dato1);
-    getline(entrada, dato2);
-
-    std::cout << dato1 << std::endl;
-    std::cout << dato2 << std::endl;
-
-    entrada.close();
-*/
+//*************************************************************************************************

@@ -1,20 +1,22 @@
-#ifndef LISTAARCOS_H_INCLUDED
-#define LISTAARCOS_H_INCLUDED
+#ifndef CAJA_H_INCLUDED
+#define CAJA_H_INCLUDED
 
 /**
-	ListaArcos.h
-
-	Listas de adyacencia para algun nodo en Grafica, ya sea entrante o saliente
+    Estructura que guarda la direccion a otra estructura (Persona), y ademas contiene (Caja *) siguiente
+    que sirve para generar una estructura lineal
 
 	\author Gilberto Espinoza
 */
-
-#include "CajaArco.h"
+#include "Persona.h"
 //*************************************************************************************************
-class ListaArcos{
-    CajaArco *principio, *anterior, *lugar_agregado;
-    bool encontrado;
-
+/**
+	...
+	\param
+	\return
+*/
+struct Caja{
+    Persona * persona;
+    Caja * siguiente;
 };
 //*************************************************************************************************
 /**
@@ -26,4 +28,4 @@ class ListaArcos{
 //*************************************************************************************************
 
 
-#endif // LISTAARCOS_H_INCLUDED
+#endif // CAJA_H_INCLUDED

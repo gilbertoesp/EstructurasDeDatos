@@ -1,130 +1,44 @@
 /**
-	Datos.cpp
-    Estructura Lineal tipo Datos que segui la naturaleza de First Out Last Out.
-    Con la estructura tipo CajaPersona
+	...
 
- Gilberto Espinoza
-@date
+	\author Gilberto Espinoza
 */
-
 #include <iostream>
 #include <cstdlib>
 
-#include <string>
 #include "Datos.h"
-#include "CajaPersona.h"
-
-//**********************************************************************
-Datos::Datos()
-{
-    this->principio = NULL;
-    this->cuantos = 0;
-}
-//**********************************************************************
+#include "Persona.h"
+//*************************************************************************************************
 Datos::~Datos()
 {
-    CajaPersona *p;
+    Persona * p;
 
     while(principio){
         p = principio;
         principio = principio->siguiente;
         delete p;
     }
-    principio = NULL;
-    cuantos = 0;
+    principio = lugar_agregado = NULL;
 }
-//**********************************************************************
-void Datos::iniciar()
+
+//*************************************************************************************************
+void Datos::agregar(std::string nombre, std::string  apellido)
 {
-    this->principio = NULL;
-    this->cuantos = 0;
-}
-//**********************************************************************
-void Datos::destruir()
-{
-    CajaPersona *p;
+    Persona *p;
+     p = new Persona;
 
-    while(principio){
-        p = principio;
-        principio = principio->siguiente;
-        delete p;
-    }
-    principio = NULL;
-    cuantos = 0;
-}
-//**********************************************************************
-void Datos::agregar(std::string nombre, std::string apellido)
-{
-    CajaPersona *p;
+     p->nombre = nombre;
+     p->apellido = apellido;
 
-    p = new CajaPersona;
-
-    p->nombre = nombre;
-    p->apellido = apellido;
-
-    if(!principio){
+     if(!principio){
         p->siguiente = NULL;
         principio = p;
-    }else{
+     }else{
         p->siguiente = principio;
         principio = p;
-    }
-    lugar_agregado = p;
-    cuantos++;
+     }
+
+     lugar_agregado = p;
 }
-//**********************************************************************
-#define VACIO 999999
-std::string Datos::sacar()
-{
-    CajaPersona *p;
-    std::string dato;
 
-    if(principio){
-        p = principio;
-        principio = principio->siguiente;
-
-        p->nombre + " " + p->apellido;
-
-        delete p;
-        cuantos--;
-    }else{
-        dato = "NULL";
-    }
-
-    return dato;
-}
-//**********************************************************************
-void Datos::pintarNombre()
-{
-    CajaPersona *p;
-    p = principio;
-
-    while(p){
-        std::cout << p->nombre << " " << p->apellido << std::endl;
-        p = p->siguiente;
-    }
-}
-//**********************************************************************
-void Datos::pintarApellido()
-{
-    CajaPersona *p;
-    p = principio;
-
-    while(p){
-        std::cout << p->apellido << " " << p->nombre << std::endl;
-        p = p->siguiente;
-    }
-}
-//**********************************************************************
-int Datos::cuantosSon()
-{
-    return cuantos;
-}
-//**********************************************************************
-CajaPersona * Datos::lugarAgregado()
-{
-    return lugar_agregado;
-}
-//**********************************************************************
-
-
+//*************************************************************************************************

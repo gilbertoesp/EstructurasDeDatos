@@ -31,6 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="CajaArco.h" />
+		<Unit filename="CajaNodo.h" />
+		<Unit filename="Grafica.cpp" />
+		<Unit filename="Grafica.h" />
+		<Unit filename="ListaArcos.cpp" />
+		<Unit filename="ListaArcos.h" />
+		<Unit filename="ListaNodos.cpp" />
+		<Unit filename="ListaNodos.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

@@ -1,5 +1,5 @@
-#ifndef DATOS_H_INCLUDED
-#define DATOS_H_INCLUDED
+#ifndef BASEDATOS_H_INCLUDED
+#define BASEDATOS_H_INCLUDED
 
 /**
 	...
@@ -7,23 +7,22 @@
 	\author Gilberto Espinoza
 */
 #include "Persona.h"
+#include "Datos.h"
+#include "ListaNombre.h"
+#include <string>
 //*************************************************************************************************
 /**
 	...
 	\param
 	\return
 */
-class Datos{
-    Persona *principio, *lugar_agregado;
+class BaseDatos{
+    Datos data;
+    ListaNombre ordenNombre;
+    //ListaApellido ordenApellido;
 public:
-
-    Datos() {principio = lugar_agregado = NULL;}
-
-    ~Datos();
-
-    void agregar(std::string nombre, std::string apellido);
-
-    Persona * lugarAgregado() { return lugar_agregado; }
+    void agregar(std::string nombre, std::string);
+    void pintarNombre();
 };
 //*************************************************************************************************
 /**
@@ -35,4 +34,4 @@ public:
 //*************************************************************************************************
 
 
-#endif // DATOS_H_INCLUDED
+#endif // BASEDATOS_H_INCLUDED
