@@ -13,13 +13,20 @@ void BaseDatos::agregar(std::string nombre, std::string apellido)
 {
     data.agregar(nombre,apellido);
     ordenNombre.agregar(data.lugarAgregado());
-    //ordenApellido(data.lugarAgregado());
+    ordenApellido.agregar(data.lugarAgregado());
 }
 //*************************************************************************************************
 void BaseDatos::pintarNombre()
 {
     std::cout << "----Orden por Nombre -----" << std::endl;
     ordenNombre.pintar();
+    std::cout << "--------------------------" << std::endl;
 }
-
+//*************************************************************************************************
+void BaseDatos::pintarApellido()
+{
+    std::cout << "----Orden por Apellido -----" << std::endl;
+    ordenApellido.pintar();
+    std::cout << "--------------------------" << std::endl;
+}
 //*************************************************************************************************

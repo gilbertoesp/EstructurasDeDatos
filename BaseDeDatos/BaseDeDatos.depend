@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1507236252 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.cpp
+1507239197 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.cpp
 	<iostream>
 	<cstdlib>
 	"BaseDatos.h"
 	<string>
 
-1507236270 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.h
+1507239187 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.h
 	"Persona.h"
 	"Datos.h"
 	"ListaNombre.h"
+	"ListaApellido.h"
 	<string>
 
 1507232317 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Persona.h
@@ -33,10 +34,27 @@
 	"Datos.h"
 	"Persona.h"
 
-1507236338 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaNombre.cpp
+1507237178 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaNombre.cpp
 	<iostream>
 	<cstdlib>
 	"Caja.h"
 	"Persona.h"
 	"ListaNombre.h"
+
+1507236787 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaApellido.h
+	"Caja.h"
+	"Persona.h"
+	"Enumeraciones.h"
+
+1507239187 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/main.cpp
+	<iostream>
+	<cstdlib>
+	"BaseDatos.h"
+
+1507239228 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaApellido.cpp
+	<iostream>
+	<cstdlib>
+	"Caja.h"
+	"Persona.h"
+	"ListaApellido.h"
 

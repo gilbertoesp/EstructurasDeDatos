@@ -9,6 +9,7 @@
 #include "Persona.h"
 #include "Datos.h"
 #include "ListaNombre.h"
+#include "ListaApellido.h"
 #include <string>
 //*************************************************************************************************
 /**
@@ -19,10 +20,11 @@
 class BaseDatos{
     Datos data;
     ListaNombre ordenNombre;
-    //ListaApellido ordenApellido;
+    ListaApellido ordenApellido;
 public:
     void agregar(std::string nombre, std::string);
     void pintarNombre();
+    void pintarApellido();
 };
 //*************************************************************************************************
 /**

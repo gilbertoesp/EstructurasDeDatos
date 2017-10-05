@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 #include "Caja.h"
-#include "Persona.h""
+#include "Persona.h"
 #include "ListaApellido.h"
 //*************************************************************************************************
 ListaApellido::~ListaApellido()
@@ -22,7 +22,7 @@ ListaApellido::~ListaApellido()
     principio = anterior = NULL;
 }
 //*************************************************************************************************
-void ListaNombre::buscar(Persona *persona)
+void ListaApellido::buscar(Persona *persona)
 {
     Caja *p = NULL;
 
@@ -96,7 +96,7 @@ void ListaApellido::agregar(Persona *persona)
 }
 
 //*************************************************************************************************
-void ListaNombre::pintar()
+void ListaApellido::pintar()
 {
     Caja *p;
     p = principio;
