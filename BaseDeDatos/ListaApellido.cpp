@@ -7,19 +7,19 @@
 #include <cstdlib>
 
 #include "Caja.h"
-#include "Persona.h"
-#include "ListaNombre.h"
+#include "Persona.h""
+#include "ListaApellido.h"
 //*************************************************************************************************
-ListaNombre::~ListaNombre()
+ListaApellido::~ListaApellido()
 {
-	Caja *p;
+    Caja *p;
 
-	while(principio){
-		p = principio;
-		principio = principio->siguiente;
-		delete p;
-	}
-	principio = anterior = NULL;
+    while(principio){
+        p = principio;
+        principio = principio->siguiente;
+        delete p;
+    }
+    principio = anterior = NULL;
 }
 //*************************************************************************************************
 void ListaNombre::buscar(Persona *persona)
@@ -37,7 +37,7 @@ void ListaNombre::buscar(Persona *persona)
         p = principio;
         while(p){
             ///Comparamos
-            if(p->persona->nombre < persona->nombre){
+            if(p->persona->apellido < persona->apellido){
                 anterior = p;
                 p = p->siguiente;
 
@@ -62,8 +62,9 @@ void ListaNombre::buscar(Persona *persona)
     }
     return;
 }
+
 //*************************************************************************************************
-void ListaNombre::agregar(Persona *persona)
+void ListaApellido::agregar(Persona *persona)
 {
     Caja *p;
 
@@ -92,7 +93,6 @@ void ListaNombre::agregar(Persona *persona)
 		default:
 			return;
 	}
-
 }
 
 //*************************************************************************************************
@@ -102,7 +102,7 @@ void ListaNombre::pintar()
     p = principio;
 
     while(p){
-        std::cout << p->persona->nombre << " " << p->persona->apellido << std::endl;
+        std::cout << p->persona->apellido << " " << p->persona->nombre << std::endl;
         p = p->siguiente;
     }
 }

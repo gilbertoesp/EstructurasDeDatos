@@ -19,7 +19,7 @@ int main()
     std::cout << "------Orden por Nombre -------" << std::endl;
     database.pintarNombre();
     std::cout << "------Orden por Apellido -------" << std::endl;
-//    database.pintarApellido();
+   database.pintarApellido();
 }
 
 //*************************************************************************************************
