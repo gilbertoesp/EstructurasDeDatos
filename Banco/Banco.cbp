@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Cliente.h" />
+		<Unit filename="Cola.cpp" />
+		<Unit filename="Cola.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
