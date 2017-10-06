@@ -1,5 +1,6 @@
 /**
-	...
+	Base de datos que agrega los nombre y apellidos de las personas a la pila de datos (data) y a las listas
+	ordenadas ordenNombre y ordenApellido
 
 	\author Gilberto Espinoza
 */

@@ -1,5 +1,10 @@
 /**
-	...
+	Simulacion de una base de datos que recibe los datos de una persona, nombre y apellido, y estos los guarda
+	en una pila (con datos tipo Persona). Una vez agregados a la pila se agregan a las listas ListaNombre y ListaApellido
+	que se encargan de organizar los datos por orden alfabetico ya sea empezando con el Nombre o con el Apellido.
+	Los datos agregados a esta pila (Datos), son a su vez agregados a las Listas, las cuales son creadas con estructuras (Caja)
+	que pueden almacenar el dato (Persona *) y la siguiente estrucutra de la lista (Caja *). Organizando los datos en estas lista
+	pueden ser impresos y ver los resultados de que en efecto estan ordenados.
 
 	\author Gilberto Espinoza
 */
@@ -31,13 +36,14 @@ int main()
             std::cin >> nombre;
             std::cout << "Apellido: ";
             std::cin >> apellido;
+            //Agregando nombre
             database.agregar(nombre,apellido);
             break;
         case 2:
-                database.pintarNombre();
+            database.pintarNombre();
             break;
         case 3:
-                database.pintarApellido();
+            database.pintarApellido();
             break;
         }
     }while(opcion != 0);
@@ -45,7 +51,6 @@ int main()
     system("pause");
     return 1;
 }
-
 //*************************************************************************************************
 
 

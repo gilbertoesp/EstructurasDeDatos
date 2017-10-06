@@ -12,26 +12,32 @@
 #include "ListaApellido.h"
 #include <string>
 //*************************************************************************************************
-/**
-	...
-	\param
-	\return
-*/
 class BaseDatos{
     Datos data;
     ListaNombre ordenNombre;
     ListaApellido ordenApellido;
 public:
+/**
+    ...
+    \param
+    \return
+*/
     void agregar(std::string nombre, std::string);
+/**
+    ...
+    \param
+    \return
+*/
     void pintarNombre();
+/**
+    ...
+    \param
+    \return
+*/
     void pintarApellido();
 };
 //*************************************************************************************************
-/**
-	...
-	\param
-	\return
-*/
+
 
 //*************************************************************************************************
 

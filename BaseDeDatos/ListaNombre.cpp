@@ -1,5 +1,5 @@
 /**
-	...
+
 
 	\author Gilberto Espinoza
 */
@@ -36,7 +36,7 @@ void ListaNombre::buscar(Persona *persona)
 
         p = principio;
         while(p){
-            ///Comparamos
+            ///Comparamos los strings
             if(p->persona->nombre < persona->nombre){
                 anterior = p;
                 p = p->siguiente;
@@ -68,6 +68,8 @@ void ListaNombre::agregar(Persona *persona)
     Caja *p;
 
     buscar(persona);
+
+    if(encontrado == SI) return;
 
     p = new Caja;
     p->persona = persona;

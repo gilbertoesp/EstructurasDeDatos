@@ -1,5 +1,5 @@
 /**
-	...
+    Estructura tipo Pila que guarda los datos de la base de datos
 
 	\author Gilberto Espinoza
 */
@@ -37,7 +37,7 @@ void Datos::agregar(std::string nombre, std::string  apellido)
         p->siguiente = principio;
         principio = p;
      }
-
+    ///Definimos lugar agregado
      lugar_agregado = p;
 }
 

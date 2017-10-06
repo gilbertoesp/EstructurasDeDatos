@@ -58,3 +58,62 @@
 	"Persona.h"
 	"ListaApellido.h"
 
+1507281016 source:c:\users\gilbe\documents\estructurasdedatos\basededatos\basedatos.cpp
+	<iostream>
+	<cstdlib>
+	"BaseDatos.h"
+	<string>
+
+1507281016 c:\users\gilbe\documents\estructurasdedatos\basededatos\basedatos.h
+	"Persona.h"
+	"Datos.h"
+	"ListaNombre.h"
+	"ListaApellido.h"
+	<string>
+
+1507281016 c:\users\gilbe\documents\estructurasdedatos\basededatos\persona.h
+	<string>
+
+1507281016 c:\users\gilbe\documents\estructurasdedatos\basededatos\datos.h
+	"Persona.h"
+
+1507281016 c:\users\gilbe\documents\estructurasdedatos\basededatos\listanombre.h
+	"Caja.h"
+	"Persona.h"
+	"Enumeraciones.h"
+
+1507281016 c:\users\gilbe\documents\estructurasdedatos\basededatos\caja.h
+	"Persona.h"
+
+1507281016 c:\users\gilbe\documents\estructurasdedatos\basededatos\enumeraciones.h
+
+1507281016 c:\users\gilbe\documents\estructurasdedatos\basededatos\listaapellido.h
+	"Caja.h"
+	"Persona.h"
+	"Enumeraciones.h"
+
+1507281016 source:c:\users\gilbe\documents\estructurasdedatos\basededatos\datos.cpp
+	<iostream>
+	<cstdlib>
+	"Datos.h"
+	"Persona.h"
+
+1507281016 source:c:\users\gilbe\documents\estructurasdedatos\basededatos\listaapellido.cpp
+	<iostream>
+	<cstdlib>
+	"Caja.h"
+	"Persona.h"
+	"ListaApellido.h"
+
+1507281016 source:c:\users\gilbe\documents\estructurasdedatos\basededatos\listanombre.cpp
+	<iostream>
+	<cstdlib>
+	"Caja.h"
+	"Persona.h"
+	"ListaNombre.h"
+
+1507285919 source:c:\users\gilbe\documents\estructurasdedatos\basededatos\main.cpp
+	<iostream>
+	<cstdlib>
+	"BaseDatos.h"
+

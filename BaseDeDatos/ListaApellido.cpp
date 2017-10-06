@@ -1,5 +1,5 @@
 /**
-	...
+
 
 	\author Gilberto Espinoza
 */
@@ -36,7 +36,7 @@ void ListaApellido::buscar(Persona *persona)
 
         p = principio;
         while(p){
-            ///Comparamos
+            ///Comparamos Apellido
             if(p->persona->apellido < persona->apellido){
                 anterior = p;
                 p = p->siguiente;

@@ -31,6 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BaseDatos.cpp" />
+		<Unit filename="BaseDatos.h" />
+		<Unit filename="Caja.h" />
+		<Unit filename="Datos.cpp" />
+		<Unit filename="Datos.h" />
+		<Unit filename="Enumeraciones.h" />
+		<Unit filename="ListaApellido.cpp" />
+		<Unit filename="ListaApellido.h" />
+		<Unit filename="ListaNombre.cpp" />
+		<Unit filename="ListaNombre.h" />
+		<Unit filename="Persona.h" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

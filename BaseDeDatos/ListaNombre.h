@@ -20,14 +20,35 @@ class ListaNombre{
     Boolean encontrado;
     Posicion donde;
 public:
+/**
+	...
+	\param
+	\return
+*/
     ListaNombre() {principio = anterior = NULL;}
-
+/**
+	...
+	\param
+	\return
+*/
     ~ListaNombre();
-
+/**
+	...
+	\param
+	\return
+*/
     void buscar(Persona *persona);
-
+/**
+	...
+	\param
+	\return
+*/
     void agregar(Persona *persona);
-
+/**
+	...
+	\param
+	\return
+*/
     void pintar();
 };
 //*************************************************************************************************

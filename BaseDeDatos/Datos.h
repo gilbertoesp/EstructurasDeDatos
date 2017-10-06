@@ -2,37 +2,40 @@
 #define DATOS_H_INCLUDED
 
 /**
-	...
+    Estructura tipo Pila que guarda los datos de la base de datos
 
 	\author Gilberto Espinoza
 */
 #include "Persona.h"
 //*************************************************************************************************
-/**
-	...
-	\param
-	\return
-*/
 class Datos{
     Persona *principio, *lugar_agregado;
 public:
-
-    Datos() {principio = lugar_agregado = NULL;}
-
-    ~Datos();
-
-    void agregar(std::string nombre, std::string apellido);
-
-    Persona * lugarAgregado() { return lugar_agregado; }
-};
-//*************************************************************************************************
 /**
 	...
 	\param
 	\return
 */
-
+    Datos() {principio = lugar_agregado = NULL;}
+/**
+	...
+	\param
+	\return
+*/
+    ~Datos();
+/**
+	...
+	\param
+	\return
+*/
+    void agregar(std::string nombre, std::string apellido);
+/**
+	...
+	\param
+	\return
+*/
+    Persona * lugarAgregado() { return lugar_agregado; }
+};
 //*************************************************************************************************
-
 
 #endif // DATOS_H_INCLUDED
