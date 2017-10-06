@@ -7,6 +7,7 @@
 #include <iostream>
 //Semilla de aleatorio
 #include <ctime>
+
 #include "Cola.h"
 // Definimos cuantos cajeras queremos
 #define CAJERAS 4

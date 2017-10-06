@@ -12,7 +12,11 @@
 #include "ListaOrdenadaRepAlta.h"
 #include "ListaDobleLigada.h"
 #include "ListaMitad.h"
+<<<<<<< HEAD
 #include "ListaOrdenadaRepAlta.h"
+=======
+#include "ListaOrdenadaRepAlta.h"
+>>>>>>> ba0cda0a892b409e2306e69d91df781e1b3eec4f
 
 int main()
 {
@@ -172,15 +176,19 @@ int main()
     listaM.agregar(7);
     listaM.agregar(6);
     listaM.agregar(3);
-    //listaM.agregar(0);
+    listaM.agregar(0);
     std::cout << "\nPintando Lista: " << std::endl;
     listaM.pintar();
     std::cout << std::endl;
+<<<<<<< HEAD
     std::cout << "\nCantidad de elementos en la Lista: " << listaM.cuantosSon() << std::endl;
     std::cout << "Cantidad de Mayores: " << listaM.mayoresSon() << std::endl;
     std::cout << "Cantidad de menores: " << listaM.menoresSon() << std::endl;
     std::cout << "\tMitad de la lista: " << listaM.Mitad()->valor << std::endl;
     std::cout << "\nSacando el primer valor de la listaM: " << listaM.sacar() << std::endl;
+=======
+    std::cout << "\nCantidad de elementos en la Lista: " << listaM.cuantosSon() << std::endl;
+>>>>>>> ba0cda0a892b409e2306e69d91df781e1b3eec4f
     std::cout << "\nPintando Lista: " << std::endl;
     listaM.pintar();
     std::cout << std::endl;
@@ -188,6 +196,10 @@ int main()
     listaM.pintar();
     std::cout << std::endl;
 //*************************************************************************************************************************************
+<<<<<<< HEAD
+=======
+
+>>>>>>> ba0cda0a892b409e2306e69d91df781e1b3eec4f
     std::cout << "\n\n" << std::endl;
     system("pause");
     return 0;

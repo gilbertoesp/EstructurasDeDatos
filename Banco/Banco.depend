@@ -4,6 +4,8 @@
 	<iostream>
 	"Cola.h"
 
+1507278086 
+
 1507279002 source:c:\users\gilbe\documents\estructurasdedatos\banco\cola.cpp
 	<cstdlib>
 	<iostream>
@@ -11,8 +13,22 @@
 	"Cola.h"
 	"Cliente.h"
 
+1507279382 "
+
 1507279382 c:\users\gilbe\documents\estructurasdedatos\banco\cola.h
 	"Cliente.h"
 
 1507276899 c:\users\gilbe\documents\estructurasdedatos\banco\cliente.h
+
+1507279699 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Banco/Cola.cpp
+	<cstdlib>
+	<iostream>
+	<ctime>
+	"Cola.h"
+	"Cliente.h"
+
+1507279699 /home/gilbertoesp/Documents/EstructurasDeDatos/Banco/Cola.h
+	"Cliente.h"
+
+1507279699 /home/gilbertoesp/Documents/EstructurasDeDatos/Banco/Cliente.h
 

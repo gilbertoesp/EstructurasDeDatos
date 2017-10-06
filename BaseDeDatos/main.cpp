@@ -24,6 +24,7 @@ int main()
         std::cout << "[1] AGREGAR" << std::endl;
         std::cout << "[2] IMPRIMIR POR NOMBRE" << std::endl;
         std::cout << "[3] IMPRIMIR POR APELLIDO" << std::endl;
+        std::cout << "[4] AGREGAR UNOS DATOS YA ESCRITOS" << std::endl;
 
         std::cout << "Opcion: ";
         std::cin >> opcion;
@@ -44,6 +45,14 @@ int main()
             break;
         case 3:
             database.pintarApellido();
+            break;
+        case 4:
+            database.agregar("Zutano", "Perez");
+            database.agregar("Federico", "Molotov");
+            database.agregar("Chichico", "Garcia");
+            database.agregar("Monica", "Lopez");
+            database.agregar("Gonzalo", "Gonzalez");
+
             break;
         }
     }while(opcion != 0);
