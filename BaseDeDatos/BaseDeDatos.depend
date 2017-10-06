@@ -5,6 +5,8 @@
 	"BaseDatos.h"
 	<string>
 
+1507281016 
+
 1507239187 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.h
 	"Persona.h"
 	"Datos.h"
@@ -18,10 +20,14 @@
 1507236243 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Datos.h
 	"Persona.h"
 
+1507281016 "
+
 1507236152 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaNombre.h
 	"Caja.h"
 	"Persona.h"
 	"Enumeraciones.h"
+
+1507281016 ones.h"
 
 1507232317 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Caja.h
 	"Persona.h"
@@ -41,6 +47,8 @@
 	"Persona.h"
 	"ListaNombre.h"
 
+1507281016 re.h"
+
 1507236787 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaApellido.h
 	"Caja.h"
 	"Persona.h"
@@ -51,12 +59,16 @@
 	<cstdlib>
 	"BaseDatos.h"
 
+1507285919 .h"
+
 1507239228 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaApellido.cpp
 	<iostream>
 	<cstdlib>
 	"Caja.h"
 	"Persona.h"
 	"ListaApellido.h"
+
+1507281016 lido.h"
 
 1507281016 source:c:\users\gilbe\documents\estructurasdedatos\basededatos\basedatos.cpp
 	<iostream>
@@ -116,4 +128,63 @@
 	<iostream>
 	<cstdlib>
 	"BaseDatos.h"
+
+1507279699 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/main.cpp
+	<iostream>
+	<cstdlib>
+	"BaseDatos.h"
+
+1507279699 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.h
+	"Persona.h"
+	"Datos.h"
+	"ListaNombre.h"
+	"ListaApellido.h"
+	<string>
+
+1507279699 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Persona.h
+	<string>
+
+1507279699 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Datos.h
+	"Persona.h"
+
+1507279699 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaNombre.h
+	"Caja.h"
+	"Persona.h"
+	"Enumeraciones.h"
+
+1507279699 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Caja.h
+	"Persona.h"
+
+1506376445 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Enumeraciones.h
+
+1507236787 /home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaApellido.h
+	"Caja.h"
+	"Persona.h"
+	"Enumeraciones.h"
+
+1507279699 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/BaseDatos.cpp
+	<iostream>
+	<cstdlib>
+	"BaseDatos.h"
+	<string>
+
+1507279699 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/Datos.cpp
+	<iostream>
+	<cstdlib>
+	"Datos.h"
+	"Persona.h"
+
+1507279699 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaApellido.cpp
+	<iostream>
+	<cstdlib>
+	"Caja.h"
+	"Persona.h"
+	"ListaApellido.h"
+
+1507279699 source:/home/gilbertoesp/Documents/EstructurasDeDatos/BaseDeDatos/ListaNombre.cpp
+	<iostream>
+	<cstdlib>
+	"Caja.h"
+	"Persona.h"
+	"ListaNombre.h"
 

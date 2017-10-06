@@ -118,9 +118,13 @@ int ListaMitad::agregar(int a)
 			return 0;
 	}
 
-	lugar_agregado = p;
+	if(p->valor >= mitad->valor){
+        mayores++;
+	}else{
+        menores++;
+	}
 
-    ajustarMitad(lugar_agregado);
+	lugar_agregado = p;
 
 	cuantos++;
 	return 1;
@@ -203,15 +207,6 @@ CajaDobleLigada * ListaMitad::LugarAgregado()
 CajaDobleLigada * ListaMitad::Mitad()
 {
     return mitad;
-}
-//********************************************************************************************
-void ListaMitad::ajustarMitad(CajaDobleLigada lugar)
-{
-    CajaDobleLigada *p1;
-
-    p1 = lugar;
-
-    if(lugar)
 }
 //********************************************************************************************
 

@@ -9,13 +9,10 @@
 #include "Cola.h"
 #include "ListaOrdenada.h"
 #include "ListaOrdenadaRepBaja.h"
-<<<<<<< HEAD
 #include "ListaOrdenadaRepAlta.h"
 #include "ListaDobleLigada.h"
 #include "ListaMitad.h"
-=======
 #include "ListaOrdenadaRepAlta.h"
->>>>>>> 2a5b46b8b6a4c658349be76081e14a00cb194edc
 
 int main()
 {
@@ -133,7 +130,6 @@ int main()
     listaRA.pintar();
     std::cout << std::endl;
 //*************************************************************************************************************************************
-<<<<<<< HEAD
     std::cout << "\n\n\t\t\tLISTA DOBLE LIGADA\n" << std::endl;
     std::cout << "Agregando 8, 5, 9, 4, 7 a la Lista" << std::endl;
     ListaDobleLigada listaDL;
@@ -176,32 +172,19 @@ int main()
     listaM.agregar(7);
     listaM.agregar(6);
     listaM.agregar(3);
-    //listaM.agregar(0);
+    listaM.agregar(0);
     std::cout << "\nPintando Lista: " << std::endl;
     listaM.pintar();
     std::cout << std::endl;
     std::cout << "\nCantidad de elementos en la Lista: " << listaM.cuantosSon() << std::endl;
-    std::cout << "Cantidad de Mayores: " << listaM.mayoresSon() << std::endl;
-    std::cout << "Cantidad de menores: " << listaM.menoresSon() << std::endl;
-    std::cout << "\tMitad de la lista: " << listaM.Mitad()->valor << std::endl;
-    //std::cout << "\tMitad siguiente de la lista: " << listaM.Mitad()->siguiente->valor << std::endl;
-    //std::cout << "\tMitad anterior de la lista: " << listaM.Mitad()->anterior->valor << std::endl;
-    std::cout << "\nSacando el primer valor de la listaM: " << listaM.sacar() << std::endl;
     std::cout << "\nPintando Lista: " << std::endl;
     listaM.pintar();
     std::cout << std::endl;
-    //std::cout << "\nEliminando el elemento 8" << std::endl;
-    //listaM.borrar(8);
     std::cout << "\nPintando Lista: " << std::endl;
     listaM.pintar();
     std::cout << std::endl;
-    std::cout << "\tMitad de la lista: " << listaM.Mitad()->valor << std::endl;
-    //std::cout << "\tMitad siguiente de la lista: " << listaM.Mitad()->siguiente->valor << std::endl;
-    //std::cout << "\tMitad anterior de la lista: " << listaM.Mitad()->anterior->valor << std::endl;
 //*************************************************************************************************************************************
 
-=======
->>>>>>> 2a5b46b8b6a4c658349be76081e14a00cb194edc
     std::cout << "\n\n" << std::endl;
     system("pause");
     return 0;
