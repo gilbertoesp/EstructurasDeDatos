@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1507278086 source:c:\users\gilbe\documents\estructurasdedatos\banco\main.cpp
+1507330964 source:c:\users\gilbe\documents\estructurasdedatos\banco\main.cpp
 	<cstdlib>
 	<iostream>
+	<ctime>
 	"Cola.h"
 
 1507278086 

@@ -11,7 +11,7 @@
 	"Caja.h"
 	"ListaOrdenada.h"
 
-1507279543 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\main.cpp
+1507332208 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\main.cpp
 	<cstdlib>
 	<iostream>
 	"Pila.h"
@@ -21,6 +21,7 @@
 	"ListaOrdenadaRepAlta.h"
 	"ListaDobleLigada.h"
 	"ListaMitad.h"
+	"ListaOrdenadaRepAlta.h"
 	"ListaOrdenadaRepAlta.h"
 
 1505165873 
@@ -41,13 +42,22 @@
 	<iostream>
 	"Caja.h"
 	"Cola.h"
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"Cola.h"
 
 1506376588 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
 
 1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
 	"Caja.h"
+	"Caja.h"
 
 1506458800 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"ListaOrdenada.h"
 	<cstdlib>
 	<iostream>
 	"Caja.h"
@@ -56,14 +66,44 @@
 1506376603 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
 	"Caja.h"
 	"Enumeraciones.h"
+	"Caja.h"
+	"Enumeraciones.h"
 
 1506390438 D
 	"ListaDobleLigada.h"
 	"ListaMitad.h"
+	"ListaDobleLigada.h"
+	"ListaMitad.h"
 
-1506390551 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
+1507280180 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
+	<cstdlib>
+	<iostream>
+	"Pila.h"
+	"Cola.h"
+	"ListaOrdenada.h"
+	"ListaOrdenadaRepBaja.h"
+	"ListaOrdenadaRepAlta.h"
+	"ListaDobleLigada.h"
+	"ListaMitad.h"
+	"ListaOrdenadaRepAlta.h"
 
 1506936700 b46b8b6a4c658349be76081e14a00cb194edc
+	<cstdlib>
+	<iostream>
+	"Pila.h"
+	"Cola.h"
+	"ListaOrdenada.h"
+	"ListaOrdenadaRepBaja.h"
+	"ListaOrdenadaRepAlta.h"
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"ListaOrdenadaRepBaja.h"
+	<cstdlib>
+	<iostream>
+	"CajaRepeticion.h"
+	"Enumeraciones.h"
+	"ListaOrdenadaRepAlta.h"
 	<cstdlib>
 	<iostream>
 	"Pila.h"
@@ -85,21 +125,36 @@
 
 1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
 	"Caja.h"
+	"Caja.h"
 
 1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.cpp
 	<iostream>
 	<cstdlib>
 	"Pila.h"
 	"Caja.h"
-<<<<<<< HEAD
+	<iostream>
+	<cstdlib>
+	"Pila.h"
+	"Caja.h"
 
-1506375701 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.cpp
+1506546134 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.cpp
+	<cstdlib>
+	<iostream>
+	"Caja.h"
+	"ListaOrdenadaRepBaja.h"
 
 1506390496 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.h
 	"Caja.h"
 	"Enumeraciones.h"
+	"Caja.h"
+	"Enumeraciones.h"
 
-1506390315 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.cpp
+1506458808 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.cpp
+	<cstdlib>
+	<iostream>
+	"CajaRepeticion.h"
+	"Enumeraciones.h"
+	"ListaOrdenadaRepAlta.h"
 
 1506389311 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/CajaRepeticion.h
 
@@ -108,8 +163,14 @@
 1506390438 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.h
 	"CajaRepeticion.h"
 	"Enumeraciones.h"
+	"CajaRepeticion.h"
+	"Enumeraciones.h"
 
 1506458786 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaDobleLigada.cpp
+	<cstdlib>
+	<iostream>
+	"CajaDobleLigada.h"
+	"ListaDobleLigada.h"
 	<cstdlib>
 	<iostream>
 	"CajaDobleLigada.h"
@@ -120,14 +181,22 @@
 1506404495 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaDobleLigada.h
 	"CajaDobleLigada.h"
 	"Enumeraciones.h"
+	"CajaDobleLigada.h"
+	"Enumeraciones.h"
 
-1506937313 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.cpp
+1507280261 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.cpp
+	<cstdlib>
+	<iostream>
+	"CajaDobleLigada.h"
+	"ListaMitad.h"
 	<cstdlib>
 	<iostream>
 	"CajaDobleLigada.h"
 	"ListaMitad.h"
 
-1506936700 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.h
+1506937581 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.h
+	"CajaDobleLigada.h"
+	"Enumeraciones.h"
 	"CajaDobleLigada.h"
 	"Enumeraciones.h"
 
@@ -136,7 +205,7 @@
 1507006954 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\cola.h
 	"Caja.h"
 
-1507281016 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\listamitad.cpp
+1507348177 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\listamitad.cpp
 	<cstdlib>
 	<iostream>
 	"CajaDobleLigada.h"
@@ -181,126 +250,11 @@
 	"CajaDobleLigada.h"
 	"Enumeraciones.h"
 
-=======
+1506936700 cda0a892b409e2306e69d91df781e1b3eec4f
 
-1505165873 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\pila.h
-	"Caja.h"
-
-1505165854 c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\caja.h
-
-1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.cpp
-	<cstdlib>
-	<iostream>
-	"Caja.h"
-	"Cola.h"
-
-1506376588 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Caja.h
-
-1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Cola.h
-	"Caja.h"
-
-1506458800 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.cpp
-	<cstdlib>
-	<iostream>
-	"Caja.h"
-	"ListaOrdenada.h"
-
-1506376603 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenada.h
-	"Caja.h"
-	"Enumeraciones.h"
-
-1506390438 D
-	"ListaDobleLigada.h"
-	"ListaMitad.h"
-
-1507280180 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/main.cpp
-	<cstdlib>
-	<iostream>
-	"Pila.h"
-	"Cola.h"
-	"ListaOrdenada.h"
-	"ListaOrdenadaRepBaja.h"
-	"ListaOrdenadaRepAlta.h"
-	"ListaDobleLigada.h"
-	"ListaMitad.h"
-	"ListaOrdenadaRepAlta.h"
-
-1506936700 b46b8b6a4c658349be76081e14a00cb194edc
-	<cstdlib>
-	<iostream>
-	"Pila.h"
-	"Cola.h"
-	"ListaOrdenada.h"
-	"ListaOrdenadaRepBaja.h"
-	"ListaOrdenadaRepAlta.h"
-	<cstdlib>
-	<iostream>
-	"Caja.h"
-	"ListaOrdenadaRepBaja.h"
-	<cstdlib>
-	<iostream>
-	"CajaRepeticion.h"
-	"Enumeraciones.h"
-	"ListaOrdenadaRepAlta.h"
-
-1506390551 d.h"
-
-1506329488 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.h
-	"Caja.h"
-
-1506329488 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Pila.cpp
-	<iostream>
-	<cstdlib>
-	"Pila.h"
-	"Caja.h"
-
-1506546134 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.cpp
-	<cstdlib>
-	<iostream>
-	"Caja.h"
-	"ListaOrdenadaRepBaja.h"
-
-1506390496 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepBaja.h
-	"Caja.h"
-	"Enumeraciones.h"
-
-1506458808 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.cpp
-	<cstdlib>
-	<iostream>
-	"CajaRepeticion.h"
-	"Enumeraciones.h"
-	"ListaOrdenadaRepAlta.h"
-
-1506389311 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/CajaRepeticion.h
-
-1506376445 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/Enumeraciones.h
-
-1506390438 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaOrdenadaRepAlta.h
-	"CajaRepeticion.h"
-	"Enumeraciones.h"
-
-1506458786 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaDobleLigada.cpp
+1507281016 source:c:\users\gilbe\documents\estructurasdedatos\estructuraslineales\listadobleligada.cpp
 	<cstdlib>
 	<iostream>
 	"CajaDobleLigada.h"
 	"ListaDobleLigada.h"
 
-1506403608 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/CajaDobleLigada.h
-
-1506404495 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaDobleLigada.h
-	"CajaDobleLigada.h"
-	"Enumeraciones.h"
-
-1507280261 source:/home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.cpp
-	<cstdlib>
-	<iostream>
-	"CajaDobleLigada.h"
-	"ListaMitad.h"
-
-1506937581 /home/gilbertoesp/Documents/EstructurasDeDatos/EstructurasLineales/ListaMitad.h
-	"CajaDobleLigada.h"
-	"Enumeraciones.h"
-
-1506936700 ones.h"
-
->>>>>>> ba0cda0a892b409e2306e69d91df781e1b3eec4f

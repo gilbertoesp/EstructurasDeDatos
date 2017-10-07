@@ -91,14 +91,13 @@ int ListaMitad::agregar(int a)
 			p->siguiente = NULL;
 			p->anterior = NULL;
 			principio = p;
-            //Inicializamos mitad y mayores
 			mitad = p;
 			break;
 		case PRINCIPIO:
 			p->siguiente = principio;
+			p->anterior = NULL;
 			principio->anterior = p;
 			principio = p;
-			p->anterior = NULL;
 
 			break;
 		case EN_MEDIO:
@@ -117,12 +116,22 @@ int ListaMitad::agregar(int a)
 		default:
 			return 0;
 	}
-
+    ///MANEJO DE LA MITAD
 	if(p->valor >= mitad->valor){
         mayores++;
 	}else{
         menores++;
 	}
+
+    if (menores+2 <= mayores) {
+        mitad = mitad->siguiente;
+        menores++;
+        mayores--;
+    } else if (menores>mayores) {
+        mitad = mitad->anterior;
+        menores--;
+        mayores++;
+    }
 
 	lugar_agregado = p;
 
