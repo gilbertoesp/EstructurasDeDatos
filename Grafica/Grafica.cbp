@@ -39,6 +39,8 @@
 		<Unit filename="ListaArcos.h" />
 		<Unit filename="ListaNodos.cpp" />
 		<Unit filename="ListaNodos.h" />
+		<Unit filename="Posicion.h" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />
