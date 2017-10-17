@@ -9,15 +9,21 @@
 
 	\author Gilberto Espinoza
 */
+//#include "CajaNodo.h"
+struct CajaNodo;
 //*************************************************************************************************
 /**
 	...
-	\param id           : Identificador del nodo al que esta estructura hacce referencia
-	\param siguiente    : Si se necesita, siguiente en una supuesta lista de arcos. Default = NULL
+	\param id               : Identificador del nodo al que esta estructura hacce referencia
+	\param siguiente        : Siguiente en una supuesta lista de arcos. Default = NULL
+	\param direccion_nodo   : Direccion del nodo id, en la Lista de Nodos, que es la grafica en si
+	\param longitud         : Longitud o peso que tiene el arco en la grafica.
 */
 struct CajaArco{
     int id;
     CajaArco * siguiente = NULL;
+    CajaNodo * direccion_nodo = NULL;
+    float longitud;
 };
 
 //*************************************************************************************************

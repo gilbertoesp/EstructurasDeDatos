@@ -13,7 +13,7 @@ int main()
     std::cout << "\t\t GRAFICAS " << std::endl;
     Grafica grafica;
 
-    grafica.agregar_arco(1,2);
+    grafica.agregar_arco(1,2,5);
 
     grafica.pintar();
 

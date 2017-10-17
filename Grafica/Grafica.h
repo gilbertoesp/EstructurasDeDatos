@@ -30,7 +30,7 @@ public:
 	\param
 	\return
 */
-    void agregar_arco(int a, int b);
+    void agregar_arco(int a, int b, float longitud = 0);
 //*************************************************************************************************
 /**
 	...

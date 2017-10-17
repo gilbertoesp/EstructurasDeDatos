@@ -7,6 +7,7 @@
 #include <cstdlib>
 
 #include "CajaArco.h"
+#include "CajaNodo.h"
 #include "ListaArcos.h"
 
 //*************************************************************************************************
@@ -105,6 +106,8 @@ bool ListaArcos::agregar(int id)
 
 	p = new CajaArco;
 	p->id = id;
+	p->direccion_nodo = NULL;
+	p->longitud = 0.0;
 
 	switch(donde){
 		case VACIO:
@@ -158,9 +161,10 @@ void ListaArcos::pintar()
 	p = principio;
 
 	while(p){
-		std::cout << p->id << " ";
+		std::cout << "[" << p->id << ", " << p->longitud << "], ";
 		p = p->siguiente;
 	}
+	std::cout << "\b\b ";
 }
 //*************************************************************************************************
 
