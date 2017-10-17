@@ -1,5 +1,6 @@
 /**
-	...
+    ListaNodos.cpp
+    Estructura que simula una grafica con nodos y sus arcos
 
 	\author Gilberto Espinoza
 */

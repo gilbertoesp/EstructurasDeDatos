@@ -4,10 +4,10 @@
 	<cstdlib>
 	"Grafica.h"
 
-1508272073 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Grafica.h
+1508273779 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Grafica.h
 	"ListaNodos.h"
 
-1507837825 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaNodos.h
+1508273612 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaNodos.h
 	"CajaNodo.h"
 	"ListaNodos.h"
 	"Posicion.h"
@@ -15,7 +15,7 @@
 1507625176 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/CajaNodo.h
 	"ListaArcos.h"
 
-1507837825 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaArcos.h
+1508273781 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaArcos.h
 	"CajaArco.h"
 	"Posicion.h"
 

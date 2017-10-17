@@ -1,5 +1,5 @@
 /**
-	...
+    Dijkstra
 
 	\author Gilberto Espinoza
 */

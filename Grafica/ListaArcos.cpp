@@ -1,5 +1,7 @@
 /**
-	...
+    Listas de adyacencia para algun nodo en Grafica, ya sea entrante o saliente
+    Esta estructura ordena de menor a mayor los identificadores (int) de los nodos que estan conectados
+    a otro nodo
 
 	\author Gilberto Espinoza
 */
