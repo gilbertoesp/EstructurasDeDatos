@@ -110,10 +110,23 @@ bool ListaNodos::agregar(int id)
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
 	buscar(id);
 
-	if(encontrado) return false;
+    //Si se encontro lo definimos en lugar_agregado
+	if(encontrado){
+        if(anterior)    lugar_agregado = anterior->siguiente;
+        else            lugar_agregado = principio;
+        return false;
+	}
 
 	p = new CajaNodo;
 	p->id = id;
+	p->salientes.constructor();
+	p->entrantes.constructor();
+
+	p->ruta_corta = 0.0;
+    p->antecesor = NULL;
+    p->bandera = NO_EVALUADO;
+
+	lugar_agregado = p;
 
 	switch(donde){
 		case VACIO:
@@ -135,8 +148,6 @@ bool ListaNodos::agregar(int id)
 		default:
 			return false;
 	}
-
-	lugar_agregado = p;
 	return true;
 }
 //*************************************************************************************************
