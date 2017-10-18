@@ -18,7 +18,6 @@
 //*************************************************************************************************
 class ListaArcos{
     CajaArco *principio, *lugar_agregado;
-    bool encontrado;
 
     CajaArco *anterior;
     Posicion donde;
@@ -48,7 +47,7 @@ public:
     Busca el identificador del nodo en la lista de arcos de un nodo para que esta lista sea ordenada
     \param id   : Identificador del nodo
 */
-    void buscar(int id);
+    bool buscar(int id);
 //*************************************************************************************************
 /**
     Agrega un nuevo arco a la lista, primero lo busca y despues enlaza los punteros en orden para conservar

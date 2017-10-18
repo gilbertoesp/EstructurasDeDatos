@@ -14,7 +14,6 @@
 ListaNodos::ListaNodos()
 {
     principio = lugar_agregado = NULL;
-    encontrado = false;
 
     anterior = NULL;
     donde = VACIO;
@@ -23,7 +22,6 @@ ListaNodos::ListaNodos()
 void ListaNodos::constructor()
 {
     principio = lugar_agregado = NULL;
-    encontrado = false;
 
     anterior = NULL;
     donde = VACIO;
@@ -43,7 +41,6 @@ ListaNodos::~ListaNodos()
         delete p;
     }
     principio = lugar_agregado = NULL;
-    encontrado = false;
 
     anterior = NULL;
     donde = VACIO;
@@ -63,17 +60,16 @@ void ListaNodos::destructor()
         delete p;
     }
     principio = lugar_agregado = NULL;
-    encontrado = false;
 
     anterior = NULL;
     donde = VACIO;
 }
 //*************************************************************************************************
-void ListaNodos::buscar(int id)
+bool ListaNodos::buscar(int id)
 {
     CajaNodo *p = NULL;
 
-    encontrado = false;
+    bool encontrado = false;
     donde = VACIO;
     anterior = NULL;
 
@@ -102,16 +98,15 @@ void ListaNodos::buscar(int id)
             break;
         }
     }
+    return encontrado;
 }
 //*************************************************************************************************
 bool ListaNodos::agregar(int id)
 {
 	CajaNodo   *p;
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
-	buscar(id);
-
     //Si se encontro lo definimos en lugar_agregado
-	if(encontrado){
+	if(buscar(id)){
         if(anterior)    lugar_agregado = anterior->siguiente;
         else            lugar_agregado = principio;
         return false;
@@ -155,8 +150,7 @@ bool ListaNodos::borrar(int id)
 {
     CajaNodo * p;
     //Buscamos el elemento a borrar
-	buscar(id);
-	if(!encontrado) return false;
+	if(!buscar(id)) return false;
 
 	if(!anterior){
 		p = principio;

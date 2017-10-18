@@ -16,7 +16,6 @@
 ListaArcos::ListaArcos()
 {
     principio = lugar_agregado = NULL;
-    encontrado = false;
 
     anterior = NULL;
     donde = VACIO;
@@ -25,7 +24,6 @@ ListaArcos::ListaArcos()
 void ListaArcos::constructor()
 {
     principio = lugar_agregado = NULL;
-    encontrado = false;
 
     anterior = NULL;
     donde = VACIO;
@@ -41,7 +39,6 @@ ListaArcos::~ListaArcos()
         delete p;
     }
     principio = lugar_agregado = NULL;
-    encontrado = false;
 
     anterior = NULL;
     donde = VACIO;
@@ -57,16 +54,15 @@ void ListaArcos::destructor()
         delete p;
     }
     principio = lugar_agregado = NULL;
-    encontrado = false;
     anterior = NULL;
     donde = VACIO;
 }
 //*************************************************************************************************
-void ListaArcos::buscar(int id)
+bool ListaArcos::buscar(int id)
 {
     CajaArco *p = NULL;
 
-    encontrado = false;
+    bool encontrado = false;
     donde = VACIO;
     anterior = NULL;
 
@@ -95,21 +91,21 @@ void ListaArcos::buscar(int id)
             break;
         }
     }
-
+    return encontrado;
 }
 //*************************************************************************************************
 bool ListaArcos::agregar(int id)
 {
 	CajaArco *p;
-	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
-	buscar(id);
-
-	if(encontrado) return false;
+	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspon
+	if(buscar(id)) return false;
 
 	p = new CajaArco;
 	p->id = id;
 	p->direccion_nodo = NULL;
 	p->longitud = 0.0;
+
+    lugar_agregado = p;
 
 	switch(donde){
 		case VACIO:
@@ -131,8 +127,6 @@ bool ListaArcos::agregar(int id)
 		default:
 			return false;
 	}
-
-	lugar_agregado = p;
 	return true;
 }
 //*************************************************************************************************
@@ -140,8 +134,7 @@ bool ListaArcos::borrar(int id)
 {
 	CajaArco *p = NULL;
 	//Buscamos el elemento a borrar
-	buscar(id);
-	if(!encontrado) return false;
+	if(!buscar(id)) return false;
 
 	if(!anterior){
 		p = principio;

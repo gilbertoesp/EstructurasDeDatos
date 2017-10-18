@@ -13,7 +13,6 @@
 //*************************************************************************************************
 class ListaNodos{
     CajaNodo *principio, *lugar_agregado;
-    bool encontrado;
 
     CajaNodo *anterior;
     Posicion donde;
@@ -43,7 +42,7 @@ public:
 	Busca el identificador en la lista y guarda su posicion con 'donde' y 'anterior'
 	\param id : Identificador del nodo
 */
-    void buscar(int id);
+    bool buscar(int id);
 //*************************************************************************************************
 /**
     Agrega un nuevo nodo a la grafica ademas de inicalizar sus atributos en 0 o NULL, no permite repeticiones

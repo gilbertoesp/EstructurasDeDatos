@@ -46,6 +46,11 @@ void Grafica::agregar_arco(int a, int b, float longitud /* = 0 */)
     arco->direccion_nodo = nodo_a;
 }
 //*************************************************************************************************
+void Grafica::calcular_ruta_corta(int a, int b)
+{
+
+}
+//*************************************************************************************************
 void Grafica::pintar()
 {
     grafica.pintar();

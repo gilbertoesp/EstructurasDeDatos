@@ -1,21 +1,21 @@
 # depslib dependency file v1.0
-1508272107 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Grafica.cpp
+1508320587 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Grafica.cpp
 	<iostream>
 	<cstdlib>
 	"Grafica.h"
 
-1508273779 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Grafica.h
+1508320892 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Grafica.h
 	"ListaNodos.h"
 
-1508273612 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaNodos.h
+1508320697 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaNodos.h
 	"CajaNodo.h"
 	"ListaNodos.h"
 	"Posicion.h"
 
-1507625176 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/CajaNodo.h
+1508323502 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/CajaNodo.h
 	"ListaArcos.h"
 
-1508273781 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaArcos.h
+1508320801 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaArcos.h
 	"CajaArco.h"
 	"Posicion.h"
 
@@ -23,18 +23,18 @@
 
 1507629679 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Posicion.h
 
-1507837825 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaNodos.cpp
+1508320823 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaNodos.cpp
 	<iostream>
 	<cstdlib>
 	"CajaNodo.h"
 	"ListaNodos.h"
 
-1508272114 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/main.cpp
+1508320446 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/main.cpp
 	<iostream>
 	<cstdlib>
 	"Grafica.h"
 
-1508272056 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaArcos.cpp
+1508320813 source:/home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/ListaArcos.cpp
 	<iostream>
 	<cstdlib>
 	"CajaArco.h"
@@ -43,4 +43,7 @@
 
 1507837778 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/Cajas.h
 	"ListaArcos.h"
+
+1508323463 /home/gilbertoesp/Documents/EstructurasDeDatos/Grafica/CajaRuta.h
+	"CajaNodo.h"
 
