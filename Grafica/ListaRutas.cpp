@@ -1,17 +1,15 @@
 /**
-    ListaNodos.cpp
-    Estructura que simula una grafica con nodos y sus arcos
+	...
 
 	\author Gilberto Espinoza
 */
 #include <iostream>
 #include <cstdlib>
 
-#include "CajaNodo.h"
-#include "ListaNodos.h"
-
+#include "ListaRutas.h"
+#include "CajaRuta.h"
 //*************************************************************************************************
-ListaNodos::ListaNodos()
+ListaRutas::ListaRutas()
 {
     principio = lugar_agregado = NULL;
 
@@ -19,7 +17,7 @@ ListaNodos::ListaNodos()
     donde = VACIO;
 }
 //*************************************************************************************************
-void ListaNodos::constructor()
+void ListaRutas::constructor()
 {
     principio = lugar_agregado = NULL;
 
@@ -27,17 +25,13 @@ void ListaNodos::constructor()
     donde = VACIO;
 }
 //*************************************************************************************************
-ListaNodos::~ListaNodos()
+ListaRutas::~ListaRutas()
 {
-    CajaNodo *p;
+    CajaRuta *p;
 
     while(principio){
         p = principio;
         principio = principio->siguiente;
-
-        p->entrantes.destructor();
-        p->salientes.destructor();
-
         delete p;
     }
     principio = lugar_agregado = NULL;
@@ -46,17 +40,13 @@ ListaNodos::~ListaNodos()
     donde = VACIO;
 }
 //*************************************************************************************************
-void ListaNodos::destructor()
+void ListaRutas::destructor()
 {
-    CajaNodo *p;
+    CajaRuta *p;
 
     while(principio){
         p = principio;
         principio = principio->siguiente;
-
-        p->entrantes.destructor();
-        p->salientes.destructor();
-
         delete p;
     }
     principio = lugar_agregado = NULL;
@@ -65,9 +55,9 @@ void ListaNodos::destructor()
     donde = VACIO;
 }
 //*************************************************************************************************
-bool ListaNodos::buscar(int id)
+bool ListaRutas::buscar()
 {
-    CajaNodo *p = NULL;
+    CajaRuta *p = NULL;
 
     bool encontrado = false;
     donde = VACIO;
@@ -76,13 +66,13 @@ bool ListaNodos::buscar(int id)
     p = principio;
     while(p){
         //Todavia no llegamos al valor buscado
-        if(p->id < id){
+        if(       false          ){
             anterior = p;
             p = p->siguiente;
             //Verificamos si no llegamos al final de la Lista
             if(!p)						donde = FINAL;
         //Hemos encontrado el valor buscado
-        }else if(p->id == id){
+        }else if(           false              ){
             encontrado = true;
             //Vemos en que seccion de la lista se encuentra
             if(p == principio)			donde = PRINCIPIO;
@@ -101,27 +91,19 @@ bool ListaNodos::buscar(int id)
     return encontrado;
 }
 //*************************************************************************************************
-bool ListaNodos::agregar(int id)
+bool ListaRutas::agregar()
 {
-	CajaNodo   *p;
-	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
-    //Si se encontro lo definimos en lugar_agregado
-	if(buscar(id)){
-        if(anterior)    lugar_agregado = anterior->siguiente;
-        else            lugar_agregado = principio;
-        return false;
-	}
+    CajaRuta *p;
 
-	p = new CajaNodo;
-	p->id = id;
-	p->salientes.constructor();
-	p->entrantes.constructor();
+    if(buscar(              )) return false;
 
-	p->ruta_corta = 0.0;
-    p->antecesor = NULL;
-    p->bandera = NO_EVALUADO;
+    p = new CajaRuta;
+    p->direccion_nodo = NULL;
+    p->longitud = 0.0;
 
-	lugar_agregado = p;
+    p->anterior = NULL;
+
+    lugar_agregado = p;
 
 	switch(donde){
 		case VACIO:
@@ -146,42 +128,17 @@ bool ListaNodos::agregar(int id)
 	return true;
 }
 //*************************************************************************************************
-bool ListaNodos::borrar(int id)
+bool ListaRutas::borrar()
 {
-    CajaNodo * p;
-    //Buscamos el elemento a borrar
-	if(!buscar(id)) return false;
-
-	if(!anterior){
-		p = principio;
-		principio = p->siguiente;
-	}else{
-		p = anterior->siguiente;
-		anterior->siguiente = p->siguiente;
-	}
-    //Destruimos sus conexiones
-    p->entrantes.destructor();
-    p->salientes.destructor();
-
-	delete p;
-
-	return true;
+    return false;
 }
 //*************************************************************************************************
-void ListaNodos::pintar()
+void ListaRutas::pintar()
 {
-    CajaNodo *p;
 
-    p = principio;
-    while(p){
-        std::cout << "Nodo ID: " << p->id << std::endl;
-        std::cout << "Arcos entrantes: ";
-        p->entrantes.pintar();
-        std::cout << std::endl;
-        std::cout << "Arcos salientes: ";
-        p->salientes.pintar();
-        std::cout << std::endl << "---------------" << std::endl;
-        p = p->siguiente;
-    }
 }
+//*************************************************************************************************
+
+//*************************************************************************************************
+
 //*************************************************************************************************

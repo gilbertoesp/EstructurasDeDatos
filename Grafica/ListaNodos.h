@@ -2,82 +2,70 @@
 #define LISTANODOS_H_INCLUDED
 
 /**
-	...
-
+    ListaNodos.h
+    Estructura que simula una grafica con nodos y sus arcos
 	\author Gilberto Espinoza
 */
+
 #include "CajaNodo.h"
 #include "ListaNodos.h"
 #include "Posicion.h"
 //*************************************************************************************************
 class ListaNodos{
     CajaNodo *principio, *lugar_agregado;
-    bool encontrado;
 
     CajaNodo *anterior;
     Posicion donde;
 public:
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+    Inicializa los atributos en NULL o 0
 */
     ListaNodos();
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+    Inicializa los atributos en NULL o 0
 */
     void constructor();
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+   Libera la memoria de toda la estructura y sus componentes para despues asignarlos en NULL o 0
 */
     ~ListaNodos();
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+   Libera la memoria de toda la estructura y sus componentes para despues asignarlos en NULL o 0
 */
     void destructor();
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+	Busca el identificador en la lista y guarda su posicion con 'donde' y 'anterior'
+	\param id : Identificador del nodo
 */
-    void buscar(int id);
+    bool buscar(int id);
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+    Agrega un nuevo nodo a la grafica ademas de inicalizar sus atributos en 0 o NULL, no permite repeticiones
+	\param id : Identificador del nodo
+	\return true, se agrego el nodo. false, no se agrego el nodo
 */
     bool agregar(int id);
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+    Elimina el nodo de la lista junto con sus arcos
+	\param id : Identificador del nodo
+	\return true, se borro. false: no se borro
 */
     bool borrar(int id);
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+    Pinta la lista de nodos, uno por uno junto con sus arcos.
 */
     void pintar();
 //*************************************************************************************************
 /**
-	...
-	\param
-	\return
+    Ultimo lugar agregado a la lista de nodos
+	\return Dirrecion del ultimo lugar agregado
 */
     CajaNodo * LugarAgregado() { return lugar_agregado; }
 };
