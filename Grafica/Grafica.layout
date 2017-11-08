@@ -2,7 +2,15 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="CajaNodo.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+<<<<<<< HEAD
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="ListaNodos.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+>>>>>>> 5361cc2b1484d8e08b0a2a307d78567921d686ad
+>>>>>>> eafdffa3188927c570ccdfd07fe6866d00d077c7
 		<Cursor>
 			<Cursor1 position="867" topLine="0" />
 		</Cursor>
@@ -22,6 +30,11 @@
 			<Cursor1 position="4227" topLine="68" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
+	<File name="Grafica.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+=======
 	<File name="Grafica.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1306" topLine="16" />
@@ -34,7 +47,12 @@
 	</File>
 	<File name="ListaNodos.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="3183" topLine="87" />
+=======
+			<Cursor1 position="923" topLine="0" />
+>>>>>>> 5361cc2b1484d8e08b0a2a307d78567921d686ad
+>>>>>>> eafdffa3188927c570ccdfd07fe6866d00d077c7
 		</Cursor>
 	</File>
 	<File name="ListaNodos.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -44,7 +62,14 @@
 	</File>
 	<File name="ListaRutas.cpp" open="1" top="1" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="3568" topLine="133" />
+=======
+<<<<<<< HEAD
+			<Cursor1 position="0" topLine="0" />
+=======
+			<Cursor1 position="4" topLine="0" />
+>>>>>>> eafdffa3188927c570ccdfd07fe6866d00d077c7
 		</Cursor>
 	</File>
 	<File name="ListaArcos.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -59,7 +84,12 @@
 	</File>
 	<File name="CajaRuta.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="118" topLine="0" />
+=======
+			<Cursor1 position="161" topLine="0" />
+>>>>>>> 5361cc2b1484d8e08b0a2a307d78567921d686ad
+>>>>>>> eafdffa3188927c570ccdfd07fe6866d00d077c7
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
