@@ -33,12 +33,15 @@
 		</Compiler>
 		<Unit filename="CajaArco.h" />
 		<Unit filename="CajaNodo.h" />
+		<Unit filename="CajaRuta.h" />
 		<Unit filename="Grafica.cpp" />
 		<Unit filename="Grafica.h" />
 		<Unit filename="ListaArcos.cpp" />
 		<Unit filename="ListaArcos.h" />
 		<Unit filename="ListaNodos.cpp" />
 		<Unit filename="ListaNodos.h" />
+		<Unit filename="ListaRutas.cpp" />
+		<Unit filename="ListaRutas.h" />
 		<Unit filename="Posicion.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

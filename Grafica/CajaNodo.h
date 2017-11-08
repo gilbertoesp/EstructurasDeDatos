@@ -11,7 +11,7 @@
 //#include "CajaRuta.h"
 struct CajaRuta;
 
-enum Estado{NO_EVALUADO, EVALUADO, DEFINITIVO};
+enum Estado{RUTA_NO_EVALUADA, RUTA_EVALUADA, RUTA_DEFINITIVA};
 //*************************************************************************************************
 /**
 	\param id           : Identificador del nodo
@@ -19,7 +19,7 @@ enum Estado{NO_EVALUADO, EVALUADO, DEFINITIVO};
 	\param salientes    : Lsita de arcos salientes
 	\param entrantes    : Lista de arcos entrantes
 
-	\param ruta_corta   : Longitud o peso total que toma llegar a este nodo
+	\param longitud_ruta   : Longitud o peso total que toma llegar a este nodo
 	\param antecesor    : Direccion del nodo de donde viene la ruta mas corta
 	\param bandera      : Estado en la que se encuentra el nodo en respecto al algoritmo
 
@@ -29,7 +29,7 @@ struct CajaNodo{
     CajaNodo * siguiente;
     ListaArcos salientes, entrantes;
 
-    float ruta_corta;
+    float longitud_ruta;
     CajaNodo *antecesor;
     Estado bandera;
     // ?????

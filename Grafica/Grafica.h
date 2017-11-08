@@ -11,8 +11,10 @@
 	\author Gilberto Espinoza
 */
 #include "ListaNodos.h"
+#include "ListaRutas.h"
 class Grafica{
     ListaNodos grafica;
+    ListaRutas rutas;
 public:
 //*************************************************************************************************
 /**
@@ -39,7 +41,7 @@ public:
     \param
     \param
 */
-    void calcular_ruta_corta(int a, int b);
+    bool calcular_ruta_corta(int a, int b);
 //*************************************************************************************************
 /**
     Pinta la grafica

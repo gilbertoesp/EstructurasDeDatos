@@ -7,10 +7,11 @@
 	\author Gilberto Espinoza
 */
 #include "CajaRuta.h"
+#include "CajaNodo.h"
 #include "Posicion.h"
 //*************************************************************************************************
 class ListaRutas{
-    CajaRuta *principio, *anterior, *lugar_agregado;
+    CajaRuta *principio, *anterior, *lugar_agregado, *final;
     Posicion donde;
 public:
 //*************************************************************************************************
@@ -34,17 +35,25 @@ public:
 */
     void destructor();
 //*************************************************************************************************
-
-    bool buscar();
+/**
+    Buscamos en la lista de rutas la posicion de la CajaRuta donde agregar una nueva longitud para que estas esten ordenadas
+    \param longitud : Longitud nueva de una ruta que agregar
+*/
+    bool buscar(float longitud);
 //*************************************************************************************************
 
-    bool agregar();
+    bool agregar(CajaNodo *direccion, float longitud);
 //*************************************************************************************************
 
     bool borrar();
 //*************************************************************************************************
-
-    void pintar();
+    CajaNodo * sacar();
+//*************************************************************************************************
+    void pintarAsc();
+//*************************************************************************************************
+    void pintarDes();
+//*************************************************************************************************
+    void ajustar(CajaRuta *nodo, float nueva_ruta);
 //*************************************************************************************************
     CajaRuta* LugarAgregado() { return lugar_agregado; }
 };

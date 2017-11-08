@@ -117,9 +117,9 @@ bool ListaNodos::agregar(int id)
 	p->salientes.constructor();
 	p->entrantes.constructor();
 
-	p->ruta_corta = 0.0;
+	p->longitud_ruta = 0.0;
     p->antecesor = NULL;
-    p->bandera = NO_EVALUADO;
+    p->bandera = RUTA_NO_EVALUADA;
 
 	lugar_agregado = p;
 

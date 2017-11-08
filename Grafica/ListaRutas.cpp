@@ -55,7 +55,7 @@ void ListaRutas::destructor()
     donde = VACIO;
 }
 //*************************************************************************************************
-bool ListaRutas::buscar()
+bool ListaRutas::buscar(float longitud)
 {
     CajaRuta *p = NULL;
 
@@ -66,13 +66,13 @@ bool ListaRutas::buscar()
     p = principio;
     while(p){
         //Todavia no llegamos al valor buscado
-        if(       false          ){
+        if(  p->longitud_minima < longitud   ){
             anterior = p;
             p = p->siguiente;
             //Verificamos si no llegamos al final de la Lista
             if(!p)						donde = FINAL;
         //Hemos encontrado el valor buscado
-        }else if(           false              ){
+        }else if( p->longitud_minima == longitud ){
             encontrado = true;
             //Vemos en que seccion de la lista se encuentra
             if(p == principio)			donde = PRINCIPIO;
@@ -91,39 +91,46 @@ bool ListaRutas::buscar()
     return encontrado;
 }
 //*************************************************************************************************
-bool ListaRutas::agregar()
+bool ListaRutas::agregar(CajaNodo *direccion, float longitud)
 {
     CajaRuta *p;
 
-    if(buscar(              )) return false;
+    //Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspon
+	if(buscar(longitud)) return false;
 
-    p = new CajaRuta;
-    p->direccion_nodo = NULL;
-    p->longitud = 0.0;
+	p = new CajaRuta;
+	p->longitud_minima = longitud;
+	p->direccion_nodo = direccion;
 
-    p->anterior = NULL;
-
-    lugar_agregado = p;
+	lugar_agregado = p;
 
 	switch(donde){
 		case VACIO:
 			p->siguiente = NULL;
+			p->anterior = NULL;
+			final = p;
 			principio = p;
 			break;
 		case PRINCIPIO:
 			p->siguiente = principio;
+			principio->anterior = p;
 			principio = p;
+			p->anterior = NULL;
 			break;
 		case EN_MEDIO:
+		    anterior->siguiente->anterior = p;
 			p->siguiente = anterior->siguiente;
 			anterior->siguiente = p;
+			p->anterior = anterior;
 			break;
 		case FINAL:
 			p->siguiente = NULL;
 			anterior->siguiente = p;
+			p->anterior = anterior;
+			final = p;
 			break;
 		default:
-			return false;
+			return 0;
 	}
 	return true;
 }
@@ -133,12 +140,78 @@ bool ListaRutas::borrar()
     return false;
 }
 //*************************************************************************************************
-void ListaRutas::pintar()
+CajaNodo * ListaRutas::sacar()
 {
+    CajaRuta *p;
 
+    if(!principio){
+        return NULL;
+    }
+
+    p = principio;
+
+    principio = principio->siguiente;
+    principio->anterior = NULL;
+    p->siguiente = NULL;
+
+    return p->direccion_nodo;
 }
 //*************************************************************************************************
+void ListaRutas::pintarAsc()
+{
+    CajaRuta *p;
+	p = principio;
 
+	while(p){
+		std::cout << "[" << p->direccion_nodo->id << ", " << p->longitud_minima << "], ";
+		p = p->siguiente;
+	}
+	std::cout << "\b\b ";
+}
 //*************************************************************************************************
+void ListaRutas::pintarDes()
+{
+    CajaRuta *p;
+	p = final;
 
+	while(p){
+		std::cout << "[" << p->direccion_nodo->id << ", " << p->longitud_minima << "], ";
+		p = p->anterior;
+	}
+	std::cout << "\b\b ";
+}
+//*************************************************************************************************
+void ListaRutas::ajustar(CajaRuta *nodo, float nueva_ruta)
+{
+    nodo->longitud_minima = nueva_ruta;
+
+    if(nodo == principio || nodo->anterior->longitud_minima > nodo->longitud_minima){
+        return;
+    }
+
+    CajaRuta *p;
+
+    p = nodo->anterior;
+
+    p->siguiente = nodo->siguiente;
+
+    if(nodo->siguiente) nodo->siguiente->anterior = p;
+    else final = p;
+
+    while(p && p->longitud_minima > nodo->longitud_minima){
+        p = p->anterior;
+    }
+
+    if(!p){
+        nodo->anterior = NULL;
+        nodo->siguiente = principio;
+        principio->anterior = nodo;
+        principio = nodo;
+    }else{
+        nodo->siguiente = p->siguiente;
+        nodo->anterior = p;
+        nodo->siguiente->anterior = nodo;
+        p->siguiente = nodo;
+    }
+}
 //*************************************************************************************************
