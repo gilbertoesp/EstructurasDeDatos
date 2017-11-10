@@ -11,6 +11,7 @@
 #include "CajaArco.h"
 #include "CajaNodo.h"
 #include "ListaArcos.h"
+#include "ListaRutas.h"
 
 //*************************************************************************************************
 ListaArcos::ListaArcos()
@@ -35,7 +36,7 @@ ListaArcos::~ListaArcos()
 
     while(principio){
         p = principio;
-        principio = p->siguiente;
+        principio = principio->siguiente;
         delete p;
     }
     principio = lugar_agregado = NULL;
@@ -50,7 +51,7 @@ void ListaArcos::destructor()
 
     while(principio){
         p = principio;
-        principio = p->siguiente;
+        principio = principio->siguiente;
         delete p;
     }
     principio = lugar_agregado = NULL;
@@ -94,7 +95,7 @@ bool ListaArcos::buscar(int id)
     return encontrado;
 }
 //*************************************************************************************************
-bool ListaArcos::agregar(int id)
+bool ListaArcos::agregar(int id, bool inversor)
 {
 	CajaArco *p;
 	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspon
@@ -103,7 +104,7 @@ bool ListaArcos::agregar(int id)
 	p = new CajaArco;
 	p->id = id;
 	p->direccion_nodo = NULL;
-	p->longitud = 0.0;
+	p->inversor = inversor;
 
     lugar_agregado = p;
 
@@ -156,13 +157,90 @@ void ListaArcos::pintar()
 	p = principio;
 
 	while(p){
-		std::cout << "[" << p->id << ", " << p->longitud << "], ";
+//		std::cout << "[" << p->id << ", " << p->longitud << "], ";
+        std::cout << p->id << ", ";
 		p = p->siguiente;
 	}
 	std::cout << "\b\b ";
 }
 //*************************************************************************************************
-CajaArco * ListaArcos::Principio()
+bool ListaArcos::redundancia()
 {
-    return principio;
+    bool redundante, continua;
+    CajaArco *arco;
+    CajaNodo *pregunta;
+    ListaRutas consecuencias;
+
+    arco = principio;
+    redundante = true;
+    continua = true;
+
+    /*
+     * Dentro del ciclo se determina si la pregunta NO es redundante.
+     * Si no hay exito, el valor de redundante no sera cambiado y se
+     * devolvera true.
+     */
+    while(arco && continua) {
+        //Simplemente revisa si el nodo interior lleva a un nodo que
+        //todavia no obtiene un valor de verdad definitivo.
+        if (arco->direccion_nodo->valorVerdad == SIN_RESPUESTA) {
+            redundante = false;
+            /**
+             * Ahora revisa si es conclusion o clausula intermedia a donde
+             * lleva el arco actual. Si es conclusion corta el proceso debido
+             * a que la pregunta definitivamente no es redundante. Si por otra
+             * parte es una clausula intermedia, la agrega a un stack de
+             * pendientes para ver si estas a su vez son redundantes.
+             */
+            if (arco->direccion_nodo->bandera == CONCLUSION)
+                continua = false;
+            else
+                consecuencias.push(arco->direccion_nodo);
+        }
+        arco = arco->siguiente;
+    }
+
+    /*
+     * Ahora se checan las clausulas intermedias a donde se llegan con esta
+     * pregunta.
+     * Esto se hace para saber si la pregunta tendra impacto en alguno de los
+     * nodos a donde se propaga su valor de verdad.
+     */
+    pregunta = consecuencias.pop();
+    while (pregunta && continua) {
+        arco = pregunta->salientes.Principio();
+        redundante = true;
+
+        /*
+         * Dentro del ciclo se determina si la pregunta NO es redundante.
+         * Si no hay exito, el valor de redundante no sera cambiado y se
+         * devolvera true.
+         */
+        while(arco && continua) {
+
+            //Simplemente revisa si el nodo interior lleva a un nodo que
+            //todavia no obtiene un valor de verdad definitivo.
+            if (arco->direccion_nodo->valorVerdad == SIN_RESPUESTA) {
+                redundante = false;
+                /**
+                 * Ahora revisa si es conclusion o clausula intermedia a donde
+                 * lleva el arco actual. Si es conclusion corta el proceso debido
+                 * a que la pregunta definitivamente no es redundante. Si por otra
+                 * parte es una clausula intermedia, la agrega a un stack de
+                 * pendientes para ver si estas a su vez son redundantes.
+                 */
+                if (arco->direccion_nodo->bandera == CONCLUSION)
+                    continua = false;
+                else
+                    consecuencias.push(arco->direccion_nodo);
+            }
+            arco = arco->siguiente;
+        }
+        pregunta = consecuencias.pop();
+    }
+
+    return redundante;
+
 }
+//*************************************************************************************************
+

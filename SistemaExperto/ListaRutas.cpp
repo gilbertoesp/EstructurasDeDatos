@@ -163,7 +163,7 @@ void ListaRutas::pintarAsc()
 	p = principio;
 
 	while(p){
-		std::cout << "[" << p->direccion_nodo->id << ", (" << p->direccion_nodo->antecesor << ", " << p->longitud_minima << ")], ";
+		std::cout << "[" << p->direccion_nodo->id << ", " << p->longitud_minima << "], ";
 		p = p->siguiente;
 	}
 	std::cout << "\b\b ";
@@ -213,5 +213,35 @@ void ListaRutas::ajustar(CajaRuta *nodo, float nueva_ruta)
         nodo->siguiente->anterior = nodo;
         p->siguiente = nodo;
     }
+}
+//*************************************************************************************************
+CajaNodo * ListaRutas::pop()
+{
+    CajaRuta *p;
+    CajaNodo *nodo;
+
+    p = principio;
+
+    if (!principio) return NULL;
+
+    nodo = p->direccion_nodo;
+
+    principio = p->siguiente; //Recorre la pila una posicion hacia abajo.
+    delete p;
+
+    return nodo;
+}
+//*************************************************************************************************
+void ListaRutas::push(CajaNodo *a)
+{
+    CajaRuta *nuevo;
+
+    nuevo = new CajaRuta;
+
+    nuevo->direccion_nodo = a;
+
+    //Mueve el principio hacia arriba una unidad.
+    nuevo->siguiente = principio;
+    principio = nuevo;
 }
 //*************************************************************************************************

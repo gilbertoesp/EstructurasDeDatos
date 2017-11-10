@@ -1,19 +1,17 @@
 /**
-    Listas de adyacencia para algun nodo en Grafica, ya sea entrante o saliente
-    Esta estructura ordena de menor a mayor los identificadores (int) de los nodos que estan conectados
-    a otro nodo
+    ListaNodos.cpp
+    Estructura que simula una grafica con nodos y sus arcos
 
 	\author Gilberto Espinoza
 */
 #include <iostream>
 #include <cstdlib>
 
-#include "CajaArco.h"
 #include "CajaNodo.h"
-#include "ListaArcos.h"
+#include "ListaNodos.h"
 
 //*************************************************************************************************
-ListaArcos::ListaArcos()
+ListaNodos::ListaNodos()
 {
     principio = lugar_agregado = NULL;
 
@@ -21,7 +19,7 @@ ListaArcos::ListaArcos()
     donde = VACIO;
 }
 //*************************************************************************************************
-void ListaArcos::constructor()
+void ListaNodos::constructor()
 {
     principio = lugar_agregado = NULL;
 
@@ -29,13 +27,17 @@ void ListaArcos::constructor()
     donde = VACIO;
 }
 //*************************************************************************************************
-ListaArcos::~ListaArcos()
+ListaNodos::~ListaNodos()
 {
-    CajaArco *p;
+    CajaNodo *p;
 
     while(principio){
         p = principio;
-        principio = p->siguiente;
+        principio = principio->siguiente;
+
+        p->entrantes.destructor();
+        p->salientes.destructor();
+
         delete p;
     }
     principio = lugar_agregado = NULL;
@@ -44,23 +46,28 @@ ListaArcos::~ListaArcos()
     donde = VACIO;
 }
 //*************************************************************************************************
-void ListaArcos::destructor()
+void ListaNodos::destructor()
 {
-    CajaArco *p;
+    CajaNodo *p;
 
     while(principio){
         p = principio;
-        principio = p->siguiente;
+        principio = principio->siguiente;
+
+        p->entrantes.destructor();
+        p->salientes.destructor();
+
         delete p;
     }
     principio = lugar_agregado = NULL;
+
     anterior = NULL;
     donde = VACIO;
 }
 //*************************************************************************************************
-bool ListaArcos::buscar(int id)
+bool ListaNodos::buscar(int id)
 {
-    CajaArco *p = NULL;
+    CajaNodo *p = NULL;
 
     bool encontrado = false;
     donde = VACIO;
@@ -91,21 +98,37 @@ bool ListaArcos::buscar(int id)
             break;
         }
     }
+
+    if(anterior)    lugar_agregado = anterior->siguiente;
+    else            lugar_agregado = principio;
+
     return encontrado;
 }
 //*************************************************************************************************
-bool ListaArcos::agregar(int id)
+bool ListaNodos::agregar(int id, Bandera bandera, int totales, Conectivo conectivo, std::string texto)
 {
-	CajaArco *p;
-	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspon
-	if(buscar(id)) return false;
+	CajaNodo   *p;
+	//Mandamos buscar el valor que queremos agregar para ponerlo en el lugar que correspone
+    //Si se encontro lo definimos en lugar_agregado
+	if(buscar(id)){
+        if(anterior)    lugar_agregado = anterior->siguiente;
+        else            lugar_agregado = principio;
+        return false;
+	}
 
-	p = new CajaArco;
+	p = new CajaNodo;
 	p->id = id;
-	p->direccion_nodo = NULL;
-	p->longitud = 0.0;
+	p->salientes.constructor();
+	p->entrantes.constructor();
 
-    lugar_agregado = p;
+    p->bandera = bandera;
+    p->totales = totales;
+    p->cuantos = 0;
+    p->conectivo = conectivo;
+    p->valorVerdad = SIN_RESPUESTA;
+    p->texto = texto;
+
+	lugar_agregado = p;
 
 	switch(donde){
 		case VACIO:
@@ -130,10 +153,10 @@ bool ListaArcos::agregar(int id)
 	return true;
 }
 //*************************************************************************************************
-bool ListaArcos::borrar(int id)
+bool ListaNodos::borrar(int id)
 {
-	CajaArco *p = NULL;
-	//Buscamos el elemento a borrar
+    CajaNodo * p;
+    //Buscamos el elemento a borrar
 	if(!buscar(id)) return false;
 
 	if(!anterior){
@@ -143,26 +166,29 @@ bool ListaArcos::borrar(int id)
 		p = anterior->siguiente;
 		anterior->siguiente = p->siguiente;
 	}
+    //Destruimos sus conexiones
+    p->entrantes.destructor();
+    p->salientes.destructor();
 
 	delete p;
 
 	return true;
 }
 //*************************************************************************************************
-void ListaArcos::pintar()
+void ListaNodos::pintar()
 {
-	CajaArco *p;
+    CajaNodo *p;
 
-	p = principio;
-
-	while(p){
-		std::cout << "[" << p->id << ", " << p->longitud << "], ";
-		p = p->siguiente;
-	}
-	std::cout << "\b\b ";
+    p = principio;
+    while(p){
+        std::cout << "Nodo ID: " << p->id << std::endl;
+        std::cout << "Arcos entrantes: ";
+        p->entrantes.pintar();
+        std::cout << std::endl;
+        std::cout << "Arcos salientes: ";
+        p->salientes.pintar();
+        std::cout << std::endl << "---------------" << std::endl;
+        p = p->siguiente;
+    }
 }
 //*************************************************************************************************
-CajaArco * ListaArcos::Principio()
-{
-    return principio;
-}

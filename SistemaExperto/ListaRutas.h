@@ -1,32 +1,24 @@
-#ifndef LISTAARCOS_H_INCLUDED
-#define LISTAARCOS_H_INCLUDED
+#ifndef LISTARUTAS_H_INCLUDED
+#define LISTARUTAS_H_INCLUDED
 
 /**
-	ListaArcos.h
-
-	Listas de adyacencia para algun nodo en Grafica, ya sea entrante o saliente
-    Esta estructura ordena de menor a mayor los identificadores (int) de los nodos que estan conectados
-    a otro nodo
+	...
 
 	\author Gilberto Espinoza
 */
-
-
-#include "CajaArco.h"
-
+#include "CajaRuta.h"
+#include "CajaNodo.h"
 #include "Posicion.h"
 //*************************************************************************************************
-class ListaArcos{
-    CajaArco *principio, *lugar_agregado;
-
-    CajaArco *anterior;
+class ListaRutas{
+    CajaRuta *principio, *anterior, *lugar_agregado, *final;
     Posicion donde;
 public:
 //*************************************************************************************************
 /**
     Inicializa los atributos en NULL o 0
 */
-    ListaArcos();
+    ListaRutas();
 //*************************************************************************************************
 /**
     Inicializa los atributos en NULL o 0
@@ -36,7 +28,7 @@ public:
 /**
    Libera la memoria de toda la estructura y sus componentes para despues asignarlos en NULL o 0
 */
-    ~ListaArcos();
+    ~ListaRutas();
 //*************************************************************************************************
 /**
    Libera la memoria de toda la estructura y sus componentes para despues asignarlos en NULL o 0
@@ -44,46 +36,37 @@ public:
     void destructor();
 //*************************************************************************************************
 /**
-    Busca el identificador del nodo en la lista de arcos de un nodo para que esta lista sea ordenada
-    \param id   : Identificador del nodo
+    Buscamos en la lista de rutas la posicion de la CajaRuta donde agregar una nueva longitud para que estas esten ordenadas
+    \param longitud : Longitud nueva de una ruta que agregar
 */
-    bool buscar(int id);
+    bool buscar(float longitud);
 //*************************************************************************************************
-/**
-    Agrega un nuevo arco a la lista, primero lo busca y despues enlaza los punteros en orden para conservar
-    la estrucutra
-	\param  id   : Identificador del nodo
-	\return true: Se agrego el arco. false: no se agrego el arco
-*/
-    bool agregar(int id);
-//*************************************************************************************************
-/**
-    Elimina un arco de forma segura ademas de modificar las referencias (siguiente) para que la lista siga
-    con su funcionamiento
-	\param id   : Identificador del nodo
-	\return true: Se borro el arco. false: no se borro el arco
-*/
-    bool borrar(int id);
-//*************************************************************************************************
-/**
-	Pinta la lista de arco junto con sus respectivos datos, id, longitud, etc
-*/
-    void pintar();
-//*************************************************************************************************
-/**
-    Ultimo arco agregado a la lista, su dirreccion en memoria
-	\return arco recien agregado
-*/
-    CajaArco * LugarAgregado() { return lugar_agregado; }
-//*************************************************************************************************
-/**
 
-*/
-    CajaArco * Principio();
+    bool agregar(CajaNodo *direccion, float longitud);
+//*************************************************************************************************
+
+    bool borrar();
+//*************************************************************************************************
+    CajaNodo * sacar();
+//*************************************************************************************************
+    void pintarAsc();
+//*************************************************************************************************
+    void pintarDes();
+//*************************************************************************************************
+    void ajustar(CajaRuta *nodo, float nueva_ruta);
+//*************************************************************************************************
+    CajaRuta* LugarAgregado() { return lugar_agregado; }
+
+//*************************************************************************************************
+    CajaNodo * pop();
+//*************************************************************************************************
+    void push(CajaNodo *a);
+//*************************************************************************************************
+
 //*************************************************************************************************
 };
 
 //*************************************************************************************************
 
 
-#endif // LISTAARCOS_H_INCLUDED
+#endif // LISTARUTAS_H_INCLUDED

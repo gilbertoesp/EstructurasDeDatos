@@ -55,7 +55,7 @@ public:
 	\param  id   : Identificador del nodo
 	\return true: Se agrego el arco. false: no se agrego el arco
 */
-    bool agregar(int id);
+    bool agregar(int id, bool inversor);
 //*************************************************************************************************
 /**
     Elimina un arco de forma segura ademas de modificar las referencias (siguiente) para que la lista siga
@@ -79,7 +79,11 @@ public:
 /**
 
 */
-    CajaArco * Principio();
+    CajaArco * Principio() { return principio; }
+//*************************************************************************************************
+    bool redundancia();
+//*************************************************************************************************
+
 //*************************************************************************************************
 };
 

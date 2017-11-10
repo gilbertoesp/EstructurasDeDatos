@@ -23,8 +23,10 @@ int main()
     grafica.agregar_arco(4,6,5);
     grafica.agregar_arco(5,6,4);
 
-
     grafica.pintar();
+
+    grafica.calcular_ruta_corta(1,6);
+    grafica.pintar_rutas();
 
     system("pause");
     return 0;

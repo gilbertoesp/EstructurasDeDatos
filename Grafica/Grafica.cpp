@@ -53,16 +53,15 @@ bool Grafica::calcular_ruta_corta(int a, int b)
     CajaArco *arco; //q
 
     //Madamos buscar la dirrecion del nodo a
-    grafica.buscar(a);
+    if(!grafica.buscar(a)) return existe_ruta_corta = false;
     nodo = grafica.LugarAgregado();
-
     //Mientras haya nodo que procesar sigue haciendolo
     while(nodo){
         //Este nodo ya esta siendo procesado directamente, su ruta corta ha sido calculada
         nodo->bandera = RUTA_DEFINITIVA;
         //Si nodo es que el definido objetivo, GENIAL!
         if(nodo->id == b){
-            existe_ruta_corta = true;
+            existe_ruta_corta = true;  ///ENCONTRADA
             //Limpiamos la lista de nodos para agregar los salientes de nodo y precesar sus caminos desde este nodo
             rutas.destructor();
 
@@ -72,10 +71,11 @@ bool Grafica::calcular_ruta_corta(int a, int b)
                 //Nos desplazamos al anterior en el camino definido por el camino ya trasado
                 nodo = nodo->antecesor;
             }
+            return existe_ruta_corta; ///RUTA ENCONTRADA
         }//No se ha llegado al nodo b
 
         //Tomamos el primer arco del nodo en procesamiento
-        arco = nodo->salientes.Principio();
+        arco = (nodo->salientes).Principio();
         while(arco){
             if(arco->direccion_nodo->bandera == RUTA_NO_EVALUADA){
                 arco->direccion_nodo->bandera = RUTA_EVALUADA;
@@ -105,5 +105,10 @@ bool Grafica::calcular_ruta_corta(int a, int b)
 void Grafica::pintar()
 {
     grafica.pintar();
+}
+//*************************************************************************************************
+void Grafica::pintar_rutas()
+{
+    rutas.pintarAsc();
 }
 //*************************************************************************************************

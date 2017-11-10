@@ -12,9 +12,18 @@
 */
 #include "ListaNodos.h"
 #include "ListaRutas.h"
+#include "CajaNodo.h"
+
+#include <string>
+using std::string;
+
+#define CANT_PREGUNTAS 20
+#define CANT_CONCLUSIONES 7
+#define CANT_INTERMEDIOS 9
 class Grafica{
     ListaNodos grafica;
-    ListaRutas rutas;
+    ListaRutas pendientes;
+    CajaNodo* conclusion;
 public:
 //*************************************************************************************************
 /**
@@ -32,9 +41,11 @@ public:
 
 	\param a        : Identificador del nodo donde parte el arco
 	\param b        : Identificador del nodo donde el arco llega
-	\param longitud : Longitud o peso del arco
 */
-    void agregar_arco(int a, int b, float longitud = 0);
+    void agregar_arco(int a, int b, bool inversor);
+//*************************************************************************************************
+
+    void agregar_nodo(int id, Bandera bandera, int totales, Conectivo conectivo, string texto);
 //*************************************************************************************************
 /**
 
@@ -52,6 +63,21 @@ public:
     Pinta la lista de rutas hasta cada nodo con su longitud minima
 */
     void pintar_rutas();
+//*************************************************************************************************
+/**
+*/
+    void cargar();
+//*************************************************************************************************
+    void ejecutar();
+//*************************************************************************************************
+    CajaNodo * buscarPregunta();
+//*************************************************************************************************
+    bool procesarConsecuencias(CajaNodo *pregunta_actual);
+//*************************************************************************************************
+    CajaNodo * cambiarValorVerdad(CajaArco *consecuencia, int respuesta);
+
+//*************************************************************************************************
+    void cancelarProposicionesRedundantes(Conectivo conector, int valorVerdad);
 //*************************************************************************************************
 };
 #endif // GRAFICA_H_INCLUDED

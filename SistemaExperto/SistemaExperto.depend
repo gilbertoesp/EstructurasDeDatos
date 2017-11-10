@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1510319523 source:/home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/ListaArcos.cpp
+	<iostream>
+	<cstdlib>
+	"CajaArco.h"
+	"CajaNodo.h"
+	"ListaArcos.h"
+	"ListaRutas.h"
+
+1510313645 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/CajaArco.h
+
+1510319782 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/CajaNodo.h
+	"ListaArcos.h"
+	<string>
+
+1510317670 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/ListaArcos.h
+	"CajaArco.h"
+	"Posicion.h"
+
+1507629679 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/Posicion.h
+
+1510313997 source:/home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/ListaNodos.cpp
+	<iostream>
+	<cstdlib>
+	"CajaNodo.h"
+	"ListaNodos.h"
+
+1510317054 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/ListaNodos.h
+	"CajaNodo.h"
+	"ListaNodos.h"
+	"Posicion.h"
+	<string>
+
+1510319532 source:/home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/ListaRutas.cpp
+	<iostream>
+	<cstdlib>
+	"ListaRutas.h"
+	"CajaRuta.h"
+
+1510318338 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/ListaRutas.h
+	"CajaRuta.h"
+	"CajaNodo.h"
+	"Posicion.h"
+
+1509353729 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/CajaRuta.h
+	"CajaNodo.h"
+
+1510319759 source:/home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/Grafica.cpp
+	<iostream>
+	<cstdlib>
+	"Grafica.h"
+
+1510319488 /home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/Grafica.h
+	"ListaNodos.h"
+	"ListaRutas.h"
+	"CajaNodo.h"
+	<string>
+
+1510315044 source:/home/gilbertoesp/Documents/EstructurasDeDatos/SistemaExperto/main.cpp
+	<iostream>
+	<cstdlib>
+	"Grafica.h"
+

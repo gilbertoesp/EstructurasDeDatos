@@ -1,32 +1,29 @@
-#ifndef LISTAARCOS_H_INCLUDED
-#define LISTAARCOS_H_INCLUDED
+#ifndef LISTANODOS_H_INCLUDED
+#define LISTANODOS_H_INCLUDED
 
 /**
-	ListaArcos.h
-
-	Listas de adyacencia para algun nodo en Grafica, ya sea entrante o saliente
-    Esta estructura ordena de menor a mayor los identificadores (int) de los nodos que estan conectados
-    a otro nodo
-
+    ListaNodos.h
+    Estructura que simula una grafica con nodos y sus arcos
 	\author Gilberto Espinoza
 */
 
-
-#include "CajaArco.h"
-
+#include "CajaNodo.h"
+#include "ListaNodos.h"
 #include "Posicion.h"
-//*************************************************************************************************
-class ListaArcos{
-    CajaArco *principio, *lugar_agregado;
 
-    CajaArco *anterior;
+#include <string>
+//*************************************************************************************************
+class ListaNodos{
+    CajaNodo *principio, *lugar_agregado;
+
+    CajaNodo *anterior;
     Posicion donde;
 public:
 //*************************************************************************************************
 /**
     Inicializa los atributos en NULL o 0
 */
-    ListaArcos();
+    ListaNodos();
 //*************************************************************************************************
 /**
     Inicializa los atributos en NULL o 0
@@ -36,7 +33,7 @@ public:
 /**
    Libera la memoria de toda la estructura y sus componentes para despues asignarlos en NULL o 0
 */
-    ~ListaArcos();
+    ~ListaNodos();
 //*************************************************************************************************
 /**
    Libera la memoria de toda la estructura y sus componentes para despues asignarlos en NULL o 0
@@ -44,46 +41,40 @@ public:
     void destructor();
 //*************************************************************************************************
 /**
-    Busca el identificador del nodo en la lista de arcos de un nodo para que esta lista sea ordenada
-    \param id   : Identificador del nodo
+	Busca el identificador en la lista y guarda su posicion con 'donde' y 'anterior'
+	\param id : Identificador del nodo
 */
     bool buscar(int id);
 //*************************************************************************************************
 /**
-    Agrega un nuevo arco a la lista, primero lo busca y despues enlaza los punteros en orden para conservar
-    la estrucutra
-	\param  id   : Identificador del nodo
-	\return true: Se agrego el arco. false: no se agrego el arco
+    Agrega un nuevo nodo a la grafica ademas de inicalizar sus atributos en 0 o NULL, no permite repeticiones
+	\param id : Identificador del nodo
+	\return true, se agrego el nodo. false, no se agrego el nodo
 */
-    bool agregar(int id);
+    bool agregar(int id, Bandera bandera, int totales, Conectivo conectivo, std::string texto);
 //*************************************************************************************************
 /**
-    Elimina un arco de forma segura ademas de modificar las referencias (siguiente) para que la lista siga
-    con su funcionamiento
-	\param id   : Identificador del nodo
-	\return true: Se borro el arco. false: no se borro el arco
+    Elimina el nodo de la lista junto con sus arcos
+	\param id : Identificador del nodo
+	\return true, se borro. false: no se borro
 */
     bool borrar(int id);
 //*************************************************************************************************
 /**
-	Pinta la lista de arco junto con sus respectivos datos, id, longitud, etc
+    Pinta la lista de nodos, uno por uno junto con sus arcos.
 */
     void pintar();
 //*************************************************************************************************
 /**
-    Ultimo arco agregado a la lista, su dirreccion en memoria
-	\return arco recien agregado
+    Ultimo lugar agregado a la lista de nodos
+	\return Dirrecion del ultimo lugar agregado
 */
-    CajaArco * LugarAgregado() { return lugar_agregado; }
+    CajaNodo * LugarAgregado() { return lugar_agregado; }
 //*************************************************************************************************
-/**
-
-*/
-    CajaArco * Principio();
+    CajaNodo * Principio() { return principio; }
 //*************************************************************************************************
 };
-
 //*************************************************************************************************
 
 
-#endif // LISTAARCOS_H_INCLUDED
+#endif // LISTANODOS_H_INCLUDED
